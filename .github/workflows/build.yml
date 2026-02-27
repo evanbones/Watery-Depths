@@ -36,7 +36,7 @@ jobs:
         if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: ExampleMod-${{ github.ref_name }}
+          name: ${{ github.event.repository.name }}-${{ github.ref_name }}
           path: |
             **/build/libs/*.jar
             !**/build/libs/*-sources.jar

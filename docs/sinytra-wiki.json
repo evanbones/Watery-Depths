@@ -1,7 +1,7 @@
 {
-  "id": "mod-template",
+  "id": "watery-depths",
   "platforms": {
-    "curseforge": "mod-template",
-    "modrinth": "mod-template"
+    "curseforge": "watery-depths",
+    "modrinth": "watery-depths"
   }
 }
