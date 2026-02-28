@@ -1,21 +1,21 @@
 package com.evandev.watery_depths.mixin.accessor;
 
 import net.minecraft.world.level.levelgen.RandomState;
-import net.minecraft.world.level.levelgen.SurfaceRules;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
-@Mixin(SurfaceRules.Context.class)
+@Mixin(targets = "net.minecraft.world.level.levelgen.SurfaceRules$Context")
 public interface SurfaceRulesContextAccessor {
+
     @Accessor("randomState")
-    RandomState infernalexp$getRandomState();
+    RandomState watery_depths$getRandomState();
 
     @Accessor("blockX")
-    int infernalexp$getBlockX();
+    int watery_depths$getBlockX();
 
     @Accessor("blockY")
-    int infernalexp$getBlockY();
+    int watery_depths$getBlockY();
 
     @Accessor("blockZ")
-    int infernalexp$getBlockZ();
+    int watery_depths$getBlockZ();
 }
