@@ -25,12 +25,12 @@ public class WateryDepths {
         CommonClass.init();
 
         ModBlocks.registerBlocks(
-                (id, block) -> BLOCKS.register(id.getPath(), () -> block),
-                (id, item) -> ITEMS.register(id.getPath(), () -> item)
+                (id, blockSupplier) -> BLOCKS.register(id.getPath(), blockSupplier),
+                (id, itemSupplier) -> ITEMS.register(id.getPath(), itemSupplier)
         );
 
         ModItems.registerItems(
-                (id, item) -> ITEMS.register(id.getPath(), () -> item)
+                (id, itemSupplier) -> ITEMS.register(id.getPath(), itemSupplier)
         );
 
         BLOCKS.register(modEventBus);

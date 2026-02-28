@@ -15,14 +15,19 @@ public class WateryDepths implements ModInitializer {
     @Override
     public void onInitialize() {
         CommonClass.init();
-        registerBlocks();
-        registerItems();
+
+        ModBlocks.registerBlocks(
+                (id, blockSupplier) -> Registry.register(BuiltInRegistries.BLOCK, id, blockSupplier.get()),
+                (id, itemSupplier) -> Registry.register(BuiltInRegistries.ITEM, id, itemSupplier.get())
+        );
+
+
+        ModItems.registerItems(
+                (id, itemSupplier) -> Registry.register(BuiltInRegistries.ITEM, id, itemSupplier.get())
+        );
+
         CommonClass.commonSetup();
 
-        registerWorldGeneration();
-    }
-
-    public void registerWorldGeneration() {
         BiomeModifications.addFeature(
                 BiomeSelectors.tag(BiomeTags.IS_OCEAN).or(BiomeSelectors.tag(BiomeTags.IS_RIVER)),
                 GenerationStep.Decoration.UNDERGROUND_ORES,
@@ -30,16 +35,4 @@ public class WateryDepths implements ModInitializer {
         );
     }
 
-    public void registerBlocks() {
-        ModBlocks.registerBlocks(
-                (id, block) -> Registry.register(BuiltInRegistries.BLOCK, id, block),
-                (id, item) -> Registry.register(BuiltInRegistries.ITEM, id, item)
-        );
-    }
-
-    public void registerItems() {
-        ModItems.registerItems(
-                (id, item) -> Registry.register(BuiltInRegistries.ITEM, id, item)
-        );
-    }
 }

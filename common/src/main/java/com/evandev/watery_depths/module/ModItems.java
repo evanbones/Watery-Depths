@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.BiConsumer;
+import java.util.function.Supplier;
 
 public class ModItems {
     public static final ModelTemplate SPAWN_EGG = new ModelTemplate(Optional.of(new ResourceLocation("minecraft", "item/template_spawn_egg")), Optional.empty());
@@ -36,12 +37,9 @@ public class ModItems {
         return itemDataHolder;
     }
 
-    public static void registerItems(BiConsumer<ResourceLocation, Item> itemRegister) {
+    public static void registerItems(BiConsumer<ResourceLocation, Supplier<Item>> itemRegister) {
         for (Map.Entry<ResourceLocation, ItemDataHolder<?>> entry : ITEM_REGISTRY.entrySet()) {
-            ResourceLocation id = entry.getKey();
-            ItemDataHolder<?> holder = entry.getValue();
-
-            itemRegister.accept(id, holder.get());
+            itemRegister.accept(entry.getKey(), entry.getValue()::get);
         }
     }
 

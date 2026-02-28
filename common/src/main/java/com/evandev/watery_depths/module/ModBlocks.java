@@ -18,6 +18,7 @@ import net.minecraft.world.level.material.MapColor;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.BiConsumer;
+import java.util.function.Supplier;
 
 public class ModBlocks {
     private static final Map<ResourceLocation, BlockDataHolder<?>> BLOCK_REGISTRY = new LinkedHashMap<>();
@@ -74,33 +75,38 @@ public class ModBlocks {
     public static void load() {
     }
 
-    public static void registerBlocks(BiConsumer<ResourceLocation, Block> blockRegister, BiConsumer<ResourceLocation, Item> itemRegister) {
+    public static void registerBlocks(BiConsumer<ResourceLocation, Supplier<Block>> blockRegister, BiConsumer<ResourceLocation, Supplier<Item>> itemRegister) {
         for (Map.Entry<ResourceLocation, BlockDataHolder<?>> entry : BLOCK_REGISTRY.entrySet()) {
             ResourceLocation id = entry.getKey();
             BlockDataHolder<?> holder = entry.getValue();
 
-            blockRegister.accept(id, holder.get());
+            blockRegister.accept(id, holder::get);
 
             if (holder.hasItem()) {
-                itemRegister.accept(id, holder.getBlockItem().get());
-                if (holder.isFuel()) {
-                    FuelRegistry.register(holder.getBlockItem().get(), holder.getFuelDuration());
-                }
+                itemRegister.accept(id, () -> holder.getBlockItem().get());
             }
 
             if (holder.isGlass()) {
                 ResourceLocation paneId = new ResourceLocation(id.getNamespace(), id.getPath() + "_pane");
-                blockRegister.accept(paneId, holder.getPaneBlock().get());
-                itemRegister.accept(paneId, holder.getPaneBlock().getBlockItem().get());
+                blockRegister.accept(paneId, () -> holder.getPaneBlock().get());
+                itemRegister.accept(paneId, () -> holder.getPaneBlock().getBlockItem().get());
             }
 
             for (Map.Entry<BlockDataHolder.Model, BlockDataHolder<?>> setEntry : holder.getBlocksets().entrySet()) {
                 ResourceLocation setId = new ResourceLocation(id.getNamespace(), id.getPath() + "_" + setEntry.getKey().suffix());
-                blockRegister.accept(setId, setEntry.getValue().get());
+                blockRegister.accept(setId, () -> setEntry.getValue().get());
 
                 if (holder.hasItem()) {
-                    itemRegister.accept(setId, setEntry.getValue().getBlockItem().get());
+                    itemRegister.accept(setId, () -> setEntry.getValue().getBlockItem().get());
                 }
+            }
+        }
+    }
+
+    public static void registerBlockInteractions() {
+        for (BlockDataHolder<?> holder : BLOCK_REGISTRY.values()) {
+            if (holder.hasItem() && holder.isFuel()) {
+                FuelRegistry.register(holder.getBlockItem().get(), holder.getFuelDuration());
             }
 
             for (Map.Entry<Block, FlammabilityRegistry.Entry> flammability : holder.getFlammabilities().entrySet()) {
