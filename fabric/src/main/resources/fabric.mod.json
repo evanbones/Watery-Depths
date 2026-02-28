@@ -25,7 +25,7 @@
       "com.evandev.watery_depths.compat.ModMenuIntegration"
     ],
     "fabric-datagen": [
-      "com.evandev.watery_depths.datagen.TemplateDataGenerator"
+      "com.evandev.watery_depths.datagen.ModDataGenerator"
     ]
   },
   "mixins": [

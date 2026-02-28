@@ -4,7 +4,6 @@
   "package": "com.evandev.watery_depths.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "gametest.StructureUtilsMixin"
   ],
   "client": [
   ],
@@ -13,5 +12,5 @@
   "injectors": {
     "defaultRequire": 1
   }
-  }
+}
   
