@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:disk",
+  "config": {
+    "half_height": 2,
+    "radius": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 5,
+        "min_inclusive": 2
+      }
+    },
+    "state_provider": {
+      "fallback": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "watery_depths:silt"
+        }
+      },
+      "rules": []
+    },
+    "target": {
+      "type": "minecraft:matching_blocks",
+      "blocks": [
+        "minecraft:dirt",
+        "minecraft:clay",
+        "minecraft:gravel",
+        "minecraft:sand"
+      ]
+    }
+  }
+}
