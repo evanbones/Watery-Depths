@@ -31,21 +31,24 @@ public class ModBlocks {
 
     public static final BlockDataHolder<?> ALGAL_SILT = register("algal_silt", BlockDataHolder.of(() ->
                     new AlgalBlock(BlockBehaviour.Properties.copy(Blocks.SAND).sound(SoundType.SLIME_BLOCK).mapColor(MapColor.COLOR_LIGHT_GREEN), SILT.get()))
-            .withModel(BlockDataHolder.Model.CUBE).withItem().dropsSelf()
+            .withModel(BlockDataHolder.Model.NYLIUM)
+            .withItem().dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_SHOVEL, BlockTags.SAND)
             .withTranslation("Algal Silt")
     );
 
     public static final BlockDataHolder<?> ALGAL_SAND = register("algal_sand", BlockDataHolder.of(() ->
                     new AlgalBlock(BlockBehaviour.Properties.copy(Blocks.SAND).sound(SoundType.SLIME_BLOCK).mapColor(MapColor.COLOR_LIGHT_GREEN), Blocks.SAND))
-            .withModel(BlockDataHolder.Model.CUBE).withItem().dropsSelf()
+            .withModel(BlockDataHolder.Model.NYLIUM)
+            .withItem().dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_SHOVEL, BlockTags.SAND)
             .withTranslation("Algal Sand")
     );
 
     public static final BlockDataHolder<?> ALGAL_GRAVEL = register("algal_gravel", BlockDataHolder.of(() ->
                     new AlgalBlock(BlockBehaviour.Properties.copy(Blocks.GRAVEL).sound(SoundType.SLIME_BLOCK).mapColor(MapColor.COLOR_LIGHT_GREEN), Blocks.GRAVEL))
-            .withModel(BlockDataHolder.Model.CUBE).withItem().dropsSelf()
+            .withModel(BlockDataHolder.Model.NYLIUM)
+            .withItem().dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_SHOVEL)
             .withTranslation("Algal Gravel")
     );
@@ -55,6 +58,7 @@ public class ModBlocks {
             .withModel(BlockDataHolder.Model.CUBE).withItem().dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_HOE, BlockTags.DIRT)
             .withTranslation("Algae")
+            .withCompost(0.65f)
     );
 
     public static BlockDataHolder<?> register(String name, BlockDataHolder<?> blockDataHolder) {
@@ -65,6 +69,9 @@ public class ModBlocks {
 
     public static Map<ResourceLocation, BlockDataHolder<?>> getBlockRegistry() {
         return BLOCK_REGISTRY;
+    }
+
+    public static void load() {
     }
 
     public static void registerBlocks(BiConsumer<ResourceLocation, Block> blockRegister, BiConsumer<ResourceLocation, Item> itemRegister) {

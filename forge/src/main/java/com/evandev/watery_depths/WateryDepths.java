@@ -2,6 +2,7 @@ package com.evandev.watery_depths;
 
 import com.evandev.watery_depths.client.ClientConfigSetup;
 import com.evandev.watery_depths.module.ModBlocks;
+import com.evandev.watery_depths.module.ModItems;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -25,6 +26,10 @@ public class WateryDepths {
 
         ModBlocks.registerBlocks(
                 (id, block) -> BLOCKS.register(id.getPath(), () -> block),
+                (id, item) -> ITEMS.register(id.getPath(), () -> item)
+        );
+
+        ModItems.registerItems(
                 (id, item) -> ITEMS.register(id.getPath(), () -> item)
         );
 

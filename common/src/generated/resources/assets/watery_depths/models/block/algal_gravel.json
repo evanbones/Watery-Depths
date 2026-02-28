@@ -1,6 +1,8 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube_bottom_top",
   "textures": {
-    "all": "watery_depths:block/algal_gravel"
+    "bottom": "minecraft:block/gravel",
+    "side": "watery_depths:block/algal_gravel",
+    "top": "watery_depths:block/algae"
   }
 }

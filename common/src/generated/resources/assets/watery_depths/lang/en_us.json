@@ -5,5 +5,6 @@
   "block.watery_depths.algal_silt": "Algal Silt",
   "block.watery_depths.silt": "Silt",
   "config.watery_depths.category.general": "General",
-  "config.watery_depths.title": "Watery Depths Config"
+  "config.watery_depths.title": "Watery Depths Config",
+  "itemgroup.watery_depths": "Watery Depths"
 }

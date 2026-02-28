@@ -374,6 +374,7 @@ public class BlockDataHolder<T extends Block> {
 
     public enum Model {
         CUBE("", ""),
+        NYLIUM("", ""),
         PILLAR("", ""),
         WOOD("", ""),
         ROTATABLE("", ""),
