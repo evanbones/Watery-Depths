@@ -1,0 +1,119 @@
+{
+  "block.watery_depths.algae.break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "watery_depths:block/algae/break1",
+      "watery_depths:block/algae/break2",
+      "watery_depths:block/algae/break3",
+      "watery_depths:block/algae/break4"
+    ]
+  },
+  "block.watery_depths.algae.step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "watery_depths:block/algae/step1",
+      "watery_depths:block/algae/step2",
+      "watery_depths:block/algae/step3",
+      "watery_depths:block/algae/step4"
+    ]
+  },
+  "block.watery_depths.algal_gravel.break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "watery_depths:block/algal_gravel/break1",
+      "watery_depths:block/algal_gravel/break2",
+      "watery_depths:block/algal_gravel/break3",
+      "watery_depths:block/algal_gravel/break4"
+    ]
+  },
+  "block.watery_depths.algal_gravel.step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "watery_depths:block/algal_gravel/step1",
+      "watery_depths:block/algal_gravel/step2",
+      "watery_depths:block/algal_gravel/step3",
+      "watery_depths:block/algal_gravel/step4"
+    ]
+  },
+  "block.watery_depths.algal_sand.break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "watery_depths:block/algal_sand/break1",
+      "watery_depths:block/algal_sand/break2",
+      "watery_depths:block/algal_sand/break3",
+      "watery_depths:block/algal_sand/break4"
+    ]
+  },
+  "block.watery_depths.algal_sand.step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "watery_depths:block/algal_sand/step1",
+      "watery_depths:block/algal_sand/step2",
+      "watery_depths:block/algal_sand/step3",
+      "watery_depths:block/algal_sand/step4"
+    ]
+  },
+  "block.watery_depths.algal_silt.break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "watery_depths:block/algal_silt/break1",
+      "watery_depths:block/algal_silt/break2",
+      "watery_depths:block/algal_silt/break3",
+      "watery_depths:block/algal_silt/break4"
+    ]
+  },
+  "block.watery_depths.algal_silt.step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "watery_depths:block/algal_silt/step1",
+      "watery_depths:block/algal_silt/step2",
+      "watery_depths:block/algal_silt/step3",
+      "watery_depths:block/algal_silt/step4"
+    ]
+  },
+  "block.watery_depths.chromarine.break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "watery_depths:block/chromarine/break1",
+      "watery_depths:block/chromarine/break2",
+      "watery_depths:block/chromarine/break3",
+      "watery_depths:block/chromarine/break4"
+    ]
+  },
+  "block.watery_depths.chromarine.step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "watery_depths:block/chromarine/step1",
+      "watery_depths:block/chromarine/step2",
+      "watery_depths:block/chromarine/step3",
+      "watery_depths:block/chromarine/step4"
+    ]
+  },
+  "block.watery_depths.prismarine_cluster.break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "watery_depths:block/prismarine_cluster/break1",
+      "watery_depths:block/prismarine_cluster/break2",
+      "watery_depths:block/prismarine_cluster/break3",
+      "watery_depths:block/prismarine_cluster/break4"
+    ]
+  },
+  "block.watery_depths.silt.break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "watery_depths:block/silt/break1",
+      "watery_depths:block/silt/break2",
+      "watery_depths:block/silt/break3",
+      "watery_depths:block/silt/break4"
+    ]
+  },
+  "block.watery_depths.silt.step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "watery_depths:block/silt/step1",
+      "watery_depths:block/silt/step2",
+      "watery_depths:block/silt/step3",
+      "watery_depths:block/silt/step4"
+    ]
+  }
+}

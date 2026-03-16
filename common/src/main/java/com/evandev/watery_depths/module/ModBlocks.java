@@ -11,7 +11,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SandBlock;
-import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 
@@ -24,14 +23,14 @@ public class ModBlocks {
     private static final Map<ResourceLocation, BlockDataHolder<?>> BLOCK_REGISTRY = new LinkedHashMap<>();
 
     public static final BlockDataHolder<?> SILT = register("silt", BlockDataHolder.of(() ->
-                    new SandBlock(0x8c7c6a, BlockBehaviour.Properties.copy(Blocks.SAND).mapColor(MapColor.COLOR_GRAY)))
+                    new SandBlock(0x8c7c6a, BlockBehaviour.Properties.copy(Blocks.SAND).mapColor(MapColor.COLOR_GRAY).sound(ModSounds.SILT_SOUNDS)))
             .withModel(BlockDataHolder.Model.CUBE).withItem().dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_SHOVEL, BlockTags.SAND)
             .withTranslation("Silt")
     );
 
     public static final BlockDataHolder<?> ALGAL_SILT = register("algal_silt", BlockDataHolder.of(() ->
-                    new AlgalBlock(BlockBehaviour.Properties.copy(Blocks.SAND).sound(SoundType.SLIME_BLOCK).mapColor(MapColor.COLOR_LIGHT_GREEN), SILT.get()))
+                    new AlgalBlock(BlockBehaviour.Properties.copy(Blocks.SAND).sound(ModSounds.ALGAL_SILT_SOUNDS).mapColor(MapColor.COLOR_LIGHT_GREEN), SILT.get()))
             .withModel(BlockDataHolder.Model.NYLIUM)
             .withItem().dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_SHOVEL, BlockTags.SAND)
@@ -39,7 +38,7 @@ public class ModBlocks {
     );
 
     public static final BlockDataHolder<?> ALGAL_SAND = register("algal_sand", BlockDataHolder.of(() ->
-                    new AlgalBlock(BlockBehaviour.Properties.copy(Blocks.SAND).sound(SoundType.SLIME_BLOCK).mapColor(MapColor.COLOR_LIGHT_GREEN), Blocks.SAND))
+                    new AlgalBlock(BlockBehaviour.Properties.copy(Blocks.SAND).sound(ModSounds.ALGAL_SAND_SOUNDS).mapColor(MapColor.COLOR_LIGHT_GREEN), Blocks.SAND))
             .withModel(BlockDataHolder.Model.NYLIUM)
             .withItem().dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_SHOVEL, BlockTags.SAND)
@@ -47,7 +46,7 @@ public class ModBlocks {
     );
 
     public static final BlockDataHolder<?> ALGAL_GRAVEL = register("algal_gravel", BlockDataHolder.of(() ->
-                    new AlgalBlock(BlockBehaviour.Properties.copy(Blocks.GRAVEL).sound(SoundType.SLIME_BLOCK).mapColor(MapColor.COLOR_LIGHT_GREEN), Blocks.GRAVEL))
+                    new AlgalBlock(BlockBehaviour.Properties.copy(Blocks.GRAVEL).sound(ModSounds.ALGAL_GRAVEL_SOUNDS).mapColor(MapColor.COLOR_LIGHT_GREEN), Blocks.GRAVEL))
             .withModel(BlockDataHolder.Model.NYLIUM)
             .withItem().dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_SHOVEL)
@@ -55,7 +54,7 @@ public class ModBlocks {
     );
 
     public static final BlockDataHolder<?> ALGAE = register("algae", BlockDataHolder.of(() ->
-                    new AlgalBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_BLOCK).mapColor(MapColor.COLOR_GREEN), Blocks.DIRT))
+                    new AlgalBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_BLOCK).mapColor(MapColor.COLOR_GREEN).sound(ModSounds.ALGAE_SOUNDS), Blocks.DIRT))
             .withModel(BlockDataHolder.Model.CUBE).withItem().dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_HOE, BlockTags.DIRT)
             .withTranslation("Algae")
