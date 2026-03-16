@@ -13,7 +13,6 @@
     "accessor.PressurePlateBlockAccessor",
     "accessor.SimpleParticleTypeAccessor",
     "accessor.StairBlockAccessor",
-    "accessor.SurfaceRulesContextAccessor",
     "accessor.TorchBlockAccessor",
     "accessor.TrapDoorBlockAccessor",
     "accessor.WallTorchBlockAccessor",
