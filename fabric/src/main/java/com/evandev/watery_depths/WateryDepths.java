@@ -42,7 +42,7 @@ public class WateryDepths implements ModInitializer {
                 BiomeSelectors.includeByKey(
                         Biomes.COLD_OCEAN, Biomes.DEEP_COLD_OCEAN,
                         Biomes.FROZEN_OCEAN, Biomes.DEEP_FROZEN_OCEAN,
-                        Biomes.OCEAN, Biomes.DEEP_OCEAN
+                        Biomes.OCEAN, Biomes.DEEP_OCEAN, Biomes.RIVER, Biomes.FROZEN_RIVER
                 ),
                 GenerationStep.Decoration.UNDERGROUND_ORES,
                 ModPlacedFeatures.SAND_DISK
