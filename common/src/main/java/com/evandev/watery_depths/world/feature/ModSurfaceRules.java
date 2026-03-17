@@ -10,25 +10,26 @@ public class ModSurfaceRules {
     public static SurfaceRules.RuleSource makeRules() {
         SurfaceRules.ConditionSource isUnderwater = SurfaceRules.waterBlockCheck(-1, 0);
 
-        SurfaceRules.ConditionSource isColdOcean = SurfaceRules.isBiome(
+        SurfaceRules.ConditionSource isTargetBiome = SurfaceRules.isBiome(
                 Biomes.COLD_OCEAN,
                 Biomes.DEEP_COLD_OCEAN,
                 Biomes.FROZEN_OCEAN,
-                Biomes.DEEP_FROZEN_OCEAN
-        );
-
-        SurfaceRules.ConditionSource isRiver = SurfaceRules.isBiome(
+                Biomes.DEEP_FROZEN_OCEAN,
+                Biomes.OCEAN,
+                Biomes.DEEP_OCEAN,
                 Biomes.RIVER,
                 Biomes.FROZEN_RIVER
         );
 
+        SurfaceRules.RuleSource placeSilt = SurfaceRules.sequence(
+                SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SILT),
+                SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SILT)
+        );
+
         return SurfaceRules.sequence(
                 SurfaceRules.ifTrue(
-                        isUnderwater,
-                        SurfaceRules.sequence(
-                                SurfaceRules.ifTrue(isColdOcean, SILT),
-                                SurfaceRules.ifTrue(isRiver, SILT)
-                        )
+                        isTargetBiome,
+                        SurfaceRules.ifTrue(isUnderwater, placeSilt)
                 )
         );
     }
