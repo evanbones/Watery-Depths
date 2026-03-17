@@ -8,7 +8,7 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.tags.BiomeTags;
+import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.GenerationStep;
 
 public class WateryDepths implements ModInitializer {
@@ -21,7 +21,6 @@ public class WateryDepths implements ModInitializer {
                 (id, itemSupplier) -> Registry.register(BuiltInRegistries.ITEM, id, itemSupplier.get())
         );
 
-
         ModItems.registerItems(
                 (id, itemSupplier) -> Registry.register(BuiltInRegistries.ITEM, id, itemSupplier.get())
         );
@@ -29,10 +28,16 @@ public class WateryDepths implements ModInitializer {
         CommonClass.commonSetup();
 
         BiomeModifications.addFeature(
-                BiomeSelectors.tag(BiomeTags.IS_OCEAN).or(BiomeSelectors.tag(BiomeTags.IS_RIVER)),
+                BiomeSelectors.includeByKey(Biomes.WARM_OCEAN, Biomes.LUKEWARM_OCEAN, Biomes.DEEP_LUKEWARM_OCEAN),
                 GenerationStep.Decoration.UNDERGROUND_ORES,
                 ModPlacedFeatures.SILT_DISK
         );
-    }
 
+        BiomeModifications.addFeature(
+                BiomeSelectors.includeByKey(Biomes.COLD_OCEAN, Biomes.DEEP_COLD_OCEAN, Biomes.FROZEN_OCEAN, Biomes.DEEP_FROZEN_OCEAN),
+                GenerationStep.Decoration.UNDERGROUND_ORES,
+                ModPlacedFeatures.SAND_DISK
+        );
+
+    }
 }

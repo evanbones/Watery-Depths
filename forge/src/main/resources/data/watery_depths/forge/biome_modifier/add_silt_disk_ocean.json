@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "#minecraft:is_ocean",
-  "features": "watery_depths:silt_disk",
-  "step": "underground_ores"
-}

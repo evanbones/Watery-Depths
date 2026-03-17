@@ -21,7 +21,8 @@ public class WateryDepths {
 
     public WateryDepths() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
+        BLOCKS.register(modEventBus);
+        ITEMS.register(modEventBus);
         CommonClass.init();
 
         ModBlocks.registerBlocks(
@@ -32,9 +33,6 @@ public class WateryDepths {
         ModItems.registerItems(
                 (id, itemSupplier) -> ITEMS.register(id.getPath(), itemSupplier)
         );
-
-        BLOCKS.register(modEventBus);
-        ITEMS.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
         if (FMLEnvironment.dist.isClient()) {

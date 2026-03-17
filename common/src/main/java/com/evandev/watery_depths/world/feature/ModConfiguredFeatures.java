@@ -17,17 +17,27 @@ import java.util.List;
 
 public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> SILT_DISK = create("silt_disk");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SAND_DISK = create("sand_disk");
 
     public static ResourceKey<ConfiguredFeature<?, ?>> create(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, CommonClass.makeID(name));
     }
 
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
-        RuleBasedBlockStateProvider stateProvider = RuleBasedBlockStateProvider.simple(ModBlocks.SILT.get().defaultBlockState().getBlock());
+        RuleBasedBlockStateProvider siltState = RuleBasedBlockStateProvider.simple(ModBlocks.SILT.get().defaultBlockState().getBlock());
+        RuleBasedBlockStateProvider sandState = RuleBasedBlockStateProvider.simple(Blocks.SAND);
 
         context.register(SILT_DISK, new ConfiguredFeature<>(Feature.DISK,
-                new DiskConfiguration(stateProvider,
+                new DiskConfiguration(siltState,
                         BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.CLAY, Blocks.GRAVEL, Blocks.SAND)),
+                        UniformInt.of(2, 5),
+                        2
+                )
+        ));
+
+        context.register(SAND_DISK, new ConfiguredFeature<>(Feature.DISK,
+                new DiskConfiguration(sandState,
+                        BlockPredicate.matchesBlocks(List.of(ModBlocks.SILT.get().defaultBlockState().getBlock(), Blocks.GRAVEL, Blocks.DIRT)),
                         UniformInt.of(2, 5),
                         2
                 )
