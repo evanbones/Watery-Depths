@@ -5,12 +5,10 @@
   "refmap": "${mod_id}.refmap.json",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "MinecraftServerMixin",
     "accessor.BlockBehaviourAccessor",
     "accessor.ButtonBlockAccessor",
     "accessor.DoorBlockAccessor",
     "accessor.IronBarsBlockAccessor",
-    "accessor.NoiseGeneratorSettingsAccessor",
     "accessor.PressurePlateBlockAccessor",
     "accessor.SimpleParticleTypeAccessor",
     "accessor.StairBlockAccessor",

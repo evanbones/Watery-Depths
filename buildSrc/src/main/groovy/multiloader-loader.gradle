@@ -4,10 +4,10 @@ plugins {
 }
 
 configurations {
-    commonJava{
+    commonJava {
         canBeResolved = true
     }
-    commonResources{
+    commonResources {
         canBeResolved = true
     }
 }
@@ -55,6 +55,7 @@ publishMods {
         projectId = ""
         minecraftVersions.add("${minecraft_version}")
         optional { slug = "cloth-config" }
+        requires { slug = "lithostitched" }
     }
 
     modrinth {
@@ -62,5 +63,6 @@ publishMods {
         projectId = ""
         minecraftVersions.add("${minecraft_version}")
         optional { slug = "cloth-config" }
+        requires { slug = "lithostitched" }
     }
 }
