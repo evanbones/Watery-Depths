@@ -3,3 +3,5 @@ accessible class net/minecraft/world/level/levelgen/SurfaceRules$Context
 accessible class net/minecraft/world/level/levelgen/SurfaceRules$Condition
 accessible class net/minecraft/world/level/levelgen/SurfaceRules$LazyYCondition
 accessible method net/minecraft/world/level/levelgen/SurfaceRules$LazyYCondition <init> (Lnet/minecraft/world/level/levelgen/SurfaceRules$Context;)V
+accessible class net/minecraft/world/level/levelgen/SurfaceRules$SequenceRuleSource
+accessible method net/minecraft/world/level/levelgen/SurfaceRules$SequenceRuleSource sequence ()Ljava/util/List;

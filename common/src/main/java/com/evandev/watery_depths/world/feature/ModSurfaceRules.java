@@ -6,6 +6,7 @@ import net.minecraft.world.level.levelgen.SurfaceRules;
 
 public class ModSurfaceRules {
     private static final SurfaceRules.RuleSource SILT = SurfaceRules.state(ModBlocks.SILT.get().defaultBlockState());
+    public static final SurfaceRules.RuleSource INSTANCE = makeRules();
 
     public static SurfaceRules.RuleSource makeRules() {
         SurfaceRules.ConditionSource isUnderwater = SurfaceRules.waterBlockCheck(-1, 0);
@@ -26,11 +27,9 @@ public class ModSurfaceRules {
                 SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SILT)
         );
 
-        return SurfaceRules.sequence(
-                SurfaceRules.ifTrue(
-                        isTargetBiome,
-                        SurfaceRules.ifTrue(isUnderwater, placeSilt)
-                )
+        return SurfaceRules.ifTrue(
+                isTargetBiome,
+                SurfaceRules.ifTrue(isUnderwater, placeSilt)
         );
     }
 }
