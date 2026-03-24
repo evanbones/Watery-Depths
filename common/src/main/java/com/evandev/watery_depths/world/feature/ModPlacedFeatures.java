@@ -12,6 +12,7 @@ import java.util.List;
 public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> SILT_DISK = create("silt_disk");
     public static final ResourceKey<PlacedFeature> SAND_DISK = create("sand_disk");
+    public static final ResourceKey<PlacedFeature> CLAY_DISK = create("clay_disk");
 
     public static ResourceKey<PlacedFeature> create(String name) {
         return ResourceKey.create(Registries.PLACED_FEATURE, CommonClass.makeID(name));
@@ -32,6 +33,15 @@ public class ModPlacedFeatures {
         context.register(SAND_DISK, new PlacedFeature(configLookup.getOrThrow(ModConfiguredFeatures.SAND_DISK),
                 List.of(
                         CountPlacement.of(3),
+                        InSquarePlacement.spread(),
+                        HeightmapPlacement.onHeightmap(Heightmap.Types.OCEAN_FLOOR_WG),
+                        BiomeFilter.biome()
+                )
+        ));
+
+        context.register(CLAY_DISK, new PlacedFeature(configLookup.getOrThrow(ModConfiguredFeatures.CLAY_DISK),
+                List.of(
+                        CountPlacement.of(1),
                         InSquarePlacement.spread(),
                         HeightmapPlacement.onHeightmap(Heightmap.Types.OCEAN_FLOOR_WG),
                         BiomeFilter.biome()

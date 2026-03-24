@@ -18,6 +18,7 @@ import java.util.List;
 public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> SILT_DISK = create("silt_disk");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAND_DISK = create("sand_disk");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CLAY_DISK = create("clay_disk");
 
     public static ResourceKey<ConfiguredFeature<?, ?>> create(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, CommonClass.makeID(name));
@@ -26,6 +27,7 @@ public class ModConfiguredFeatures {
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
         RuleBasedBlockStateProvider siltState = RuleBasedBlockStateProvider.simple(ModBlocks.SILT.get().defaultBlockState().getBlock());
         RuleBasedBlockStateProvider sandState = RuleBasedBlockStateProvider.simple(Blocks.SAND);
+        RuleBasedBlockStateProvider clayState = RuleBasedBlockStateProvider.simple(Blocks.CLAY);
 
         context.register(SILT_DISK, new ConfiguredFeature<>(Feature.DISK,
                 new DiskConfiguration(siltState,
@@ -40,6 +42,14 @@ public class ModConfiguredFeatures {
                         BlockPredicate.matchesBlocks(List.of(ModBlocks.SILT.get().defaultBlockState().getBlock(), Blocks.GRAVEL, Blocks.DIRT)),
                         UniformInt.of(2, 5),
                         2
+                )
+        ));
+
+        context.register(CLAY_DISK, new ConfiguredFeature<>(Feature.DISK,
+                new DiskConfiguration(clayState,
+                        BlockPredicate.matchesBlocks(List.of(ModBlocks.SILT.get().defaultBlockState().getBlock(), Blocks.DIRT, Blocks.CLAY)),
+                        UniformInt.of(2, 3),
+                        1
                 )
         ));
     }

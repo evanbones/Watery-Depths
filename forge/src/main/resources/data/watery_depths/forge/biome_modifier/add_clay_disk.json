@@ -13,6 +13,6 @@
     "minecraft:river",
     "minecraft:frozen_river"
   ],
-  "features": "watery_depths:sand_disk",
+  "features": "watery_depths:clay_disk",
   "step": "underground_ores"
 }

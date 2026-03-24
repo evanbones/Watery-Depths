@@ -42,14 +42,26 @@ public class WateryDepths implements ModInitializer {
                 BiomeSelectors.includeByKey(
                         Biomes.COLD_OCEAN, Biomes.DEEP_COLD_OCEAN,
                         Biomes.FROZEN_OCEAN, Biomes.DEEP_FROZEN_OCEAN,
-                        Biomes.OCEAN, Biomes.DEEP_OCEAN, Biomes.RIVER, Biomes.FROZEN_RIVER
+                        Biomes.OCEAN, Biomes.DEEP_OCEAN, Biomes.RIVER, Biomes.FROZEN_RIVER,
+                        Biomes.WARM_OCEAN, Biomes.LUKEWARM_OCEAN, Biomes.DEEP_LUKEWARM_OCEAN
                 ),
                 GenerationStep.Decoration.UNDERGROUND_ORES,
                 ModPlacedFeatures.SAND_DISK
         );
 
 
-        BiomeModifications.create(new ResourceLocation("watery_depths", "remove_ocean_disks"))
+        BiomeModifications.addFeature(
+                BiomeSelectors.includeByKey(
+                        Biomes.COLD_OCEAN, Biomes.DEEP_COLD_OCEAN,
+                        Biomes.FROZEN_OCEAN, Biomes.DEEP_FROZEN_OCEAN,
+                        Biomes.OCEAN, Biomes.DEEP_OCEAN, Biomes.RIVER, Biomes.FROZEN_RIVER,
+                        Biomes.WARM_OCEAN, Biomes.LUKEWARM_OCEAN, Biomes.DEEP_LUKEWARM_OCEAN
+                ),
+                GenerationStep.Decoration.UNDERGROUND_ORES,
+                ModPlacedFeatures.CLAY_DISK
+        );
+
+        BiomeModifications.create(new ResourceLocation("watery_depths", "remove_disks"))
                 .add(ModificationPhase.REMOVALS, BiomeSelectors.tag(BiomeTags.IS_OCEAN).or(BiomeSelectors.tag(BiomeTags.IS_RIVER)), context -> {
                     context.getGenerationSettings().removeFeature(
                             GenerationStep.Decoration.UNDERGROUND_ORES,
@@ -58,10 +70,6 @@ public class WateryDepths implements ModInitializer {
                     context.getGenerationSettings().removeFeature(
                             GenerationStep.Decoration.UNDERGROUND_ORES,
                             ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation("minecraft", "disk_sand"))
-                    );
-                    context.getGenerationSettings().removeFeature(
-                            GenerationStep.Decoration.UNDERGROUND_ORES,
-                            ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation("minecraft", "disk_clay"))
                     );
                 });
     }
