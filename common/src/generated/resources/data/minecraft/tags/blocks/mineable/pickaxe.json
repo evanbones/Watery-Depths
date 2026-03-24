@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "watery_depths:achromarine",
+    "watery_depths:chromarine",
+    "watery_depths:prismarine_tiles",
+    "watery_depths:dark_prismarine_bricks",
+    "watery_depths:sulfide",
+    "watery_depths:budding_prismarine",
+    "watery_depths:calcite_vent",
+    "watery_depths:sulfide_vent"
+  ]
+}

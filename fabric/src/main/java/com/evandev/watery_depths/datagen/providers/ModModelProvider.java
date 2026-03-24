@@ -6,6 +6,7 @@ import com.evandev.watery_depths.registration.holders.BlockDataHolder;
 import com.evandev.watery_depths.registration.holders.ItemDataHolder;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.data.models.ItemModelGenerators;
 import net.minecraft.data.models.model.ModelTemplates;
@@ -43,6 +44,23 @@ public class ModModelProvider extends FabricModelProvider {
 
                     ResourceLocation customModel = ModelTemplates.CUBE_BOTTOM_TOP.create(holder.get(), mapping, gen.modelOutput);
                     gen.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(holder.get(), customModel));
+                } else if (holder.getModel() == BlockDataHolder.Model.PILLAR) {
+                    ResourceLocation side = TextureMapping.getBlockTexture(holder.get(), "_side");
+                    ResourceLocation top = TextureMapping.getBlockTexture(holder.get(), "_top");
+                    TextureMapping mapping = TextureMapping.column(top, side);
+                    gen.blockStateOutput.accept(BlockModelGenerators.createAxisAlignedPillarBlock(holder.get(), ModelTemplates.CUBE_COLUMN.create(holder.get(), mapping, gen.modelOutput)));
+                } else if (holder.getModel() == BlockDataHolder.Model.CROSS) {
+                    gen.createCrossBlock(holder.get(), BlockModelGenerators.TintState.NOT_TINTED);
+                } else if (holder.getModel() == BlockDataHolder.Model.CUSTOM) {
+                    if (holder == ModBlocks.DUCKWEED) {
+                        gen.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(holder.get(), new ResourceLocation("minecraft", "block/lily_pad")));
+                    } else {
+                        gen.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(holder.get(), new ResourceLocation("watery_depths", "block/" + BuiltInRegistries.BLOCK.getKey(holder.get()).getPath())));
+                    }
+                } else if (holder.getModel() == BlockDataHolder.Model.DOUBLE_CROSS) {
+                    ResourceLocation top = TextureMapping.getBlockTexture(holder.get(), "_top");
+                    ResourceLocation bottom = TextureMapping.getBlockTexture(holder.get(), "_bottom");
+                    gen.createDoubleBlock(holder.get(), top, bottom);
                 }
             }
         }

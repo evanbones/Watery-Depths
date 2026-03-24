@@ -390,7 +390,9 @@ public class BlockDataHolder<T extends Block> {
         FENCE_GATE("fence_gate", "Fence Gate"),
         FLOWER_POT("flower_pot", "Flower Pot"),
         SIGN("sign", "Sign"),
-        HANGING_SIGN("hanging_sign", "Hanging Sign");
+        HANGING_SIGN("hanging_sign", "Hanging Sign"),
+        CUSTOM("", ""),
+        DOUBLE_CROSS("", "");
 
         private final String suffix;
         private final String lang;

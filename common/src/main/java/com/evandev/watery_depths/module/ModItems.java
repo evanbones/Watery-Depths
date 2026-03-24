@@ -27,6 +27,17 @@ public class ModItems {
             .withTranslation("Watery Depths")
     );
 
+    public static final ItemDataHolder<?> CATFISH = register("catfish", ItemDataHolder.of(() ->
+                    new Item(new Item.Properties()))
+            .withModel(ModelTemplates.FLAT_ITEM)
+            .withTranslation("Catfish")
+    );
+
+    public static final ItemDataHolder<?> CATFISH_BUCKET = register("catfish_bucket", ItemDataHolder.of(() ->
+                    new Item(new Item.Properties().stacksTo(1)))
+            .withModel(ModelTemplates.FLAT_ITEM)
+            .withTranslation("Catfish Bucket")
+    );
 
     public static ItemDataHolder<?> register(String name, ItemDataHolder<?> itemDataHolder) {
         return register(CommonClass.makeID(name), itemDataHolder);

@@ -53,7 +53,7 @@ public class AlgalBlock extends FallingBlock implements BonemealableBlock {
     }
 
     private BlockState getAlgalVariant(BlockState state) {
-        // You can convert this to a Map or Registry lookup in the future
+        // TODO: convert this to a Map or Registry lookup
         ResourceLocation id = BuiltInRegistries.BLOCK.getKey(state.getBlock());
         if (state.is(Blocks.SAND))
             return BuiltInRegistries.BLOCK.get(new ResourceLocation("watery_depths", "algal_sand")).defaultBlockState();
@@ -64,7 +64,6 @@ public class AlgalBlock extends FallingBlock implements BonemealableBlock {
         return null;
     }
 
-    // --- BonemealableBlock implementation ---
     @Override
     public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, @NotNull BlockState state, boolean isClient) {
         return level.isWaterAt(pos.above());
@@ -77,7 +76,6 @@ public class AlgalBlock extends FallingBlock implements BonemealableBlock {
 
     @Override
     public void performBonemeal(@NotNull ServerLevel level, @NotNull RandomSource random, @NotNull BlockPos pos, @NotNull BlockState state) {
-        // Bonemealing works like a forced random tick spread but guarantees it
         for (int i = 0; i < 4; i++) {
             BlockPos targetPos = pos.offset(random.nextInt(3) - 1, random.nextInt(3) - 1, random.nextInt(3) - 1);
             BlockState targetState = level.getBlockState(targetPos);

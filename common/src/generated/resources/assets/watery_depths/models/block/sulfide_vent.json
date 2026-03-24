@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "watery_depths:block/sulfide_vent_side",
+    "side": "watery_depths:block/sulfide_vent_top"
+  }
+}
