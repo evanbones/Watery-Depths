@@ -3,15 +3,20 @@
   "pools": [
     {
       "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "condition": "minecraft:survives_explosion"
-        }
-      ],
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "watery_depths:prismarine_cluster"
+          "functions": [
+            {
+              "add": false,
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "minecraft:prismarine_shard"
         }
       ],
       "rolls": 1.0

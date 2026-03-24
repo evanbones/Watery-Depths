@@ -1,16 +1,14 @@
 package com.evandev.watery_depths.module;
 
 import com.evandev.watery_depths.Constants;
-import com.evandev.watery_depths.block.AlgalBlock;
-import com.evandev.watery_depths.block.SimpleAmethystClusterBlock;
-import com.evandev.watery_depths.block.SimpleBushBlock;
-import com.evandev.watery_depths.block.SimpleWaterlilyBlock;
+import com.evandev.watery_depths.block.*;
 import com.evandev.watery_depths.registration.FlammabilityRegistry;
 import com.evandev.watery_depths.registration.FuelRegistry;
 import com.evandev.watery_depths.registration.holders.BlockDataHolder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
@@ -105,10 +103,40 @@ public class ModBlocks {
     );
 
     public static final BlockDataHolder<?> BUDDING_PRISMARINE = register("budding_prismarine", BlockDataHolder.of(() ->
-                    new Block(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST)))
-            .withModel(BlockDataHolder.Model.CUBE).withItem().dropsSelf()
+                    new BuddingPrismarineBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST).randomTicks()))
+            .withModel(BlockDataHolder.Model.CUBE).withItem()
+            .dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
             .withTranslation("Budding Prismarine")
+    );
+
+    public static final BlockDataHolder<?> SMALL_PRISMARINE_BUD = register("small_prismarine_bud", BlockDataHolder.of(() ->
+                    new SimpleAmethystClusterBlock(3, 4, BlockBehaviour.Properties.copy(Blocks.SMALL_AMETHYST_BUD).sound(ModSounds.PRISMARINE_CLUSTER_SOUNDS)))
+            .cutout().withModel(BlockDataHolder.Model.CROSS).withItem()
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
+            .withTranslation("Small Prismarine Bud")
+    );
+
+    public static final BlockDataHolder<?> MEDIUM_PRISMARINE_BUD = register("medium_prismarine_bud", BlockDataHolder.of(() ->
+                    new SimpleAmethystClusterBlock(4, 3, BlockBehaviour.Properties.copy(Blocks.MEDIUM_AMETHYST_BUD).sound(ModSounds.PRISMARINE_CLUSTER_SOUNDS)))
+            .cutout().withModel(BlockDataHolder.Model.CROSS).withItem()
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
+            .withTranslation("Medium Prismarine Bud")
+    );
+
+    public static final BlockDataHolder<?> LARGE_PRISMARINE_BUD = register("large_prismarine_bud", BlockDataHolder.of(() ->
+                    new SimpleAmethystClusterBlock(5, 3, BlockBehaviour.Properties.copy(Blocks.LARGE_AMETHYST_BUD).sound(ModSounds.PRISMARINE_CLUSTER_SOUNDS)))
+            .cutout().withModel(BlockDataHolder.Model.CROSS).withItem()
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
+            .withTranslation("Large Prismarine Bud")
+    );
+
+    public static final BlockDataHolder<?> PRISMARINE_CLUSTER = register("prismarine_cluster", BlockDataHolder.of(() ->
+                    new SimpleAmethystClusterBlock(7, 3, BlockBehaviour.Properties.copy(Blocks.AMETHYST_CLUSTER).sound(ModSounds.PRISMARINE_CLUSTER_SOUNDS)))
+            .cutout().withModel(BlockDataHolder.Model.CROSS).withItem()
+            .dropsOther(() -> Items.PRISMARINE_SHARD, 4)
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
+            .withTranslation("Prismarine Cluster")
     );
 
     public static final BlockDataHolder<?> CYPRESS_LOG = register("cypress_log", BlockDataHolder.of(() ->
@@ -162,30 +190,6 @@ public class ModBlocks {
                     new SimpleWaterlilyBlock(BlockBehaviour.Properties.copy(Blocks.LILY_PAD)))
             .cutout().withModel(BlockDataHolder.Model.CUSTOM).withItem().dropsSelf()
             .withTranslation("Duckweed")
-    );
-
-    public static final BlockDataHolder<?> SMALL_PRISMARINE_BUD = register("small_prismarine_bud", BlockDataHolder.of(() ->
-                    new SimpleAmethystClusterBlock(7, 3, BlockBehaviour.Properties.copy(Blocks.AMETHYST_CLUSTER).sound(ModSounds.PRISMARINE_CLUSTER_SOUNDS)))
-            .cutout().withModel(BlockDataHolder.Model.CROSS).withItem().dropsSelf()
-            .withTranslation("Small Prismarine Bud")
-    );
-
-    public static final BlockDataHolder<?> MEDIUM_PRISMARINE_BUD = register("medium_prismarine_bud", BlockDataHolder.of(() ->
-                    new SimpleAmethystClusterBlock(7, 3, BlockBehaviour.Properties.copy(Blocks.AMETHYST_CLUSTER).sound(ModSounds.PRISMARINE_CLUSTER_SOUNDS)))
-            .cutout().withModel(BlockDataHolder.Model.CROSS).withItem().dropsSelf()
-            .withTranslation("Medium Prismarine Bud")
-    );
-
-    public static final BlockDataHolder<?> LARGE_PRISMARINE_BUD = register("large_prismarine_bud", BlockDataHolder.of(() ->
-                    new SimpleAmethystClusterBlock(7, 3, BlockBehaviour.Properties.copy(Blocks.AMETHYST_CLUSTER).sound(ModSounds.PRISMARINE_CLUSTER_SOUNDS)))
-            .cutout().withModel(BlockDataHolder.Model.CROSS).withItem().dropsSelf()
-            .withTranslation("Large Prismarine Bud")
-    );
-
-    public static final BlockDataHolder<?> PRISMARINE_CLUSTER = register("prismarine_cluster", BlockDataHolder.of(() ->
-                    new SimpleAmethystClusterBlock(7, 3, BlockBehaviour.Properties.copy(Blocks.AMETHYST_CLUSTER).sound(ModSounds.PRISMARINE_CLUSTER_SOUNDS)))
-            .cutout().withModel(BlockDataHolder.Model.CROSS).withItem().dropsSelf()
-            .withTranslation("Prismarine Cluster")
     );
 
     public static final BlockDataHolder<?> TALL_ACHROMATIC_BRAMBLE = register("tall_achromatic_bramble", BlockDataHolder.of(() ->

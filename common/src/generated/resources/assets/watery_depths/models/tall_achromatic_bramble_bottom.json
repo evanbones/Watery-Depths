@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "watery_depths:block/tall_achromatic_bramble_bottom"
+  }
+}

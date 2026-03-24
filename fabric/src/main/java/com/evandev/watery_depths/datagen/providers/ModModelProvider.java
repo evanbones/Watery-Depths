@@ -6,13 +6,19 @@ import com.evandev.watery_depths.registration.holders.BlockDataHolder;
 import com.evandev.watery_depths.registration.holders.ItemDataHolder;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
+import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.data.models.ItemModelGenerators;
+import net.minecraft.data.models.blockstates.MultiVariantGenerator;
+import net.minecraft.data.models.blockstates.PropertyDispatch;
+import net.minecraft.data.models.blockstates.Variant;
+import net.minecraft.data.models.blockstates.VariantProperties;
 import net.minecraft.data.models.model.ModelTemplates;
 import net.minecraft.data.models.model.TextureMapping;
 import net.minecraft.data.models.model.TextureSlot;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 import java.util.Map;
 
@@ -50,16 +56,30 @@ public class ModModelProvider extends FabricModelProvider {
                     TextureMapping mapping = TextureMapping.column(top, side);
                     gen.blockStateOutput.accept(BlockModelGenerators.createAxisAlignedPillarBlock(holder.get(), ModelTemplates.CUBE_COLUMN.create(holder.get(), mapping, gen.modelOutput)));
                 } else if (holder.getModel() == BlockDataHolder.Model.CROSS) {
-                    gen.createCrossBlock(holder.get(), BlockModelGenerators.TintState.NOT_TINTED);
+                    if (holder.get().defaultBlockState().hasProperty(BlockStateProperties.FACING)) {
+                        ResourceLocation crossModel = ModelTemplates.CROSS.create(holder.get(), TextureMapping.cross(holder.get()), gen.modelOutput);
+                        gen.blockStateOutput.accept(MultiVariantGenerator.multiVariant(holder.get())
+                                .with(PropertyDispatch.property(BlockStateProperties.FACING)
+                                        .select(Direction.UP, Variant.variant().with(VariantProperties.MODEL, crossModel))
+                                        .select(Direction.DOWN, Variant.variant().with(VariantProperties.MODEL, crossModel).with(VariantProperties.X_ROT, VariantProperties.Rotation.R180))
+                                        .select(Direction.NORTH, Variant.variant().with(VariantProperties.MODEL, crossModel).with(VariantProperties.X_ROT, VariantProperties.Rotation.R90))
+                                        .select(Direction.SOUTH, Variant.variant().with(VariantProperties.MODEL, crossModel).with(VariantProperties.X_ROT, VariantProperties.Rotation.R90).with(VariantProperties.Y_ROT, VariantProperties.Rotation.R180))
+                                        .select(Direction.WEST, Variant.variant().with(VariantProperties.MODEL, crossModel).with(VariantProperties.X_ROT, VariantProperties.Rotation.R90).with(VariantProperties.Y_ROT, VariantProperties.Rotation.R270))
+                                        .select(Direction.EAST, Variant.variant().with(VariantProperties.MODEL, crossModel).with(VariantProperties.X_ROT, VariantProperties.Rotation.R90).with(VariantProperties.Y_ROT, VariantProperties.Rotation.R90))
+                                )
+                        );
+                    } else {
+                        gen.createCrossBlock(holder.get(), BlockModelGenerators.TintState.NOT_TINTED);
+                    }
                 } else if (holder.getModel() == BlockDataHolder.Model.CUSTOM) {
                     if (holder == ModBlocks.DUCKWEED) {
-                        gen.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(holder.get(), new ResourceLocation("minecraft", "block/lily_pad")));
+                        gen.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(holder.get(), ModelTemplates.CUBE_ALL.create(holder.get(), TextureMapping.cube(holder.get()), gen.modelOutput)));
                     } else {
                         gen.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(holder.get(), new ResourceLocation("watery_depths", "block/" + BuiltInRegistries.BLOCK.getKey(holder.get()).getPath())));
                     }
                 } else if (holder.getModel() == BlockDataHolder.Model.DOUBLE_CROSS) {
-                    ResourceLocation top = TextureMapping.getBlockTexture(holder.get(), "_top");
-                    ResourceLocation bottom = TextureMapping.getBlockTexture(holder.get(), "_bottom");
+                    ResourceLocation top = ModelTemplates.CROSS.create(BuiltInRegistries.BLOCK.getKey(holder.get()).withSuffix("_top"), TextureMapping.cross(TextureMapping.getBlockTexture(holder.get(), "_top")), gen.modelOutput);
+                    ResourceLocation bottom = ModelTemplates.CROSS.create(BuiltInRegistries.BLOCK.getKey(holder.get()).withSuffix("_bottom"), TextureMapping.cross(TextureMapping.getBlockTexture(holder.get(), "_bottom")), gen.modelOutput);
                     gen.createDoubleBlock(holder.get(), top, bottom);
                 }
             }

@@ -1,10 +1,10 @@
 {
   "variants": {
     "half=lower": {
-      "model": "watery_depths:block/tall_chromatic_bramble_bottom"
+      "model": "watery_depths:tall_chromatic_bramble_bottom"
     },
     "half=upper": {
-      "model": "watery_depths:block/tall_chromatic_bramble_top"
+      "model": "watery_depths:tall_chromatic_bramble_top"
     }
   }
 }

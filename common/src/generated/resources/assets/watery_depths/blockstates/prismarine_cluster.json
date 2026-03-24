@@ -1,7 +1,30 @@
 {
   "variants": {
-    "": {
+    "facing=down": {
+      "model": "watery_depths:block/prismarine_cluster",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "watery_depths:block/prismarine_cluster",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "watery_depths:block/prismarine_cluster",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "watery_depths:block/prismarine_cluster",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
       "model": "watery_depths:block/prismarine_cluster"
+    },
+    "facing=west": {
+      "model": "watery_depths:block/prismarine_cluster",
+      "x": 90,
+      "y": 270
     }
   }
 }

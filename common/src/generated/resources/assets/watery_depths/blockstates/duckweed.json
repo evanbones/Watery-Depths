@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "minecraft:block/lily_pad"
+      "model": "watery_depths:block/duckweed"
     }
   }
 }

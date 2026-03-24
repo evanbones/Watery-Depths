@@ -17,7 +17,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                 if (holder.getDrop().get() == holder.get()) {
                     dropSelf(holder.get());
                 } else {
-                    dropOther(holder.get(), holder.getDrop().get());
+                    add(holder.get(), createSingleItemTable(holder.getDrop().get(), holder.getDropCount()));
                 }
             }
         }
