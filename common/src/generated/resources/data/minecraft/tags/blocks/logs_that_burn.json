@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "watery_depths:cypress_log",
-    "watery_depths:cypress_roots"
+    "watery_depths:cypress_log"
   ]
 }

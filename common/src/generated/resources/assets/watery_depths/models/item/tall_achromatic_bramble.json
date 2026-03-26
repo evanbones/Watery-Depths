@@ -1,3 +1,6 @@
 {
-  "parent": "watery_depths:block/tall_achromatic_bramble"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "watery_depths:block/tall_achromatic_bramble_top"
+  }
 }

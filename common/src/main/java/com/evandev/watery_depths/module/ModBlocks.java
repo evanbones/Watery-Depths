@@ -9,6 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.PlaceOnWaterBlockItem;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
@@ -23,7 +24,9 @@ public class ModBlocks {
 
     public static final BlockDataHolder<?> SILT = register("silt", BlockDataHolder.of(() ->
                     new SandBlock(0x8c7c6a, BlockBehaviour.Properties.copy(Blocks.SAND).mapColor(MapColor.COLOR_GRAY).sound(ModSounds.SILT_SOUNDS)))
-            .withModel(BlockDataHolder.Model.CUBE).withItem().dropsSelf()
+            .withModel(BlockDataHolder.Model.CUBE)
+            .withItem()
+            .dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_SHOVEL, BlockTags.SAND)
             .withTranslation("Silt")
     );
@@ -31,14 +34,17 @@ public class ModBlocks {
     public static final BlockDataHolder<?> ALGAL_SILT = register("algal_silt", BlockDataHolder.of(() ->
                     new AlgalBlock(BlockBehaviour.Properties.copy(Blocks.SAND).sound(ModSounds.ALGAL_SILT_SOUNDS).mapColor(MapColor.COLOR_LIGHT_GREEN), SILT.get()))
             .withModel(BlockDataHolder.Model.NYLIUM)
-            .withItem().dropsSelf()
+            .withItem()
+            .dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_SHOVEL, BlockTags.SAND)
             .withTranslation("Algal Silt")
     );
 
     public static final BlockDataHolder<?> DEEPSILT = register("deepsilt", BlockDataHolder.of(() ->
                     new SandBlock(0x3a3a3a, BlockBehaviour.Properties.copy(Blocks.SAND).mapColor(MapColor.COLOR_BLACK).sound(ModSounds.SILT_SOUNDS)))
-            .withModel(BlockDataHolder.Model.CUBE).withItem().dropsSelf()
+            .withModel(BlockDataHolder.Model.CUBE)
+            .withItem()
+            .dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_SHOVEL, BlockTags.SAND)
             .withTranslation("Deepsilt")
     );
@@ -46,7 +52,8 @@ public class ModBlocks {
     public static final BlockDataHolder<?> ALGAL_SAND = register("algal_sand", BlockDataHolder.of(() ->
                     new AlgalBlock(BlockBehaviour.Properties.copy(Blocks.SAND).sound(ModSounds.ALGAL_SAND_SOUNDS).mapColor(MapColor.COLOR_LIGHT_GREEN), Blocks.SAND))
             .withModel(BlockDataHolder.Model.NYLIUM)
-            .withItem().dropsSelf()
+            .withItem()
+            .dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_SHOVEL, BlockTags.SAND)
             .withTranslation("Algal Sand")
     );
@@ -54,14 +61,17 @@ public class ModBlocks {
     public static final BlockDataHolder<?> ALGAL_GRAVEL = register("algal_gravel", BlockDataHolder.of(() ->
                     new AlgalBlock(BlockBehaviour.Properties.copy(Blocks.GRAVEL).sound(ModSounds.ALGAL_GRAVEL_SOUNDS).mapColor(MapColor.COLOR_LIGHT_GREEN), Blocks.GRAVEL))
             .withModel(BlockDataHolder.Model.NYLIUM)
-            .withItem().dropsSelf()
+            .withItem()
+            .dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_SHOVEL)
             .withTranslation("Algal Gravel")
     );
 
     public static final BlockDataHolder<?> ALGAE = register("algae", BlockDataHolder.of(() ->
                     new AlgalBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_BLOCK).mapColor(MapColor.COLOR_GREEN).sound(ModSounds.ALGAE_SOUNDS), Blocks.DIRT))
-            .withModel(BlockDataHolder.Model.CUBE).withItem().dropsSelf()
+            .withModel(BlockDataHolder.Model.CUBE)
+            .withItem()
+            .dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_HOE, BlockTags.DIRT)
             .withTranslation("Algae")
             .withCompost(0.65f)
@@ -69,42 +79,53 @@ public class ModBlocks {
 
     public static final BlockDataHolder<?> ACHROMARINE = register("achromarine", BlockDataHolder.of(() ->
                     new Block(BlockBehaviour.Properties.copy(Blocks.PRISMARINE)))
-            .withModel(BlockDataHolder.Model.CUBE).withItem().dropsSelf()
+            .withModel(BlockDataHolder.Model.CUBE)
+            .withItem()
+            .dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
             .withTranslation("Achromarine")
     );
 
     public static final BlockDataHolder<?> CHROMARINE = register("chromarine", BlockDataHolder.of(() ->
                     new Block(BlockBehaviour.Properties.copy(Blocks.PRISMARINE).sound(ModSounds.CHROMARINE_SOUNDS)))
-            .withModel(BlockDataHolder.Model.CUBE).withItem().dropsSelf()
+            .withModel(BlockDataHolder.Model.CUBE)
+            .withItem()
+            .dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
             .withTranslation("Chromarine")
     );
 
     public static final BlockDataHolder<?> PRISMARINE_TILES = register("prismarine_tiles", BlockDataHolder.of(() ->
                     new Block(BlockBehaviour.Properties.copy(Blocks.PRISMARINE_BRICKS)))
-            .withModel(BlockDataHolder.Model.CUBE).withItem().dropsSelf()
+            .withModel(BlockDataHolder.Model.CUBE)
+            .withItem()
+            .dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
             .withTranslation("Prismarine Tiles")
     );
 
     public static final BlockDataHolder<?> DARK_PRISMARINE_BRICKS = register("dark_prismarine_bricks", BlockDataHolder.of(() ->
                     new Block(BlockBehaviour.Properties.copy(Blocks.DARK_PRISMARINE)))
-            .withModel(BlockDataHolder.Model.CUBE).withItem().dropsSelf()
+            .withModel(BlockDataHolder.Model.CUBE)
+            .withItem()
+            .dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
             .withTranslation("Dark Prismarine Bricks")
     );
 
     public static final BlockDataHolder<?> SULFIDE = register("sulfide", BlockDataHolder.of(() ->
                     new Block(BlockBehaviour.Properties.copy(Blocks.STONE)))
-            .withModel(BlockDataHolder.Model.CUBE).withItem().dropsSelf()
+            .withModel(BlockDataHolder.Model.CUBE)
+            .withItem()
+            .dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
             .withTranslation("Sulfide")
     );
 
     public static final BlockDataHolder<?> BUDDING_PRISMARINE = register("budding_prismarine", BlockDataHolder.of(() ->
                     new BuddingPrismarineBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST).randomTicks()))
-            .withModel(BlockDataHolder.Model.CUBE).withItem()
+            .withModel(BlockDataHolder.Model.CUBE)
+            .withItem()
             .dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
             .withTranslation("Budding Prismarine")
@@ -112,28 +133,34 @@ public class ModBlocks {
 
     public static final BlockDataHolder<?> SMALL_PRISMARINE_BUD = register("small_prismarine_bud", BlockDataHolder.of(() ->
                     new SimpleAmethystClusterBlock(3, 4, BlockBehaviour.Properties.copy(Blocks.SMALL_AMETHYST_BUD).sound(ModSounds.PRISMARINE_CLUSTER_SOUNDS)))
-            .cutout().withModel(BlockDataHolder.Model.CROSS).withItem()
+            .cutout()
+            .withModel(BlockDataHolder.Model.CROSS)
+            .withItem()
             .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
             .withTranslation("Small Prismarine Bud")
     );
 
     public static final BlockDataHolder<?> MEDIUM_PRISMARINE_BUD = register("medium_prismarine_bud", BlockDataHolder.of(() ->
                     new SimpleAmethystClusterBlock(4, 3, BlockBehaviour.Properties.copy(Blocks.MEDIUM_AMETHYST_BUD).sound(ModSounds.PRISMARINE_CLUSTER_SOUNDS)))
-            .cutout().withModel(BlockDataHolder.Model.CROSS).withItem()
+            .cutout()
+            .withModel(BlockDataHolder.Model.CROSS).withItem()
             .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
             .withTranslation("Medium Prismarine Bud")
     );
 
     public static final BlockDataHolder<?> LARGE_PRISMARINE_BUD = register("large_prismarine_bud", BlockDataHolder.of(() ->
                     new SimpleAmethystClusterBlock(5, 3, BlockBehaviour.Properties.copy(Blocks.LARGE_AMETHYST_BUD).sound(ModSounds.PRISMARINE_CLUSTER_SOUNDS)))
-            .cutout().withModel(BlockDataHolder.Model.CROSS).withItem()
+            .cutout()
+            .withModel(BlockDataHolder.Model.CROSS).withItem()
             .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
             .withTranslation("Large Prismarine Bud")
     );
 
     public static final BlockDataHolder<?> PRISMARINE_CLUSTER = register("prismarine_cluster", BlockDataHolder.of(() ->
                     new SimpleAmethystClusterBlock(7, 3, BlockBehaviour.Properties.copy(Blocks.AMETHYST_CLUSTER).sound(ModSounds.PRISMARINE_CLUSTER_SOUNDS)))
-            .cutout().withModel(BlockDataHolder.Model.CROSS).withItem()
+            .cutout()
+            .withModel(BlockDataHolder.Model.CROSS)
+            .withItem()
             .dropsOther(() -> Items.PRISMARINE_SHARD, 4)
             .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
             .withTranslation("Prismarine Cluster")
@@ -141,72 +168,102 @@ public class ModBlocks {
 
     public static final BlockDataHolder<?> CYPRESS_LOG = register("cypress_log", BlockDataHolder.of(() ->
                     new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)))
-            .withModel(BlockDataHolder.Model.CUBE).withItem().dropsSelf()
+            .withModel(BlockDataHolder.Model.CUBE)
+            .withItem()
+            .dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_AXE, BlockTags.LOGS, BlockTags.LOGS_THAT_BURN)
             .withTranslation("Cypress Log")
     );
 
     public static final BlockDataHolder<?> CYPRESS_ROOTS = register("cypress_roots", BlockDataHolder.of(() ->
-                    new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)))
-            .withModel(BlockDataHolder.Model.PILLAR).withItem().dropsSelf()
-            .withTags(BlockTags.MINEABLE_WITH_AXE, BlockTags.LOGS, BlockTags.LOGS_THAT_BURN)
+                    new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).noOcclusion()))
+            .withModel(BlockDataHolder.Model.PILLAR)
+            .cutout()
+            .withItem()
+            .dropsSelf()
+            .withTags(BlockTags.MINEABLE_WITH_AXE)
             .withTranslation("Cypress Roots")
     );
 
     public static final BlockDataHolder<?> CYPRESS_LEAVES = register("cypress_leaves", BlockDataHolder.of(() ->
                     new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)))
-            .cutout().withModel(BlockDataHolder.Model.CUBE).withItem().dropsSelf()
+            .cutout()
+            .withModel(BlockDataHolder.Model.CUBE)
+            .withItem()
+            .dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_HOE, BlockTags.LEAVES)
             .withTranslation("Cypress Leaves")
     );
 
     public static final BlockDataHolder<?> CALCITE_VENT = register("calcite_vent", BlockDataHolder.of(() ->
-                    new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.CALCITE)))
-            .withModel(BlockDataHolder.Model.PILLAR).withItem().dropsSelf()
+                    new VentBlock(BlockBehaviour.Properties.copy(Blocks.CALCITE).noOcclusion()))
+            .withItem()
+            .dropsSelf()
+            .cutout()
             .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
             .withTranslation("Calcite Vent")
     );
 
     public static final BlockDataHolder<?> SULFIDE_VENT = register("sulfide_vent", BlockDataHolder.of(() ->
-                    new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STONE)))
-            .withModel(BlockDataHolder.Model.PILLAR).withItem().dropsSelf()
+                    new VentBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()))
+            .withItem()
+            .dropsSelf()
+            .cutout()
             .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
             .withTranslation("Sulfide Vent")
     );
 
     public static final BlockDataHolder<?> ACHROMATIC_BRAMBLE = register("achromatic_bramble", BlockDataHolder.of(() ->
                     new SimpleBushBlock(BlockBehaviour.Properties.copy(Blocks.DEAD_BUSH)))
-            .cutout().withModel(BlockDataHolder.Model.CROSS).withItem().dropsSelf()
+            .cutout()
+            .withModel(BlockDataHolder.Model.CROSS)
+            .withItem()
+            .dropsSelf()
             .withTranslation("Achromatic Bramble")
     );
 
     public static final BlockDataHolder<?> CHROMATIC_BRAMBLE = register("chromatic_bramble", BlockDataHolder.of(() ->
                     new SimpleBushBlock(BlockBehaviour.Properties.copy(Blocks.DEAD_BUSH)))
-            .cutout().withModel(BlockDataHolder.Model.CROSS).withItem().dropsSelf()
+            .cutout()
+            .withModel(BlockDataHolder.Model.CROSS)
+            .withItem()
+            .dropsSelf()
             .withTranslation("Chromatic Bramble")
     );
 
     public static final BlockDataHolder<?> DUCKWEED = register("duckweed", BlockDataHolder.of(() ->
-                    new SimpleWaterlilyBlock(BlockBehaviour.Properties.copy(Blocks.LILY_PAD)))
-            .cutout().withModel(BlockDataHolder.Model.CUSTOM).withItem().dropsSelf()
+                    new DuckweedBlock(BlockBehaviour.Properties.copy(Blocks.LILY_PAD).noOcclusion()))
+            .cutout()
+            .withModel(BlockDataHolder.Model.CUSTOM)
+            .withCustomItem(block -> new PlaceOnWaterBlockItem(block, new Item.Properties()))
+            .dropsSelf()
             .withTranslation("Duckweed")
     );
 
     public static final BlockDataHolder<?> TALL_ACHROMATIC_BRAMBLE = register("tall_achromatic_bramble", BlockDataHolder.of(() ->
                     new DoublePlantBlock(BlockBehaviour.Properties.copy(Blocks.TALL_GRASS)))
-            .cutout().withModel(BlockDataHolder.Model.DOUBLE_CROSS).withItem().dropsSelf()
+            .cutout()
+            .withModel(BlockDataHolder.Model.DOUBLE_CROSS)
+            .withItem()
+            .dropsSelf()
             .withTranslation("Tall Achromatic Bramble")
     );
 
     public static final BlockDataHolder<?> TALL_CHROMATIC_BRAMBLE = register("tall_chromatic_bramble", BlockDataHolder.of(() ->
                     new DoublePlantBlock(BlockBehaviour.Properties.copy(Blocks.TALL_GRASS)))
-            .cutout().withModel(BlockDataHolder.Model.DOUBLE_CROSS).withItem().dropsSelf()
+            .cutout()
+            .withModel(BlockDataHolder.Model.DOUBLE_CROSS)
+            .withItem()
+            .dropsSelf()
             .withTranslation("Tall Chromatic Bramble")
     );
 
     public static final BlockDataHolder<?> TUBEWORM = register("tubeworm", BlockDataHolder.of(() ->
                     new Block(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()))
-            .cutout().withModel(BlockDataHolder.Model.CUSTOM).withItem().dropsSelf()
+            .cutout()
+            .withModel(BlockDataHolder.Model.CUSTOM)
+            .withItem()
+            .dropsSelf()
             .withTranslation("Tubeworm")
     );
 

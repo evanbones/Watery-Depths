@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "end": "watery_depths:block/cypress_roots_side",
-    "side": "watery_depths:block/cypress_roots_top"
+    "end": "watery_depths:block/cypress_roots_top",
+    "side": "watery_depths:block/cypress_roots_side"
   }
 }
