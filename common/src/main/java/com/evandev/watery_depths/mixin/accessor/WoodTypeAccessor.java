@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 public interface WoodTypeAccessor {
 
     @Invoker("register")
-    static WoodType infernalexp$register(WoodType woodType) {
+    static WoodType register(WoodType woodType) {
         throw new UnsupportedOperationException();
     }
 }

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "watery_depths:block/cypress_planks_slab"
+    },
+    "type=double": {
+      "model": "watery_depths:block/cypress_planks"
+    },
+    "type=top": {
+      "model": "watery_depths:block/cypress_planks_slab_top"
+    }
+  }
+}

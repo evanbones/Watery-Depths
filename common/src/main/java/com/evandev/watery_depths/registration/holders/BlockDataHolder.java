@@ -1,9 +1,6 @@
 package com.evandev.watery_depths.registration.holders;
 
-import com.evandev.watery_depths.mixin.accessor.ButtonBlockAccessor;
-import com.evandev.watery_depths.mixin.accessor.IronBarsBlockAccessor;
-import com.evandev.watery_depths.mixin.accessor.PressurePlateBlockAccessor;
-import com.evandev.watery_depths.mixin.accessor.StairBlockAccessor;
+import com.evandev.watery_depths.mixin.accessor.*;
 import com.evandev.watery_depths.registration.FlammabilityRegistry;
 import net.minecraft.data.models.model.ModelTemplates;
 import net.minecraft.tags.BlockTags;
@@ -223,6 +220,11 @@ public class BlockDataHolder<T extends Block> {
         return this.defaultTranslation;
     }
 
+    private String getBaseTranslation() {
+        if (this.defaultTranslation == null) return null;
+        return this.defaultTranslation.replace(" Planks", "").replace(" Bricks", " Brick").replace(" Tiles", " Tile");
+    }
+
     public Map<Model, BlockDataHolder<?>> getBlocksets() {
         return this.BLOCKSETS;
     }
@@ -280,6 +282,7 @@ public class BlockDataHolder<T extends Block> {
                 .withModel(Model.STAIRS)
                 .withItem()
                 .withTags(BlockTags.STAIRS);
+        if (this.hasTranslation()) stairs.withTranslation(this.getBaseTranslation() + " " + Model.STAIRS.getLang());
         this.BLOCKSETS.put(Model.STAIRS, stairs);
         return this;
     }
@@ -293,6 +296,7 @@ public class BlockDataHolder<T extends Block> {
                 .withModel(Model.SLAB)
                 .withItem()
                 .withTags(BlockTags.SLABS);
+        if (this.hasTranslation()) slab.withTranslation(this.getBaseTranslation() + " " + Model.SLAB.getLang());
         this.BLOCKSETS.put(Model.SLAB, slab);
         return this;
     }
@@ -306,6 +310,7 @@ public class BlockDataHolder<T extends Block> {
                 .withModel(Model.WALL)
                 .withItem()
                 .withTags(BlockTags.WALLS);
+        if (this.hasTranslation()) wall.withTranslation(this.getBaseTranslation() + " " + Model.WALL.getLang());
         this.BLOCKSETS.put(Model.WALL, wall);
         return this;
     }
@@ -315,10 +320,11 @@ public class BlockDataHolder<T extends Block> {
     }
 
     public BlockDataHolder<?> withButton(BlockSetType type, int ticksPressed, boolean arrowCanPress) {
-        BlockDataHolder<?> button = BlockDataHolder.of(() -> ButtonBlockAccessor.createButtonBlock(BlockBehaviour.Properties.copy(this.get()), type, ticksPressed, arrowCanPress))
+        BlockDataHolder<?> button = BlockDataHolder.of(() -> ButtonBlockAccessor.createButtonBlock(BlockBehaviour.Properties.copy(this.get()).noCollission(), type, ticksPressed, arrowCanPress))
                 .withModel(Model.BUTTON)
                 .withItem()
                 .withTags(BlockTags.BUTTONS);
+        if (this.hasTranslation()) button.withTranslation(this.getBaseTranslation() + " " + Model.BUTTON.getLang());
         this.BLOCKSETS.put(Model.BUTTON, button);
         return this;
     }
@@ -328,10 +334,12 @@ public class BlockDataHolder<T extends Block> {
     }
 
     public BlockDataHolder<?> withPressurePlate(PressurePlateBlock.Sensitivity sensitivity, BlockSetType type) {
-        BlockDataHolder<?> pressurePlate = BlockDataHolder.of(() -> PressurePlateBlockAccessor.createPressurePlateBlock(sensitivity, BlockBehaviour.Properties.copy(this.get()), type))
+        BlockDataHolder<?> pressurePlate = BlockDataHolder.of(() -> PressurePlateBlockAccessor.createPressurePlateBlock(sensitivity, BlockBehaviour.Properties.copy(this.get()).noCollission(), type))
                 .withModel(Model.PRESSURE_PLATE)
                 .withItem()
                 .withTags(BlockTags.PRESSURE_PLATES);
+        if (this.hasTranslation())
+            pressurePlate.withTranslation(this.getBaseTranslation() + " " + Model.PRESSURE_PLATE.getLang());
         this.BLOCKSETS.put(Model.PRESSURE_PLATE, pressurePlate);
         return this;
     }
@@ -345,6 +353,7 @@ public class BlockDataHolder<T extends Block> {
                 .withModel(Model.FENCE)
                 .withItem()
                 .withTags(BlockTags.FENCES);
+        if (this.hasTranslation()) fence.withTranslation(this.getBaseTranslation() + " " + Model.FENCE.getLang());
         this.BLOCKSETS.put(Model.FENCE, fence);
         return this;
     }
@@ -358,12 +367,44 @@ public class BlockDataHolder<T extends Block> {
                 .withModel(Model.FENCE_GATE)
                 .withItem()
                 .withTags(BlockTags.FENCE_GATES);
+        if (this.hasTranslation())
+            fenceGate.withTranslation(this.getBaseTranslation() + " " + Model.FENCE_GATE.getLang());
         this.BLOCKSETS.put(Model.FENCE_GATE, fenceGate);
         return this;
     }
 
     public BlockDataHolder<?> getFenceGate() {
         return this.BLOCKSETS.get(Model.FENCE_GATE);
+    }
+
+    public BlockDataHolder<?> withDoor(BlockSetType type) {
+        BlockDataHolder<?> door = BlockDataHolder.of(() -> DoorBlockAccessor.createDoorBlock(BlockBehaviour.Properties.copy(this.get()).noOcclusion(), type))
+                .withModel(Model.DOOR)
+                .cutout()
+                .withItem()
+                .withTags(BlockTags.DOORS);
+        if (this.hasTranslation()) door.withTranslation(this.getBaseTranslation() + " " + Model.DOOR.getLang());
+        this.BLOCKSETS.put(Model.DOOR, door);
+        return this;
+    }
+
+    public BlockDataHolder<?> getDoor() {
+        return this.BLOCKSETS.get(Model.DOOR);
+    }
+
+    public BlockDataHolder<?> withTrapdoor(BlockSetType type) {
+        BlockDataHolder<?> trapdoor = BlockDataHolder.of(() -> TrapDoorBlockAccessor.createTrapDoorBlock(BlockBehaviour.Properties.copy(this.get()).noOcclusion(), type))
+                .withModel(Model.TRAPDOOR)
+                .cutout()
+                .withItem()
+                .withTags(BlockTags.TRAPDOORS);
+        if (this.hasTranslation()) trapdoor.withTranslation(this.getBaseTranslation() + " " + Model.TRAPDOOR.getLang());
+        this.BLOCKSETS.put(Model.TRAPDOOR, trapdoor);
+        return this;
+    }
+
+    public BlockDataHolder<?> getTrapdoor() {
+        return this.BLOCKSETS.get(Model.TRAPDOOR);
     }
 
     public BlockDataHolder<? extends Block> withCustomItem(java.util.function.Function<T, BlockItem> itemFactory) {
@@ -379,8 +420,8 @@ public class BlockDataHolder<T extends Block> {
         WOOD("", ""),
         ROTATABLE("", ""),
         CROSS("", ""),
-        DOOR("", ""),
-        TRAPDOOR("", ""),
+        DOOR("door", "Door"),
+        TRAPDOOR("trapdoor", "Trapdoor"),
         STAIRS("stairs", "Stairs"),
         SLAB("slab", "Slab"),
         WALL("wall", "Wall"),

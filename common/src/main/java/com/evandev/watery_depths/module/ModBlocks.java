@@ -4,6 +4,7 @@ import com.evandev.watery_depths.Constants;
 import com.evandev.watery_depths.block.*;
 import com.evandev.watery_depths.registration.FlammabilityRegistry;
 import com.evandev.watery_depths.registration.FuelRegistry;
+import com.evandev.watery_depths.registration.StrippableRegistry;
 import com.evandev.watery_depths.registration.holders.BlockDataHolder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
@@ -12,6 +13,8 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.PlaceOnWaterBlockItem;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 
 import java.util.LinkedHashMap;
@@ -84,6 +87,9 @@ public class ModBlocks {
             .dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
             .withTranslation("Achromarine")
+            .withStairs()
+            .withSlab()
+            .withWall()
     );
 
     public static final BlockDataHolder<?> CHROMARINE = register("chromarine", BlockDataHolder.of(() ->
@@ -93,6 +99,9 @@ public class ModBlocks {
             .dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
             .withTranslation("Chromarine")
+            .withStairs()
+            .withSlab()
+            .withWall()
     );
 
     public static final BlockDataHolder<?> PRISMARINE_TILES = register("prismarine_tiles", BlockDataHolder.of(() ->
@@ -102,6 +111,9 @@ public class ModBlocks {
             .dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
             .withTranslation("Prismarine Tiles")
+            .withStairs()
+            .withSlab()
+            .withWall()
     );
 
     public static final BlockDataHolder<?> DARK_PRISMARINE_BRICKS = register("dark_prismarine_bricks", BlockDataHolder.of(() ->
@@ -111,6 +123,9 @@ public class ModBlocks {
             .dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
             .withTranslation("Dark Prismarine Bricks")
+            .withStairs()
+            .withSlab()
+            .withWall()
     );
 
     public static final BlockDataHolder<?> SULFIDE = register("sulfide", BlockDataHolder.of(() ->
@@ -132,7 +147,7 @@ public class ModBlocks {
     );
 
     public static final BlockDataHolder<?> SMALL_PRISMARINE_BUD = register("small_prismarine_bud", BlockDataHolder.of(() ->
-                    new SimpleAmethystClusterBlock(3, 4, BlockBehaviour.Properties.copy(Blocks.SMALL_AMETHYST_BUD).sound(ModSounds.PRISMARINE_CLUSTER_SOUNDS)))
+                    new SimpleAmethystClusterBlock(3, 4, BlockBehaviour.Properties.copy(Blocks.SMALL_AMETHYST_BUD).sound(ModSounds.PRISMARINE_CLUSTER_SOUNDS).lightLevel((state) -> 0)))
             .cutout()
             .withModel(BlockDataHolder.Model.CROSS)
             .withItem()
@@ -141,7 +156,7 @@ public class ModBlocks {
     );
 
     public static final BlockDataHolder<?> MEDIUM_PRISMARINE_BUD = register("medium_prismarine_bud", BlockDataHolder.of(() ->
-                    new SimpleAmethystClusterBlock(4, 3, BlockBehaviour.Properties.copy(Blocks.MEDIUM_AMETHYST_BUD).sound(ModSounds.PRISMARINE_CLUSTER_SOUNDS)))
+                    new SimpleAmethystClusterBlock(4, 3, BlockBehaviour.Properties.copy(Blocks.MEDIUM_AMETHYST_BUD).sound(ModSounds.PRISMARINE_CLUSTER_SOUNDS).lightLevel((state) -> 0)))
             .cutout()
             .withModel(BlockDataHolder.Model.CROSS).withItem()
             .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
@@ -149,7 +164,7 @@ public class ModBlocks {
     );
 
     public static final BlockDataHolder<?> LARGE_PRISMARINE_BUD = register("large_prismarine_bud", BlockDataHolder.of(() ->
-                    new SimpleAmethystClusterBlock(5, 3, BlockBehaviour.Properties.copy(Blocks.LARGE_AMETHYST_BUD).sound(ModSounds.PRISMARINE_CLUSTER_SOUNDS)))
+                    new SimpleAmethystClusterBlock(5, 3, BlockBehaviour.Properties.copy(Blocks.LARGE_AMETHYST_BUD).sound(ModSounds.PRISMARINE_CLUSTER_SOUNDS).lightLevel((state) -> 0)))
             .cutout()
             .withModel(BlockDataHolder.Model.CROSS).withItem()
             .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
@@ -157,7 +172,7 @@ public class ModBlocks {
     );
 
     public static final BlockDataHolder<?> PRISMARINE_CLUSTER = register("prismarine_cluster", BlockDataHolder.of(() ->
-                    new SimpleAmethystClusterBlock(7, 3, BlockBehaviour.Properties.copy(Blocks.AMETHYST_CLUSTER).sound(ModSounds.PRISMARINE_CLUSTER_SOUNDS)))
+                    new SimpleAmethystClusterBlock(7, 3, BlockBehaviour.Properties.copy(Blocks.AMETHYST_CLUSTER).sound(ModSounds.PRISMARINE_CLUSTER_SOUNDS).lightLevel((state) -> 0)))
             .cutout()
             .withModel(BlockDataHolder.Model.CROSS)
             .withItem()
@@ -168,15 +183,55 @@ public class ModBlocks {
 
     public static final BlockDataHolder<?> CYPRESS_LOG = register("cypress_log", BlockDataHolder.of(() ->
                     new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)))
-            .withModel(BlockDataHolder.Model.CUBE)
+            .withModel(BlockDataHolder.Model.PILLAR)
             .withItem()
             .dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_AXE, BlockTags.LOGS, BlockTags.LOGS_THAT_BURN)
             .withTranslation("Cypress Log")
     );
 
+    public static final BlockDataHolder<?> STRIPPED_CYPRESS_LOG = register("stripped_cypress_log", BlockDataHolder.of(() ->
+                    new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG)))
+            .withModel(BlockDataHolder.Model.PILLAR)
+            .withItem()
+            .dropsSelf()
+            .withTags(BlockTags.MINEABLE_WITH_AXE, BlockTags.LOGS, BlockTags.LOGS_THAT_BURN)
+            .withTranslation("Stripped Cypress Log")
+    );
+
+    public static final BlockDataHolder<?> CYPRESS_WOOD = register("cypress_wood", BlockDataHolder.of(() ->
+                    new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)))
+            .withModel(BlockDataHolder.Model.PILLAR)
+            .withItem()
+            .dropsSelf()
+            .withTags(BlockTags.MINEABLE_WITH_AXE, BlockTags.LOGS, BlockTags.LOGS_THAT_BURN)
+            .withTranslation("Cypress Wood")
+    );
+
+    public static final BlockDataHolder<?> STRIPPED_CYPRESS_WOOD = register("stripped_cypress_wood", BlockDataHolder.of(() ->
+                    new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD)))
+            .withModel(BlockDataHolder.Model.PILLAR)
+            .withItem()
+            .dropsSelf()
+            .withTags(BlockTags.MINEABLE_WITH_AXE, BlockTags.LOGS, BlockTags.LOGS_THAT_BURN)
+            .withTranslation("Stripped Cypress Wood")
+    );
+
+    public static final BlockDataHolder<?> CYPRESS_PLANKS = register("cypress_planks", BlockDataHolder.of(() ->
+                    new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)))
+            .withModel(BlockDataHolder.Model.CUBE).withItem().dropsSelf().withTags(BlockTags.MINEABLE_WITH_AXE, BlockTags.PLANKS).withTranslation("Cypress Planks")
+            .withStairs()
+            .withSlab()
+            .withFence()
+            .withFenceGate(WoodType.OAK)
+            .withDoor(BlockSetType.OAK)
+            .withTrapdoor(BlockSetType.OAK)
+            .withPressurePlate(PressurePlateBlock.Sensitivity.EVERYTHING, BlockSetType.OAK)
+            .withButton(BlockSetType.OAK, 30, true)
+    );
+
     public static final BlockDataHolder<?> CYPRESS_ROOTS = register("cypress_roots", BlockDataHolder.of(() ->
-                    new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).noOcclusion()))
+                    new WaterloggedRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).noOcclusion()))
             .withModel(BlockDataHolder.Model.PILLAR)
             .cutout()
             .withItem()
@@ -214,7 +269,7 @@ public class ModBlocks {
     );
 
     public static final BlockDataHolder<?> ACHROMATIC_BRAMBLE = register("achromatic_bramble", BlockDataHolder.of(() ->
-                    new SimpleBushBlock(BlockBehaviour.Properties.copy(Blocks.DEAD_BUSH)))
+                    new UnderwaterBrambleBlock(BlockBehaviour.Properties.copy(Blocks.DEAD_BUSH)))
             .cutout()
             .withModel(BlockDataHolder.Model.CROSS)
             .withItem()
@@ -223,7 +278,7 @@ public class ModBlocks {
     );
 
     public static final BlockDataHolder<?> CHROMATIC_BRAMBLE = register("chromatic_bramble", BlockDataHolder.of(() ->
-                    new SimpleBushBlock(BlockBehaviour.Properties.copy(Blocks.DEAD_BUSH)))
+                    new UnderwaterBrambleBlock(BlockBehaviour.Properties.copy(Blocks.DEAD_BUSH)))
             .cutout()
             .withModel(BlockDataHolder.Model.CROSS)
             .withItem()
@@ -241,7 +296,7 @@ public class ModBlocks {
     );
 
     public static final BlockDataHolder<?> TALL_ACHROMATIC_BRAMBLE = register("tall_achromatic_bramble", BlockDataHolder.of(() ->
-                    new DoublePlantBlock(BlockBehaviour.Properties.copy(Blocks.TALL_GRASS)))
+                    new TallUnderwaterBrambleBlock(BlockBehaviour.Properties.copy(Blocks.TALL_GRASS)))
             .cutout()
             .withModel(BlockDataHolder.Model.DOUBLE_CROSS)
             .withItem()
@@ -250,7 +305,7 @@ public class ModBlocks {
     );
 
     public static final BlockDataHolder<?> TALL_CHROMATIC_BRAMBLE = register("tall_chromatic_bramble", BlockDataHolder.of(() ->
-                    new DoublePlantBlock(BlockBehaviour.Properties.copy(Blocks.TALL_GRASS)))
+                    new TallUnderwaterBrambleBlock(BlockBehaviour.Properties.copy(Blocks.TALL_GRASS)))
             .cutout()
             .withModel(BlockDataHolder.Model.DOUBLE_CROSS)
             .withItem()
@@ -309,6 +364,9 @@ public class ModBlocks {
     }
 
     public static void registerBlockInteractions() {
+        StrippableRegistry.register(CYPRESS_LOG.get(), STRIPPED_CYPRESS_LOG.get());
+        StrippableRegistry.register(CYPRESS_WOOD.get(), STRIPPED_CYPRESS_WOOD.get());
+
         for (BlockDataHolder<?> holder : BLOCK_REGISTRY.values()) {
             if (holder.hasItem() && holder.isFuel()) {
                 FuelRegistry.register(holder.getBlockItem().get(), holder.getFuelDuration());
@@ -319,7 +377,7 @@ public class ModBlocks {
             }
 
             if (holder.hasStrippingResult()) {
-                com.evandev.watery_depths.registration.StrippableRegistry.register(holder.get(), holder.getStrippingResult());
+                StrippableRegistry.register(holder.get(), holder.getStrippingResult());
             }
         }
     }

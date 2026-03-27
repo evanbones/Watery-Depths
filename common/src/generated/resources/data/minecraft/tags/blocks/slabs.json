@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "watery_depths:achromarine_slab",
+    "watery_depths:chromarine_slab",
+    "watery_depths:prismarine_tiles_slab",
+    "watery_depths:dark_prismarine_bricks_slab",
+    "watery_depths:cypress_planks_slab"
+  ]
+}

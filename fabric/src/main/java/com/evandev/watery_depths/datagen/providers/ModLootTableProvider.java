@@ -20,6 +20,16 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                     add(holder.get(), createSingleItemTable(holder.getDrop().get(), holder.getDropCount()));
                 }
             }
+
+            for (BlockDataHolder<?> setHolder : holder.getBlocksets().values()) {
+                if (setHolder.getModel() == BlockDataHolder.Model.SLAB) {
+                    add(setHolder.get(), createSlabItemTable(setHolder.get()));
+                } else if (setHolder.getModel() == BlockDataHolder.Model.DOOR) {
+                    add(setHolder.get(), createDoorTable(setHolder.get()));
+                } else {
+                    dropSelf(setHolder.get());
+                }
+            }
         }
     }
 }

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "watery_depths:block/chromarine",
+    "side": "watery_depths:block/chromarine",
+    "top": "watery_depths:block/chromarine"
+  }
+}

@@ -18,6 +18,12 @@ public class ModLanguageProvider extends FabricLanguageProvider {
             if (holder.hasTranslation()) {
                 translationBuilder.add(holder.get(), holder.getTranslation());
             }
+
+            for (BlockDataHolder<?> setHolder : holder.getBlocksets().values()) {
+                if (setHolder.hasTranslation()) {
+                    translationBuilder.add(setHolder.get(), setHolder.getTranslation());
+                }
+            }
         }
 
         for (ItemDataHolder<?> holder : ModItems.getItemRegistry().values()) {
