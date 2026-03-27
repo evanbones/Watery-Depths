@@ -147,7 +147,7 @@ public class ModBlocks {
     );
 
     public static final BlockDataHolder<?> SMALL_PRISMARINE_BUD = register("small_prismarine_bud", BlockDataHolder.of(() ->
-                    new SimpleAmethystClusterBlock(3, 4, BlockBehaviour.Properties.copy(Blocks.SMALL_AMETHYST_BUD).sound(ModSounds.PRISMARINE_CLUSTER_SOUNDS).lightLevel((state) -> 0)))
+                    new PrismarineClusterBlock(3, 4, BlockBehaviour.Properties.copy(Blocks.SMALL_AMETHYST_BUD).sound(ModSounds.PRISMARINE_CLUSTER_SOUNDS).lightLevel((state) -> 0)))
             .cutout()
             .withModel(BlockDataHolder.Model.CROSS)
             .withItem()
@@ -156,7 +156,7 @@ public class ModBlocks {
     );
 
     public static final BlockDataHolder<?> MEDIUM_PRISMARINE_BUD = register("medium_prismarine_bud", BlockDataHolder.of(() ->
-                    new SimpleAmethystClusterBlock(4, 3, BlockBehaviour.Properties.copy(Blocks.MEDIUM_AMETHYST_BUD).sound(ModSounds.PRISMARINE_CLUSTER_SOUNDS).lightLevel((state) -> 0)))
+                    new PrismarineClusterBlock(4, 3, BlockBehaviour.Properties.copy(Blocks.MEDIUM_AMETHYST_BUD).sound(ModSounds.PRISMARINE_CLUSTER_SOUNDS).lightLevel((state) -> 0)))
             .cutout()
             .withModel(BlockDataHolder.Model.CROSS).withItem()
             .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
@@ -164,7 +164,7 @@ public class ModBlocks {
     );
 
     public static final BlockDataHolder<?> LARGE_PRISMARINE_BUD = register("large_prismarine_bud", BlockDataHolder.of(() ->
-                    new SimpleAmethystClusterBlock(5, 3, BlockBehaviour.Properties.copy(Blocks.LARGE_AMETHYST_BUD).sound(ModSounds.PRISMARINE_CLUSTER_SOUNDS).lightLevel((state) -> 0)))
+                    new PrismarineClusterBlock(5, 3, BlockBehaviour.Properties.copy(Blocks.LARGE_AMETHYST_BUD).sound(ModSounds.PRISMARINE_CLUSTER_SOUNDS).lightLevel((state) -> 0)))
             .cutout()
             .withModel(BlockDataHolder.Model.CROSS).withItem()
             .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
@@ -172,7 +172,7 @@ public class ModBlocks {
     );
 
     public static final BlockDataHolder<?> PRISMARINE_CLUSTER = register("prismarine_cluster", BlockDataHolder.of(() ->
-                    new SimpleAmethystClusterBlock(7, 3, BlockBehaviour.Properties.copy(Blocks.AMETHYST_CLUSTER).sound(ModSounds.PRISMARINE_CLUSTER_SOUNDS).lightLevel((state) -> 0)))
+                    new PrismarineClusterBlock(7, 3, BlockBehaviour.Properties.copy(Blocks.AMETHYST_CLUSTER).sound(ModSounds.PRISMARINE_CLUSTER_SOUNDS).lightLevel((state) -> 0)))
             .cutout()
             .withModel(BlockDataHolder.Model.CROSS)
             .withItem()
@@ -353,7 +353,12 @@ public class ModBlocks {
             }
 
             for (Map.Entry<BlockDataHolder.Model, BlockDataHolder<?>> setEntry : holder.getBlocksets().entrySet()) {
-                ResourceLocation setId = new ResourceLocation(id.getNamespace(), id.getPath() + "_" + setEntry.getKey().suffix());
+                String path = id.getPath();
+                if (path.endsWith("_planks")) {
+                    path = path.substring(0, path.length() - 7);
+                }
+
+                ResourceLocation setId = new ResourceLocation(id.getNamespace(), path + "_" + setEntry.getKey().suffix());
                 blockRegister.accept(setId, () -> setEntry.getValue().get());
 
                 if (holder.hasItem()) {

@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/door_bottom_right",
-  "textures": {
-    "bottom": "watery_depths:block/cypress_planks_door_bottom",
-    "top": "watery_depths:block/cypress_planks_door_top"
-  }
-}

@@ -18,6 +18,7 @@ public class ModDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(ModLootTableProvider::new);
         pack.addProvider(ModBlockTagProvider::new);
         pack.addProvider(ModLanguageProvider::new);
+        pack.addProvider(ModRecipeProvider::new);
     }
 
     @Override
