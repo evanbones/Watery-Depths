@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "watery_depths:block/achromarine_slab"
+    },
+    "type=double": {
+      "model": "watery_depths:block/achromarine"
+    },
+    "type=top": {
+      "model": "watery_depths:block/achromarine_slab_top"
+    }
+  }
+}

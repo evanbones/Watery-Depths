@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    {
+      "item": "watery_depths:cypress_planks"
+    }
+  ],
+  "result": {
+    "item": "watery_depths:cypress_button"
+  }
+}

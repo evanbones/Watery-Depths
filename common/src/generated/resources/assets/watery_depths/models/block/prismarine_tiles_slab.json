@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "watery_depths:block/prismarine_tiles",
+    "side": "watery_depths:block/prismarine_tiles",
+    "top": "watery_depths:block/prismarine_tiles"
+  }
+}

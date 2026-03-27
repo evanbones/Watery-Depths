@@ -9,9 +9,6 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 
 public class ModCreativeTabs {
-    /**
-     * The provider for the mod creative tabs.
-     */
     public static final RegistrationProvider<CreativeModeTab> TABS = RegistrationProvider.get(Registries.CREATIVE_MODE_TAB, Constants.MOD_ID);
 
     public static final RegistryObject<CreativeModeTab> WATERY_DEPTHS_TAB = TABS.register(Constants.MOD_ID, () -> CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0).title(Component.translatable("itemgroup.watery_depths")).icon(() -> new ItemStack(ModItems.TAB_ICON.get())).displayItems((itemDisplayParameters, entries) -> {
@@ -24,9 +21,25 @@ public class ModCreativeTabs {
         entries.accept(ModBlocks.ALGAE.get());
 
         entries.accept(ModBlocks.ACHROMARINE.get());
+        entries.accept(ModBlocks.ACHROMARINE.getStairs().get());
+        entries.accept(ModBlocks.ACHROMARINE.getSlab().get());
+        entries.accept(ModBlocks.ACHROMARINE.getWall().get());
+
         entries.accept(ModBlocks.CHROMARINE.get());
+        entries.accept(ModBlocks.CHROMARINE.getStairs().get());
+        entries.accept(ModBlocks.CHROMARINE.getSlab().get());
+        entries.accept(ModBlocks.CHROMARINE.getWall().get());
+
         entries.accept(ModBlocks.PRISMARINE_TILES.get());
+        entries.accept(ModBlocks.PRISMARINE_TILES.getStairs().get());
+        entries.accept(ModBlocks.PRISMARINE_TILES.getSlab().get());
+        entries.accept(ModBlocks.PRISMARINE_TILES.getWall().get());
+
         entries.accept(ModBlocks.DARK_PRISMARINE_BRICKS.get());
+        entries.accept(ModBlocks.DARK_PRISMARINE_BRICKS.getStairs().get());
+        entries.accept(ModBlocks.DARK_PRISMARINE_BRICKS.getSlab().get());
+        entries.accept(ModBlocks.DARK_PRISMARINE_BRICKS.getWall().get());
+
         entries.accept(ModBlocks.BUDDING_PRISMARINE.get());
 
         entries.accept(ModBlocks.PRISMARINE_CLUSTER.get());
@@ -39,6 +52,20 @@ public class ModCreativeTabs {
         entries.accept(ModBlocks.CALCITE_VENT.get());
 
         entries.accept(ModBlocks.CYPRESS_LOG.get());
+        entries.accept(ModBlocks.STRIPPED_CYPRESS_LOG.get());
+        entries.accept(ModBlocks.CYPRESS_WOOD.get());
+        entries.accept(ModBlocks.STRIPPED_CYPRESS_WOOD.get());
+
+        entries.accept(ModBlocks.CYPRESS_PLANKS.get());
+        entries.accept(ModBlocks.CYPRESS_PLANKS.getStairs().get());
+        entries.accept(ModBlocks.CYPRESS_PLANKS.getSlab().get());
+        entries.accept(ModBlocks.CYPRESS_PLANKS.getFence().get());
+        entries.accept(ModBlocks.CYPRESS_PLANKS.getFenceGate().get());
+        entries.accept(ModBlocks.CYPRESS_PLANKS.getDoor().get());
+        entries.accept(ModBlocks.CYPRESS_PLANKS.getTrapdoor().get());
+        entries.accept(ModBlocks.CYPRESS_PLANKS.getPressurePlate().get());
+        entries.accept(ModBlocks.CYPRESS_PLANKS.getButton().get());
+
         entries.accept(ModBlocks.CYPRESS_ROOTS.get());
         entries.accept(ModBlocks.CYPRESS_LEAVES.get());
 

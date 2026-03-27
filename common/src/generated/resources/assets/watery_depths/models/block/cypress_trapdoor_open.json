@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_trapdoor_open",
+  "textures": {
+    "texture": "watery_depths:block/cypress_trapdoor"
+  }
+}

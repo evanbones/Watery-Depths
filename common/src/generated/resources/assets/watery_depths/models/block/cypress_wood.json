@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "watery_depths:block/cypress_log",
+    "side": "watery_depths:block/cypress_log"
+  }
+}
