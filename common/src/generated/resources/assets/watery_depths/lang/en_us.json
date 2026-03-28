@@ -55,10 +55,11 @@
   "block.watery_depths.tubeworm": "Tubeworm",
   "config.watery_depths.category.general": "General",
   "config.watery_depths.title": "Watery Depths Config",
+  "entity.watery_depths.cypress_chest_boat": "Boat with Chest",
   "item.watery_depths.catfish": "Catfish",
   "item.watery_depths.catfish_bucket": "Catfish Bucket",
   "item.watery_depths.cypress_boat": "Cypress Boat",
-  "item.watery_depths.cypress_chest_boat": "Cypress Chest Boat",
+  "item.watery_depths.cypress_chest_boat": "Cypress Boat with Chest",
   "item.watery_depths.tab_icon": "Watery Depths",
   "itemgroup.watery_depths": "Watery Depths"
 }
