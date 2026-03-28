@@ -112,6 +112,14 @@ public class ModModelProvider extends FabricModelProvider {
                                 gen.modelOutput
                         );
                     }
+                } else if (holder.getModel() == BlockDataHolder.Model.SIGN) {
+                    TextureMapping textureMapping = TextureMapping.particle(holder.getTextureSourceBlock());
+                    ResourceLocation resourceLocation = ModelTemplates.PARTICLE_ONLY.create(holder.get(), textureMapping, gen.modelOutput);
+                    gen.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(holder.get(), resourceLocation));
+                    gen.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(holder.getWallSignBlock(), resourceLocation));
+                    gen.skipAutoItemBlock(holder.getWallSignBlock());
+                } else if (holder.getModel() == BlockDataHolder.Model.HANGING_SIGN) {
+                    gen.createHangingSign(holder.getTextureSourceBlock(), holder.get(), holder.getWallSignBlock());
                 }
 
                 if (holder.getStairs() != null) {
@@ -189,7 +197,12 @@ public class ModModelProvider extends FabricModelProvider {
     @Override
     public void generateItemModels(ItemModelGenerators gen) {
         for (Map.Entry<ResourceLocation, ItemDataHolder<?>> entry : ModItems.getItemRegistry().entrySet()) {
+            ResourceLocation id = entry.getKey();
             ItemDataHolder<?> holder = entry.getValue();
+
+            if (id.getPath().endsWith("_hanging_sign")) {
+                continue;
+            }
 
             if (holder.getModel() != null) {
                 gen.generateFlatItem(holder.get(), holder.getModel());

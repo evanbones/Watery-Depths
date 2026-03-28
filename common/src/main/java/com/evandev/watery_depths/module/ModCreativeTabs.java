@@ -66,6 +66,11 @@ public class ModCreativeTabs {
         entries.accept(ModBlocks.CYPRESS_PLANKS.getPressurePlate().get());
         entries.accept(ModBlocks.CYPRESS_PLANKS.getButton().get());
 
+        entries.accept(ModBlocks.CYPRESS_SAPLING.get());
+        entries.accept(ModItems.CYPRESS_SIGN.get());
+        entries.accept(ModItems.CYPRESS_HANGING_SIGN.get());
+        entries.accept(ModItems.CYPRESS_BOAT.get());
+        entries.accept(ModItems.CYPRESS_CHEST_BOAT.get());
         entries.accept(ModBlocks.CYPRESS_ROOTS.get());
         entries.accept(ModBlocks.CYPRESS_LEAVES.get());
 

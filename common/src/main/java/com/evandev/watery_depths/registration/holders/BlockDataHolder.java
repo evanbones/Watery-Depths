@@ -432,6 +432,8 @@ public class BlockDataHolder<T extends Block> {
         FLOWER_POT("flower_pot", "Flower Pot"),
         SIGN("sign", "Sign"),
         HANGING_SIGN("hanging_sign", "Hanging Sign"),
+        WALL_SIGN("wall_sign", "Wall Sign"),
+        WALL_HANGING_SIGN("wall_hanging_sign", "Wall Hanging Sign"),
         CUSTOM("", ""),
         DOUBLE_CROSS("", "");
 

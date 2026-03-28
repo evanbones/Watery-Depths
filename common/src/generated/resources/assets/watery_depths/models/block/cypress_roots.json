@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "watery_depths:block/cypress_roots_top",
-    "side": "watery_depths:block/cypress_roots"
-  }
-}

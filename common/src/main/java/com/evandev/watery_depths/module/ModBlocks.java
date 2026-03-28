@@ -2,6 +2,9 @@ package com.evandev.watery_depths.module;
 
 import com.evandev.watery_depths.Constants;
 import com.evandev.watery_depths.block.*;
+import com.evandev.watery_depths.block.RootsBlock;
+import com.evandev.watery_depths.mixin.accessor.SaplingBlockAccessor;
+import com.evandev.watery_depths.mixin.accessor.WoodTypeAccessor;
 import com.evandev.watery_depths.registration.FlammabilityRegistry;
 import com.evandev.watery_depths.registration.FuelRegistry;
 import com.evandev.watery_depths.registration.StrippableRegistry;
@@ -23,8 +26,8 @@ import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 public class ModBlocks {
+    public static final WoodType CYPRESS_WOOD_TYPE = WoodTypeAccessor.register(new WoodType("watery_depths:cypress", BlockSetType.OAK));
     private static final Map<ResourceLocation, BlockDataHolder<?>> BLOCK_REGISTRY = new LinkedHashMap<>();
-
     public static final BlockDataHolder<?> SILT = register("silt", BlockDataHolder.of(() ->
                     new SandBlock(0x8c7c6a, BlockBehaviour.Properties.copy(Blocks.SAND).mapColor(MapColor.COLOR_GRAY).sound(ModSounds.SILT_SOUNDS)))
             .withModel(BlockDataHolder.Model.CUBE)
@@ -231,8 +234,8 @@ public class ModBlocks {
     );
 
     public static final BlockDataHolder<?> CYPRESS_ROOTS = register("cypress_roots", BlockDataHolder.of(() ->
-                    new WaterloggedRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).noOcclusion()))
-            .withModel(BlockDataHolder.Model.PILLAR)
+                    new RootsBlock(BlockBehaviour.Properties.copy(Blocks.MANGROVE_ROOTS)))
+            .withModel(BlockDataHolder.Model.CUSTOM)
             .cutout()
             .withItem()
             .dropsSelf()
@@ -248,6 +251,16 @@ public class ModBlocks {
             .dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_HOE, BlockTags.LEAVES)
             .withTranslation("Cypress Leaves")
+    );
+
+    public static final BlockDataHolder<?> CYPRESS_SAPLING = register("cypress_sapling", BlockDataHolder.of(() ->
+                    SaplingBlockAccessor.createSaplingBlock(null, BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING))) // TODO: add custom treegrower
+            .withModel(BlockDataHolder.Model.CROSS)
+            .cutout()
+            .withItem()
+            .dropsSelf()
+            .withTags(BlockTags.SAPLINGS)
+            .withTranslation("Cypress Sapling")
     );
 
     public static final BlockDataHolder<?> CALCITE_VENT = register("calcite_vent", BlockDataHolder.of(() ->
@@ -302,6 +315,38 @@ public class ModBlocks {
             .withItem()
             .dropsSelf()
             .withTranslation("Tall Achromatic Bramble")
+    );
+
+    public static final BlockDataHolder<?> CYPRESS_SIGN = register("cypress_sign", BlockDataHolder.of(() ->
+                    new StandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), CYPRESS_WOOD_TYPE))
+            .withSign(
+                    () -> ModBlocks.CYPRESS_WALL_SIGN.get(),
+                    ModBlocks.CYPRESS_PLANKS::get
+            )
+            .dropsSelf()
+            .withTranslation("Cypress Sign")
+    );
+
+    public static final BlockDataHolder<?> CYPRESS_HANGING_SIGN = register("cypress_hanging_sign", BlockDataHolder.of(() ->
+                    new CeilingHangingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_HANGING_SIGN), CYPRESS_WOOD_TYPE))
+            .withHangingSign(
+                    () -> ModBlocks.CYPRESS_WALL_HANGING_SIGN.get(),
+                    ModBlocks.STRIPPED_CYPRESS_LOG::get
+            )
+            .dropsSelf()
+            .withTranslation("Cypress Hanging Sign")
+    );
+
+    public static final BlockDataHolder<?> CYPRESS_WALL_HANGING_SIGN = register("cypress_wall_hanging_sign", BlockDataHolder.of(() ->
+                    new WallHangingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_HANGING_SIGN), CYPRESS_WOOD_TYPE))
+            .withModel(BlockDataHolder.Model.WALL_HANGING_SIGN)
+            .dropsOther(CYPRESS_HANGING_SIGN::get)
+    );
+
+    public static final BlockDataHolder<?> CYPRESS_WALL_SIGN = register("cypress_wall_sign", BlockDataHolder.of(() ->
+                    new WallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), CYPRESS_WOOD_TYPE))
+            .withModel(BlockDataHolder.Model.WALL_SIGN)
+            .dropsOther(CYPRESS_SIGN::get)
     );
 
     public static final BlockDataHolder<?> TALL_CHROMATIC_BRAMBLE = register("tall_chromatic_bramble", BlockDataHolder.of(() ->

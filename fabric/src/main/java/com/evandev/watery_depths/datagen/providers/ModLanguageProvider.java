@@ -35,5 +35,6 @@ public class ModLanguageProvider extends FabricLanguageProvider {
         translationBuilder.add("config.watery_depths.title", "Watery Depths Config");
         translationBuilder.add("config.watery_depths.category.general", "General");
         translationBuilder.add("itemgroup.watery_depths", "Watery Depths");
+        translationBuilder.add("entity.watery_depths.cypress_chest_boat", "Boat with Chest");
     }
 }

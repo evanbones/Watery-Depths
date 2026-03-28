@@ -1,10 +1,7 @@
 package com.evandev.watery_depths;
 
 import com.evandev.watery_depths.config.ModConfig;
-import com.evandev.watery_depths.module.ModBlocks;
-import com.evandev.watery_depths.module.ModCreativeTabs;
-import com.evandev.watery_depths.module.ModItems;
-import com.evandev.watery_depths.module.ModSounds;
+import com.evandev.watery_depths.module.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.ComposterBlock;
 
@@ -15,6 +12,7 @@ public class CommonClass {
         ModSounds.load();
         ModBlocks.load();
         ModItems.load();
+        ModEntities.load();
         ModCreativeTabs.load();
     }
 

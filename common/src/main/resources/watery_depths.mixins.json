@@ -5,11 +5,13 @@
   "refmap": "${mod_id}.refmap.json",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "BlockEntityTypeMixin",
     "accessor.BlockBehaviourAccessor",
     "accessor.ButtonBlockAccessor",
     "accessor.DoorBlockAccessor",
     "accessor.IronBarsBlockAccessor",
     "accessor.PressurePlateBlockAccessor",
+    "accessor.SaplingBlockAccessor",
     "accessor.SimpleParticleTypeAccessor",
     "accessor.StairBlockAccessor",
     "accessor.TorchBlockAccessor",

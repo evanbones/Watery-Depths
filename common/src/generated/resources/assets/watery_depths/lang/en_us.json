@@ -19,11 +19,14 @@
   "block.watery_depths.cypress_door": "Cypress Door",
   "block.watery_depths.cypress_fence": "Cypress Fence",
   "block.watery_depths.cypress_fence_gate": "Cypress Fence Gate",
+  "block.watery_depths.cypress_hanging_sign": "Cypress Hanging Sign",
   "block.watery_depths.cypress_leaves": "Cypress Leaves",
   "block.watery_depths.cypress_log": "Cypress Log",
   "block.watery_depths.cypress_planks": "Cypress Planks",
   "block.watery_depths.cypress_pressure_plate": "Cypress Pressure Plate",
   "block.watery_depths.cypress_roots": "Cypress Roots",
+  "block.watery_depths.cypress_sapling": "Cypress Sapling",
+  "block.watery_depths.cypress_sign": "Cypress Sign",
   "block.watery_depths.cypress_slab": "Cypress Slab",
   "block.watery_depths.cypress_stairs": "Cypress Stairs",
   "block.watery_depths.cypress_trapdoor": "Cypress Trapdoor",
@@ -54,6 +57,8 @@
   "config.watery_depths.title": "Watery Depths Config",
   "item.watery_depths.catfish": "Catfish",
   "item.watery_depths.catfish_bucket": "Catfish Bucket",
+  "item.watery_depths.cypress_boat": "Cypress Boat",
+  "item.watery_depths.cypress_chest_boat": "Cypress Chest Boat",
   "item.watery_depths.tab_icon": "Watery Depths",
   "itemgroup.watery_depths": "Watery Depths"
 }

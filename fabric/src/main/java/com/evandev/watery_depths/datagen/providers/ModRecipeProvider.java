@@ -1,13 +1,14 @@
 package com.evandev.watery_depths.datagen.providers;
 
+import com.evandev.watery_depths.Constants;
 import com.evandev.watery_depths.module.ModBlocks;
 import com.evandev.watery_depths.registration.holders.BlockDataHolder;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.data.recipes.*;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 
 import java.util.function.Consumer;
@@ -102,6 +103,30 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .requires(baseBlock)
                         .unlockedBy(getHasName(baseBlock), has(baseBlock))
                         .save(exporter);
+            }
+            boolean isWood = holder.getTranslation() != null &&
+                    (holder.getTranslation().contains("Planks") ||
+                            holder.getTranslation().contains("Wood") ||
+                            holder.getTranslation().contains("Log") ||
+                            holder.getTranslation().contains("Sign") ||
+                            holder.getTranslation().contains("Roots"));
+
+            if (!isWood) {
+                if (holder.getStairs() != null) {
+                    SingleItemRecipeBuilder.stonecutting(Ingredient.of(baseBlock), RecipeCategory.BUILDING_BLOCKS, holder.getStairs().get(), 1)
+                            .unlockedBy(getHasName(baseBlock), has(baseBlock))
+                            .save(exporter, new ResourceLocation(Constants.MOD_ID, BuiltInRegistries.BLOCK.getKey(holder.getStairs().get()).getPath() + "_from_stonecutting"));
+                }
+                if (holder.getSlab() != null) {
+                    SingleItemRecipeBuilder.stonecutting(Ingredient.of(baseBlock), RecipeCategory.BUILDING_BLOCKS, holder.getSlab().get(), 2)
+                            .unlockedBy(getHasName(baseBlock), has(baseBlock))
+                            .save(exporter, new ResourceLocation(Constants.MOD_ID, BuiltInRegistries.BLOCK.getKey(holder.getSlab().get()).getPath() + "_from_stonecutting"));
+                }
+                if (holder.getWall() != null) {
+                    SingleItemRecipeBuilder.stonecutting(Ingredient.of(baseBlock), RecipeCategory.DECORATIONS, holder.getWall().get(), 1)
+                            .unlockedBy(getHasName(baseBlock), has(baseBlock))
+                            .save(exporter, new ResourceLocation(Constants.MOD_ID, BuiltInRegistries.BLOCK.getKey(holder.getWall().get()).getPath() + "_from_stonecutting"));
+                }
             }
         }
     }

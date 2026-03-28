@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "watery_depths:achromarine"
+  },
+  "result": "watery_depths:achromarine_wall"
+}

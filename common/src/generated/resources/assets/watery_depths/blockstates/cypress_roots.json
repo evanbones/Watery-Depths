@@ -1,16 +1,7 @@
 {
   "variants": {
-    "axis=x": {
-      "model": "watery_depths:block/cypress_roots",
-      "x": 90,
-      "y": 90
-    },
-    "axis=y": {
+    "": {
       "model": "watery_depths:block/cypress_roots"
-    },
-    "axis=z": {
-      "model": "watery_depths:block/cypress_roots",
-      "x": 90
     }
   }
 }
