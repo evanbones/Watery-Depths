@@ -11,6 +11,7 @@ public class CommonClass {
         ModConfig.load();
         ModSounds.load();
         ModBlocks.load();
+        ModBlockEntities.load();
         ModItems.load();
         ModEntities.load();
         ModCreativeTabs.load();

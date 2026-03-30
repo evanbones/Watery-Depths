@@ -1,5 +1,12 @@
 package com.evandev.watery_depths.platform.services;
 
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
+
 import java.nio.file.Path;
 
 public interface IPlatformHelper {
@@ -44,7 +51,18 @@ public interface IPlatformHelper {
 
     /**
      * Checks if the code is running on the physical client.
+     *
      * @return True if on the client, false if on a dedicated server.
      */
     boolean isPhysicalClient();
+
+    /**
+     * Creates a BlockEntityType using platform-specific builders.
+     */
+    <T extends BlockEntity> BlockEntityType<T> createBlockEntityType(BlockEntityFactory<T> factory, Block... blocks);
+
+    @FunctionalInterface
+    interface BlockEntityFactory<T extends BlockEntity> {
+        @NotNull T create(BlockPos pos, BlockState state);
+    }
 }

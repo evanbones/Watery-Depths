@@ -1,6 +1,9 @@
 package com.evandev.watery_depths.platform;
 
 import com.evandev.watery_depths.platform.services.IPlatformHelper;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.FMLLoader;
@@ -33,5 +36,10 @@ public class ForgePlatformHelper implements IPlatformHelper {
     @Override
     public boolean isPhysicalClient() {
         return FMLLoader.getDist() == Dist.CLIENT;
+    }
+
+    @Override
+    public <T extends BlockEntity> BlockEntityType<T> createBlockEntityType(BlockEntityFactory<T> factory, Block... blocks) {
+        return BlockEntityType.Builder.of(factory::create, blocks).build(null);
     }
 }

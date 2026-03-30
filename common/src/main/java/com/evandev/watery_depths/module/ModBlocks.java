@@ -359,9 +359,8 @@ public class ModBlocks {
     );
 
     public static final BlockDataHolder<?> TUBEWORM = register("tubeworm", BlockDataHolder.of(() ->
-                    new Block(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()))
+                    new TubewormBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()))
             .cutout()
-            .withModel(BlockDataHolder.Model.CUSTOM)
             .withItem()
             .dropsSelf()
             .withTranslation("Tubeworm")
