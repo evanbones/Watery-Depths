@@ -31,7 +31,7 @@ public class ForgeClientEvents {
     public static void registerBlockColors(RegisterColorHandlersEvent.Block event) {
         event.register((state, level, pos, tintIndex) -> {
             if (tintIndex == 0) {
-                return state.getValue(TubewormBlock.COLOR).getTextColor();
+                return state.getValue(TubewormBlock.COLOR).getMapColor().col;
             }
             return -1; // no tint
         }, ModBlocks.TUBEWORM.get());

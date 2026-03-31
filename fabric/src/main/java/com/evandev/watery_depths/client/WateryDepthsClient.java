@@ -31,7 +31,7 @@ public class WateryDepthsClient implements ClientModInitializer {
 
         ColorProviderRegistry.BLOCK.register((state, level, pos, tintIndex) -> {
             if (tintIndex == 0) {
-                return state.getValue(TubewormBlock.COLOR).getTextColor();
+                return state.getValue(TubewormBlock.COLOR).getMapColor().col;
             }
             return -1;
         }, ModBlocks.TUBEWORM.get());
