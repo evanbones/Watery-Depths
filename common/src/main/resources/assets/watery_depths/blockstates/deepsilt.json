@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "watery_depths:block/deepsilt"
+      },
+      {
+        "model": "watery_depths:block/deepsilt",
+        "y": 90
+      },
+      {
+        "model": "watery_depths:block/deepsilt",
+        "y": 180
+      },
+      {
+        "model": "watery_depths:block/deepsilt",
+        "y": 270
+      }
+    ]
+  }
+}

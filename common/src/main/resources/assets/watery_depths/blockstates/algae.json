@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "watery_depths:block/algae"
+      },
+      {
+        "model": "watery_depths:block/algae",
+        "y": 90
+      },
+      {
+        "model": "watery_depths:block/algae",
+        "y": 180
+      },
+      {
+        "model": "watery_depths:block/algae",
+        "y": 270
+      }
+    ]
+  }
+}
