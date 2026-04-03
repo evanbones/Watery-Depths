@@ -30,7 +30,6 @@ public class ModBlocks {
     private static final Map<ResourceLocation, BlockDataHolder<?>> BLOCK_REGISTRY = new LinkedHashMap<>();
     public static final BlockDataHolder<?> SILT = register("silt", BlockDataHolder.of(() ->
                     new SandBlock(0x8c7c6a, BlockBehaviour.Properties.copy(Blocks.SAND).mapColor(MapColor.COLOR_GRAY).sound(ModSounds.SILT_SOUNDS)))
-            .withModel(BlockDataHolder.Model.CUBE)
             .withItem()
             .dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_SHOVEL, BlockTags.SAND)
@@ -48,7 +47,6 @@ public class ModBlocks {
 
     public static final BlockDataHolder<?> DEEPSILT = register("deepsilt", BlockDataHolder.of(() ->
                     new SandBlock(0x3a3a3a, BlockBehaviour.Properties.copy(Blocks.SAND).mapColor(MapColor.COLOR_BLACK).sound(ModSounds.SILT_SOUNDS)))
-            .withModel(BlockDataHolder.Model.CUBE)
             .withItem()
             .dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_SHOVEL, BlockTags.SAND)
@@ -75,7 +73,6 @@ public class ModBlocks {
 
     public static final BlockDataHolder<?> ALGAE = register("algae", BlockDataHolder.of(() ->
                     new AlgalBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_BLOCK).mapColor(MapColor.COLOR_GREEN).sound(ModSounds.ALGAE_SOUNDS), Blocks.DIRT))
-            .withModel(BlockDataHolder.Model.CUBE)
             .withItem()
             .dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_HOE, BlockTags.DIRT)
@@ -132,7 +129,7 @@ public class ModBlocks {
     );
 
     public static final BlockDataHolder<?> SULFIDE = register("sulfide", BlockDataHolder.of(() ->
-                    new Block(BlockBehaviour.Properties.copy(Blocks.STONE)))
+                    new Block(BlockBehaviour.Properties.copy(Blocks.CALCITE)))
             .withModel(BlockDataHolder.Model.CUBE)
             .withItem()
             .dropsSelf()

@@ -31,7 +31,7 @@ public class ForgeClientEvents {
     public static void registerBlockColors(RegisterColorHandlersEvent.Block event) {
         event.register((state, level, pos, tintIndex) -> {
             if (tintIndex == 0) {
-                return state.getValue(TubewormBlock.COLOR).getMapColor().col;
+                return getTubewormColor(state.getValue(TubewormBlock.COLOR));
             }
             return -1; // no tint
         }, ModBlocks.TUBEWORM.get());
@@ -41,9 +41,30 @@ public class ForgeClientEvents {
     public static void registerItemColors(RegisterColorHandlersEvent.Item event) {
         event.register((stack, tintIndex) -> {
             if (tintIndex == 0) {
-                return DyeColor.RED.getTextColor();
+                return getTubewormColor(DyeColor.RED);
             }
             return -1;
         }, ModBlocks.TUBEWORM.get());
+    }
+
+    private static int getTubewormColor(DyeColor color) {
+        return switch (color) {
+            case BLACK -> 0x2f2332;
+            case GRAY -> 0x62636e;
+            case LIGHT_GRAY -> 0x9fb2b1;
+            case WHITE -> 0xe1e5e5;
+            case PINK -> 0xff87c5;
+            case MAGENTA -> 0xee61e6;
+            case PURPLE -> 0x8d4ad0;
+            case BLUE -> 0x5163ee;
+            case LIGHT_BLUE -> 0x6aadff;
+            case CYAN -> 0x4ad3e3;
+            case GREEN -> 0x409f42;
+            case LIME -> 0x50ff52;
+            case YELLOW -> 0xfbd734;
+            case ORANGE -> 0xff930b;
+            case RED -> 0xb82f35;
+            case BROWN -> 0x9c5b39;
+        };
     }
 }
