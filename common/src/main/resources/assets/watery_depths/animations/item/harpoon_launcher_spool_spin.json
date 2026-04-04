@@ -1,0 +1,26 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"spool": {
+			"animation_length": 0.25,
+			"bones": {
+				"spool": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.0833": {
+							"vector": [90, 0, 0]
+						},
+						"0.1667": {
+							"vector": [180, 0, 0]
+						},
+						"0.25": {
+							"vector": [270, 0, 0]
+						}
+					}
+				}
+			}
+		}
+	}
+}
