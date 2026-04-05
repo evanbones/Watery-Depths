@@ -1,5 +1,6 @@
 package com.evandev.watery_depths.resources.config;
 
+import com.evandev.watery_depths.platform.Services;
 import com.google.gson.*;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.Nullable;
@@ -47,6 +48,13 @@ public class ConfiguredData {
     }
 
     public static class Common {
+
+        private static JsonArray createArray(double min, double max) {
+            JsonArray array = new JsonArray();
+            array.add(min);
+            array.add(max);
+            return array;
+        }
 
         public static String appendToTag(JsonElement json, String... newValues) {
             JsonObject obj;

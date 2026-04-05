@@ -2,12 +2,15 @@ package com.evandev.watery_depths;
 
 import com.evandev.watery_depths.config.ModConfig;
 import com.evandev.watery_depths.module.*;
+import com.evandev.watery_depths.resources.config.ConfiguredData;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.ComposterBlock;
 
 public class CommonClass {
 
     public static void init() {
+        ConfiguredData.register();
+
         ModConfig.load();
         ModSounds.load();
         ModBlocks.load();

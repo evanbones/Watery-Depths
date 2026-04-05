@@ -6,6 +6,8 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "BlockEntityTypeMixin",
+    "MultiPackResourceManagerMixin",
+    "OverworldBiomeBuilderMixin",
     "accessor.BlockBehaviourAccessor",
     "accessor.ButtonBlockAccessor",
     "accessor.DoorBlockAccessor",

@@ -9,6 +9,7 @@ import com.evandev.watery_depths.registration.FlammabilityRegistry;
 import com.evandev.watery_depths.registration.FuelRegistry;
 import com.evandev.watery_depths.registration.StrippableRegistry;
 import com.evandev.watery_depths.registration.holders.BlockDataHolder;
+import com.evandev.watery_depths.world.feature.tree.CypressTreeGrower;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Item;
@@ -251,7 +252,7 @@ public class ModBlocks {
     );
 
     public static final BlockDataHolder<?> CYPRESS_SAPLING = register("cypress_sapling", BlockDataHolder.of(() ->
-                    SaplingBlockAccessor.createSaplingBlock(null, BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING))) // TODO: add custom treegrower
+                    SaplingBlockAccessor.createSaplingBlock(new CypressTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)))
             .withModel(BlockDataHolder.Model.CROSS)
             .cutout()
             .withItem()
