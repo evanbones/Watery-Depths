@@ -20,7 +20,6 @@ public class ModDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(ModBlockTagProvider::new);
         pack.addProvider(ModLanguageProvider::new);
         pack.addProvider(ModRecipeProvider::new);
-        pack.addProvider((FabricDataOutput output) -> new ModBiomeSliceProvider(output));
     }
 
     @Override

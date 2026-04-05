@@ -6,11 +6,9 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "BlockEntityTypeMixin",
-    "MinecraftServerMixin",
     "MultiPackResourceManagerMixin",
     "accessor.BlockBehaviourAccessor",
     "accessor.ButtonBlockAccessor",
-    "accessor.ChunkGeneratorAccessor",
     "accessor.DoorBlockAccessor",
     "accessor.IronBarsBlockAccessor",
     "accessor.PressurePlateBlockAccessor",

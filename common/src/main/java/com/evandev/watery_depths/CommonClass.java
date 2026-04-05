@@ -3,9 +3,7 @@ package com.evandev.watery_depths;
 import com.evandev.watery_depths.config.ModConfig;
 import com.evandev.watery_depths.module.*;
 import com.evandev.watery_depths.resources.config.ConfiguredData;
-import com.evandev.watery_depths.world.biome.WateryDepthsBiomeSource;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
+import com.evandev.watery_depths.world.biome.ModBiomes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.ComposterBlock;
 
@@ -21,8 +19,7 @@ public class CommonClass {
         ModItems.load();
         ModEntities.load();
         ModCreativeTabs.load();
-
-        Registry.register(BuiltInRegistries.BIOME_SOURCE, new ResourceLocation(Constants.MOD_ID, "modded_biome_source"), WateryDepthsBiomeSource.CODEC);
+        ModBiomes.load();
     }
 
     public static ResourceLocation makeID(String name) {
