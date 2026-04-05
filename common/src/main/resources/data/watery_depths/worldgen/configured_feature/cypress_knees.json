@@ -11,9 +11,9 @@
           "to_place": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "watery_depths:cypress_wood",
+              "Name": "watery_depths:cypress_roots",
               "Properties": {
-                "axis": "y"
+                "waterlogged": "false"
               }
             }
           }
