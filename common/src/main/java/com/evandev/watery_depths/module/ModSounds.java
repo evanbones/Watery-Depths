@@ -14,11 +14,13 @@ import java.util.function.Supplier;
 public class ModSounds {
     public static final RegistrationProvider<SoundEvent> SOUNDS = RegistrationProvider.get(BuiltInRegistries.SOUND_EVENT, Constants.MOD_ID);
 
-    // Sound Events
+    // Tubeworms
+    //public static final RegistryObject<SoundEvent> TUBEWORM_HIDE = register("block.watery_depths.tubeworm.hide");
+    //public static final RegistryObject<SoundEvent> TUBEWORM_SHOW = register("block.watery_depths.tubeworm.show");
+
+    // Algae
     public static final RegistryObject<SoundEvent> ALGAE_BREAK = register("block.watery_depths.algae.break");
     public static final RegistryObject<SoundEvent> ALGAE_STEP = register("block.watery_depths.algae.step");
-
-    // Sound Types
     public static final SoundType ALGAE_SOUNDS = new ModSoundType(1.0f, 1.0f, ALGAE_BREAK, ALGAE_STEP, ALGAE_BREAK, ALGAE_BREAK, ALGAE_STEP);
     public static final RegistryObject<SoundEvent> ALGAL_GRAVEL_BREAK = register("block.watery_depths.algal_gravel.break");
     public static final RegistryObject<SoundEvent> ALGAL_GRAVEL_STEP = register("block.watery_depths.algal_gravel.step");

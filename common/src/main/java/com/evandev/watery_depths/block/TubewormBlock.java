@@ -3,8 +3,10 @@ package com.evandev.watery_depths.block;
 import com.evandev.watery_depths.block.entity.TubewormBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -55,6 +57,18 @@ public class TubewormBlock extends Block implements SimpleWaterloggedBlock, Enti
     }
 
     @Override
+    public boolean isRandomlyTicking(@NotNull BlockState state) {
+        return state.getValue(SHEARED);
+    }
+
+    @Override
+    public void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
+        if (state.getValue(SHEARED) && random.nextInt(5) == 0) {
+            level.setBlockAndUpdate(pos, state.setValue(SHEARED, false));
+        }
+    }
+
+    @Override
     public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         return SHAPE;
     }
@@ -98,13 +112,12 @@ public class TubewormBlock extends Block implements SimpleWaterloggedBlock, Enti
                 if (!level.isClientSide) {
                     level.setBlockAndUpdate(pos, state.setValue(SHEARED, true));
                     stack.hurtAndBreak(1, player, p -> p.broadcastBreakEvent(hand));
-                    popResource(level, pos, new ItemStack(DyeItem.byColor(state.getValue(COLOR))));
+                    popResource(level, pos, new ItemStack(DyeItem.byColor(state.getValue(COLOR)), 4));
                     level.playSound(null, pos, SoundEvents.SHEEP_SHEAR, SoundSource.BLOCKS, 1.0F, 1.0F);
                 }
                 return InteractionResult.sidedSuccess(level.isClientSide);
             }
-        }
-        else if (stack.getItem() instanceof DyeItem dyeItem) {
+        } else if (stack.getItem() instanceof DyeItem dyeItem) {
             if (state.getValue(COLOR) != dyeItem.getDyeColor()) {
                 if (!level.isClientSide) {
                     level.setBlockAndUpdate(pos, state.setValue(COLOR, dyeItem.getDyeColor()));

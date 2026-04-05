@@ -3,10 +3,14 @@ package com.evandev.watery_depths.block.entity;
 import com.evandev.watery_depths.block.TubewormBlock;
 import com.evandev.watery_depths.block.TubewormPart;
 import com.evandev.watery_depths.module.ModBlockEntities;
+import com.evandev.watery_depths.module.ModSounds;
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
 
 public class TubewormBlockEntity extends BlockEntity {
     public TubewormBlockEntity(BlockPos pos, BlockState state) {
@@ -21,12 +25,20 @@ public class TubewormBlockEntity extends BlockEntity {
             return;
         }
 
-        // search for players within 4 blocks
-        boolean hasPlayerNearby = level.hasNearbyAlivePlayer(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 4.0D);
+        // search for swimming players within 4 blocks
+        boolean hasPlayerNearby = false;
+        for (Player player : level.getEntitiesOfClass(Player.class, new AABB(pos).inflate(4.0D))) {
+            if (player.isSwimming()) {
+                hasPlayerNearby = true;
+                break;
+            }
+        }
+
         boolean currentlyHiding = state.getValue(TubewormBlock.HIDING);
 
         if (hasPlayerNearby != currentlyHiding) {
             level.setBlockAndUpdate(pos, state.setValue(TubewormBlock.HIDING, hasPlayerNearby));
+            //level.playSound(null, pos, hasPlayerNearby ? ModSounds.TUBEWORM_HIDE.get() : ModSounds.TUBEWORM_SHOW.get(), SoundSource.BLOCKS, 1.0F, 1.0F);
         }
     }
 }

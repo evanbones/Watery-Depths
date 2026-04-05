@@ -17,33 +17,6 @@ import net.minecraft.world.item.DyeColor;
 
 public class WateryDepthsClient implements ClientModInitializer {
 
-    @Override
-    public void onInitializeClient() {
-        BlockDataHolder.getCutoutBlocks().forEach(holder -> BlockRenderLayerMap.INSTANCE.putBlock(holder.get(), RenderType.cutout()));
-
-        EntityRendererRegistry.register(ModEntities.CYPRESS_BOAT.get(), context ->
-                new BoatRenderer(context, false, new ResourceLocation(Constants.MOD_ID, "textures/entity/boat/cypress.png"))
-        );
-
-        EntityRendererRegistry.register(ModEntities.CYPRESS_CHEST_BOAT.get(), context ->
-                new BoatRenderer(context, true, new ResourceLocation(Constants.MOD_ID, "textures/entity/chest_boat/cypress.png"))
-        );
-
-        ColorProviderRegistry.BLOCK.register((state, level, pos, tintIndex) -> {
-            if (tintIndex == 0) {
-                return getTubewormColor(state.getValue(TubewormBlock.COLOR));
-            }
-            return -1;
-        }, ModBlocks.TUBEWORM.get());
-
-        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
-            if (tintIndex == 0) {
-                return getTubewormColor(DyeColor.RED);
-            }
-            return -1;
-        }, ModBlocks.TUBEWORM.get());
-    }
-
     private static int getTubewormColor(DyeColor color) {
         return switch (color) {
             case BLACK -> 0x2f2332;
@@ -63,5 +36,26 @@ public class WateryDepthsClient implements ClientModInitializer {
             case RED -> 0xb82f35;
             case BROWN -> 0x9c5b39;
         };
+    }
+
+    @Override
+    public void onInitializeClient() {
+        BlockDataHolder.getCutoutBlocks().forEach(holder -> BlockRenderLayerMap.INSTANCE.putBlock(holder.get(), RenderType.cutout()));
+
+        EntityRendererRegistry.register(ModEntities.CYPRESS_BOAT.get(), context ->
+                new BoatRenderer(context, false, new ResourceLocation(Constants.MOD_ID, "textures/entity/boat/cypress.png"))
+        );
+
+        EntityRendererRegistry.register(ModEntities.CYPRESS_CHEST_BOAT.get(), context ->
+                new BoatRenderer(context, true, new ResourceLocation(Constants.MOD_ID, "textures/entity/chest_boat/cypress.png"))
+        );
+
+        ColorProviderRegistry.BLOCK.register((state, level, pos, tintIndex) -> {
+            if (tintIndex == 0) {
+                return getTubewormColor(state.getValue(TubewormBlock.COLOR));
+            }
+            return -1;
+        }, ModBlocks.TUBEWORM.get());
+
     }
 }

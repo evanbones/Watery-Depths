@@ -37,16 +37,6 @@ public class ForgeClientEvents {
         }, ModBlocks.TUBEWORM.get());
     }
 
-    @SubscribeEvent
-    public static void registerItemColors(RegisterColorHandlersEvent.Item event) {
-        event.register((stack, tintIndex) -> {
-            if (tintIndex == 0) {
-                return getTubewormColor(DyeColor.RED);
-            }
-            return -1;
-        }, ModBlocks.TUBEWORM.get());
-    }
-
     private static int getTubewormColor(DyeColor color) {
         return switch (color) {
             case BLACK -> 0x2f2332;

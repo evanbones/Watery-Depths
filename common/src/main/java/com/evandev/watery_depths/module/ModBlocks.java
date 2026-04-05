@@ -138,7 +138,7 @@ public class ModBlocks {
     );
 
     public static final BlockDataHolder<?> BUDDING_PRISMARINE = register("budding_prismarine", BlockDataHolder.of(() ->
-                    new BuddingPrismarineBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST).randomTicks()))
+                    new BuddingPrismarineBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST).sound(SoundType.STONE).randomTicks()))
             .withModel(BlockDataHolder.Model.CUBE)
             .withItem()
             .dropsSelf()
