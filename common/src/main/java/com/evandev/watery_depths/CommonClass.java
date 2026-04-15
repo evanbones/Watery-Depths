@@ -4,6 +4,8 @@ import com.evandev.watery_depths.config.ModConfig;
 import com.evandev.watery_depths.module.*;
 import com.evandev.watery_depths.resources.config.ConfiguredData;
 import com.evandev.watery_depths.world.biome.ModBiomes;
+import com.evandev.watery_depths.world.feature.tree.custom.ModDecoratorTypes;
+import com.evandev.watery_depths.world.feature.tree.custom.ModPlacerTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.ComposterBlock;
 
@@ -20,6 +22,8 @@ public class CommonClass {
         ModEntities.load();
         ModCreativeTabs.load();
         ModBiomes.load();
+        ModPlacerTypes.load();
+        ModDecoratorTypes.load();
     }
 
     public static ResourceLocation makeID(String name) {

@@ -10,6 +10,7 @@
     "accessor.BlockBehaviourAccessor",
     "accessor.ButtonBlockAccessor",
     "accessor.DoorBlockAccessor",
+    "accessor.FoliagePlacerTypeAccessor",
     "accessor.IronBarsBlockAccessor",
     "accessor.PressurePlateBlockAccessor",
     "accessor.SaplingBlockAccessor",
@@ -17,6 +18,7 @@
     "accessor.StairBlockAccessor",
     "accessor.TorchBlockAccessor",
     "accessor.TrapDoorBlockAccessor",
+    "accessor.TreeDecoratorTypeAccessor",
     "accessor.WallTorchBlockAccessor",
     "accessor.WoodTypeAccessor",
     "accessor.WorldGenRegionAccessor"
