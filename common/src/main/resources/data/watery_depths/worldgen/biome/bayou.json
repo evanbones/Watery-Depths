@@ -1,6 +1,6 @@
 {
-  "temperature": 0.8,
-  "downfall": 0.9,
+  "temperature": 0.75,
+  "downfall": 1.0,
   "has_precipitation": true,
   "effects": {
     "fog_color": 12638463,
@@ -18,9 +18,9 @@
       "replace_current_music": false,
       "sound": "minecraft:music.overworld.swamp"
     },
-    "sky_color": 7907327,
-    "water_color": 6388580,
-    "water_fog_color": 329011
+    "sky_color": 10543845,
+    "water_color": 8896710,
+    "water_fog_color": 4018518
   },
   "spawners": {
     "ambient": [
@@ -177,7 +177,6 @@
       "minecraft:glow_lichen",
       "minecraft:patch_grass_normal",
       "minecraft:patch_dead_bush",
-      "minecraft:patch_waterlily",
       "minecraft:seagrass_swamp",
       "watery_depths:cypress_trees",
       "watery_depths:cypress_knees",
