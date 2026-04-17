@@ -31,7 +31,6 @@ public class ModEntities {
                             new ModChestBoatEntity(type, level, ModItems.CYPRESS_CHEST_BOAT::get), MobCategory.MISC)
                     .sized(1.375F, 0.5625F).clientTrackingRange(10).build(Constants.MOD_ID + ":cypress_chest_boat"));
 
-
     public static final RegistryObject<EntityType<CatfishEntity>> CATFISH = register("catfish", EntityTypeDataHolder.of(
                     () -> EntityType.Builder.of(CatfishEntity::new, MobCategory.WATER_CREATURE)
                             .sized(0.6f, 0.4f)

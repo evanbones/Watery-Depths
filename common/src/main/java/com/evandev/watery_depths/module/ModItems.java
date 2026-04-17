@@ -2,12 +2,15 @@ package com.evandev.watery_depths.module;
 
 import com.evandev.watery_depths.CommonClass;
 import com.evandev.watery_depths.item.ModBoatItem;
+import com.evandev.watery_depths.platform.Services;
 import com.evandev.watery_depths.registration.holders.ItemDataHolder;
 import net.minecraft.data.models.model.ModelTemplate;
 import net.minecraft.data.models.model.ModelTemplates;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.HangingSignItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SignItem;
 import net.minecraft.world.level.material.Fluids;
 
 import java.util.HashMap;
@@ -36,14 +39,14 @@ public class ModItems {
             .withTranslation("Catfish")
     );
 
-    public static final ItemDataHolder<?> CATFISH_BUCKET = register("catfish_bucket", ItemDataHolder.of(() ->
-                    new MobBucketItem(ModEntities.CATFISH.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1)))
+    public static final ItemDataHolder<?> CATFISH_BUCKET = register("catfish_bucket", ItemDataHolder.of(
+                    Services.PLATFORM.createMobBucketItem(ModEntities.CATFISH, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1)))
             .withModel(ModelTemplates.FLAT_ITEM)
             .withTranslation("Catfish Bucket")
     );
 
-    public static final ItemDataHolder<?> CATFISH_SPAWN_EGG = register("catfish_spawn_egg", ItemDataHolder.of(() ->
-                    new SpawnEggItem(ModEntities.CATFISH.get(), 0x545B49, 0x939A86, new Item.Properties()))
+    public static final ItemDataHolder<?> CATFISH_SPAWN_EGG = register("catfish_spawn_egg", ItemDataHolder.of(
+                    Services.PLATFORM.createSpawnEggItem(ModEntities.CATFISH, 0x545B49, 0x939A86, new Item.Properties()))
             .withModel(SPAWN_EGG)
             .withTranslation("Catfish Spawn Egg")
     );
