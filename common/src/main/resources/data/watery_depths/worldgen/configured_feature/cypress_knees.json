@@ -13,7 +13,7 @@
             "state": {
               "Name": "watery_depths:cypress_roots",
               "Properties": {
-                "waterlogged": "false"
+                "waterlogged": "true"
               }
             }
           }

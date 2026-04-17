@@ -30,8 +30,7 @@
         "Name": "watery_depths:cypress_leaves",
         "Properties": {
           "distance": "7",
-          "persistent": "false",
-          "waterlogged": "false"
+          "persistent": "false"
         }
       }
     },
@@ -40,10 +39,7 @@
       "root_provider": {
         "type": "minecraft:simple_state_provider",
         "state": {
-          "Name": "watery_depths:cypress_roots",
-          "Properties": {
-            "waterlogged": "false"
-          }
+          "Name": "watery_depths:cypress_roots"
         }
       },
       "trunk_offset_y": {
@@ -55,7 +51,7 @@
       },
       "mangrove_root_placement": {
         "max_root_width": 2,
-        "max_root_length": 4,
+        "max_root_length": 12,
         "random_skew_chance": 0.2,
         "can_grow_through": "#minecraft:mangrove_roots_can_grow_through",
         "muddy_roots_in": [
@@ -93,8 +89,7 @@
             "Name": "watery_depths:cypress_leaves",
             "Properties": {
               "distance": "7",
-              "persistent": "false",
-              "waterlogged": "false"
+              "persistent": "false"
             }
           }
         }

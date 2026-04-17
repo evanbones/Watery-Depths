@@ -3,7 +3,7 @@
   "config": {
     "tries": 32,
     "xz_spread": 8,
-    "y_spread": 3,
+    "y_spread": 0,
     "feature": {
       "feature": {
         "type": "minecraft:simple_block",
@@ -20,10 +20,26 @@
         {
           "type": "minecraft:block_predicate_filter",
           "predicate": {
-            "type": "minecraft:would_survive",
-            "state": {
-              "Name": "watery_depths:duckweed"
-            }
+            "type": "minecraft:all_of",
+            "predicates": [
+              {
+                "type": "minecraft:matching_blocks",
+                "blocks": [
+                  "minecraft:air"
+                ]
+              },
+              {
+                "type": "minecraft:matching_blocks",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ],
+                "blocks": [
+                  "minecraft:water"
+                ]
+              }
+            ]
           }
         }
       ]
