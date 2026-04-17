@@ -84,6 +84,7 @@ public class ModCreativeTabs {
 
         entries.accept(ModItems.CATFISH.get());
         entries.accept(ModItems.CATFISH_BUCKET.get());
+        entries.accept(ModItems.CATFISH_SPAWN_EGG.get());
 
     }).build());
 

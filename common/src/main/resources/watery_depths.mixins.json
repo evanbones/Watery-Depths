@@ -15,6 +15,7 @@
     "accessor.PressurePlateBlockAccessor",
     "accessor.SaplingBlockAccessor",
     "accessor.SimpleParticleTypeAccessor",
+    "accessor.SpawnPlacementsAccessor",
     "accessor.StairBlockAccessor",
     "accessor.TorchBlockAccessor",
     "accessor.TrapDoorBlockAccessor",

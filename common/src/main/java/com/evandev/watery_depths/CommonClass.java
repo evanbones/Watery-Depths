@@ -24,6 +24,7 @@ public class CommonClass {
         ModBiomes.load();
         ModPlacerTypes.load();
         ModDecoratorTypes.load();
+
     }
 
     public static ResourceLocation makeID(String name) {
@@ -38,5 +39,7 @@ public class CommonClass {
                 ComposterBlock.COMPOSTABLES.put(holder.get().asItem(), holder.getCompostChance());
             }
         });
+
+        ModEntities.registerSpawnPlacements();
     }
 }

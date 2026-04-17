@@ -1,15 +1,14 @@
 package com.evandev.watery_depths.registration.holders;
 
 import com.google.common.collect.ImmutableSet;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityDimensions;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.levelgen.Heightmap;
 
 import java.util.function.Supplier;
 
@@ -17,6 +16,10 @@ public class EntityTypeDataHolder<T extends Entity> {
     private final Supplier<EntityType<T>> entrySupplier;
     private EntityType<T> cachedEntry;
     private String defaultTranslation;
+    private SpawnPlacements.Type placementType;
+    private Heightmap.Types heightmap;
+    private SpawnPlacements.SpawnPredicate<?> spawnPredicate;
+    private Supplier<ItemLike> drop;
 
     private Supplier<AttributeSupplier.Builder> attributesBuilderSupplier;
 
@@ -61,6 +64,42 @@ public class EntityTypeDataHolder<T extends Entity> {
 
     public Supplier<AttributeSupplier.Builder> getAttributesSupplier() {
         return this.attributesBuilderSupplier;
+    }
+
+    public <M extends Mob> EntityTypeDataHolder<T> withSpawnPlacement(SpawnPlacements.Type type, Heightmap.Types heightmap, SpawnPlacements.SpawnPredicate<M> predicate) {
+        this.placementType = type;
+        this.heightmap = heightmap;
+        this.spawnPredicate = predicate;
+        return this;
+    }
+
+    public EntityTypeDataHolder<T> drops(Supplier<ItemLike> drop) {
+        this.drop = drop;
+        return this;
+    }
+
+    public boolean hasSpawnPlacement() {
+        return this.placementType != null;
+    }
+
+    public SpawnPlacements.Type getPlacementType() {
+        return this.placementType;
+    }
+
+    public Heightmap.Types getHeightmap() {
+        return this.heightmap;
+    }
+
+    public SpawnPlacements.SpawnPredicate<?> getSpawnPredicate() {
+        return this.spawnPredicate;
+    }
+
+    public boolean hasDrop() {
+        return this.drop != null;
+    }
+
+    public Supplier<ItemLike> getDrop() {
+        return this.drop;
     }
 
     public static class Builder<T extends Entity> {

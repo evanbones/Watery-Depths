@@ -5,7 +5,6 @@ import com.evandev.watery_depths.world.feature.ModConfiguredFeatures;
 import com.evandev.watery_depths.world.feature.ModPlacedFeatures;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 
@@ -20,6 +19,7 @@ public class ModDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(ModBlockTagProvider::new);
         pack.addProvider(ModLanguageProvider::new);
         pack.addProvider(ModRecipeProvider::new);
+        pack.addProvider(ModEntityLootTableProvider::new);
     }
 
     @Override

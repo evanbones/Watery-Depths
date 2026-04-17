@@ -3,6 +3,7 @@ package com.evandev.watery_depths.client;
 import com.evandev.watery_depths.Constants;
 import com.evandev.watery_depths.block.TubewormBlock;
 import com.evandev.watery_depths.client.renderer.BoatRenderer;
+import com.evandev.watery_depths.client.renderer.CatfishRenderer;
 import com.evandev.watery_depths.module.ModBlocks;
 import com.evandev.watery_depths.module.ModEntities;
 import com.evandev.watery_depths.registration.holders.BlockDataHolder;
@@ -50,12 +51,13 @@ public class WateryDepthsClient implements ClientModInitializer {
                 new BoatRenderer(context, true, new ResourceLocation(Constants.MOD_ID, "textures/entity/chest_boat/cypress.png"))
         );
 
+        EntityRendererRegistry.register(ModEntities.CATFISH.get(), CatfishRenderer::new);
+
         ColorProviderRegistry.BLOCK.register((state, level, pos, tintIndex) -> {
             if (tintIndex == 0) {
                 return getTubewormColor(state.getValue(TubewormBlock.COLOR));
             }
             return -1;
         }, ModBlocks.TUBEWORM.get());
-
     }
 }

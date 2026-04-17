@@ -6,9 +6,9 @@ import com.evandev.watery_depths.registration.holders.ItemDataHolder;
 import net.minecraft.data.models.model.ModelTemplate;
 import net.minecraft.data.models.model.ModelTemplates;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.HangingSignItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SignItem;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.material.Fluids;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -37,9 +37,15 @@ public class ModItems {
     );
 
     public static final ItemDataHolder<?> CATFISH_BUCKET = register("catfish_bucket", ItemDataHolder.of(() ->
-                    new Item(new Item.Properties().stacksTo(1)))
+                    new MobBucketItem(ModEntities.CATFISH.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1)))
             .withModel(ModelTemplates.FLAT_ITEM)
             .withTranslation("Catfish Bucket")
+    );
+
+    public static final ItemDataHolder<?> CATFISH_SPAWN_EGG = register("catfish_spawn_egg", ItemDataHolder.of(() ->
+                    new SpawnEggItem(ModEntities.CATFISH.get(), 0x545B49, 0x939A86, new Item.Properties()))
+            .withModel(SPAWN_EGG)
+            .withTranslation("Catfish Spawn Egg")
     );
 
     public static final ItemDataHolder<?> CYPRESS_SIGN = register("cypress_sign", ItemDataHolder.of(() ->

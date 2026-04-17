@@ -1,12 +1,15 @@
 package com.evandev.watery_depths;
 
+import com.evandev.watery_depths.entity.CatfishEntity;
 import com.evandev.watery_depths.module.ModBlocks;
+import com.evandev.watery_depths.module.ModEntities;
 import com.evandev.watery_depths.module.ModItems;
 import com.evandev.watery_depths.world.feature.ModPlacedFeatures;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -72,5 +75,7 @@ public class WateryDepths implements ModInitializer {
                             ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation("minecraft", "disk_sand"))
                     );
                 });
+
+        FabricDefaultAttributeRegistry.register(ModEntities.CATFISH.get(), CatfishEntity.createAttributes());
     }
 }

@@ -33,12 +33,6 @@
     ],
     "axolotls": [],
     "creature": [
-      {
-        "type": "minecraft:frog",
-        "maxCount": 5,
-        "minCount": 2,
-        "weight": 10
-      }
     ],
     "misc": [],
     "monster": [
@@ -113,7 +107,14 @@
         "weight": 25
       }
     ],
-    "water_creature": []
+    "water_creature": [
+      {
+        "type": "watery_depths:catfish",
+        "maxCount": 2,
+        "minCount": 1,
+        "weight": 10
+      }
+    ]
   },
   "spawn_costs": {},
   "carvers": {

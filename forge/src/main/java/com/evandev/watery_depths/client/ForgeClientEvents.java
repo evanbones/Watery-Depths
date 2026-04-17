@@ -3,6 +3,7 @@ package com.evandev.watery_depths.client;
 import com.evandev.watery_depths.Constants;
 import com.evandev.watery_depths.block.TubewormBlock;
 import com.evandev.watery_depths.client.renderer.BoatRenderer;
+import com.evandev.watery_depths.client.renderer.CatfishRenderer;
 import com.evandev.watery_depths.module.ModBlocks;
 import com.evandev.watery_depths.module.ModEntities;
 import net.minecraft.resources.ResourceLocation;
@@ -25,6 +26,8 @@ public class ForgeClientEvents {
         event.registerEntityRenderer(ModEntities.CYPRESS_CHEST_BOAT.get(), context ->
                 new BoatRenderer(context, true, new ResourceLocation(Constants.MOD_ID, "textures/entity/chest_boat/cypress.png"))
         );
+
+        event.registerEntityRenderer(ModEntities.CATFISH.get(), CatfishRenderer::new);
     }
 
     @SubscribeEvent
