@@ -1,0 +1,10 @@
+{
+  "values": [
+    "watery_depths:cypress_log",
+    "watery_depths:stripped_cypress_log",
+    "watery_depths:cypress_wood",
+    "watery_depths:stripped_cypress_wood",
+    "watery_depths:cypress_planks",
+    "watery_depths:cypress_roots"
+  ]
+}

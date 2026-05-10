@@ -41,15 +41,15 @@ public class ModModelProvider extends FabricModelProvider {
                 } else if (holder.getModel() == BlockDataHolder.Model.NYLIUM) {
                     ResourceLocation bottomTexture;
                     if (holder == ModBlocks.ALGAL_SAND) {
-                        bottomTexture = new ResourceLocation("minecraft", "block/sand");
+                        bottomTexture = ResourceLocation.withDefaultNamespace("block/sand");
                     } else if (holder == ModBlocks.ALGAL_GRAVEL) {
-                        bottomTexture = new ResourceLocation("minecraft", "block/gravel");
+                        bottomTexture = ResourceLocation.withDefaultNamespace("block/gravel");
                     } else {
-                        bottomTexture = new ResourceLocation(Constants.MOD_ID, "block/silt");
+                        bottomTexture = ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "block/silt");
                     }
 
                     TextureMapping mapping = new TextureMapping()
-                            .put(TextureSlot.TOP, new ResourceLocation(Constants.MOD_ID, "block/algae"))
+                            .put(TextureSlot.TOP, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "block/algae"))
                             .put(TextureSlot.SIDE, TextureMapping.getBlockTexture(holder.get()))
                             .put(TextureSlot.BOTTOM, bottomTexture);
 
@@ -99,7 +99,7 @@ public class ModModelProvider extends FabricModelProvider {
                         );
                     }
                 } else if (holder.getModel() == BlockDataHolder.Model.CUSTOM) {
-                    gen.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(holder.get(), new ResourceLocation(Constants.MOD_ID, "block/" + BuiltInRegistries.BLOCK.getKey(holder.get()).getPath())));
+                    gen.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(holder.get(), ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "block/" + BuiltInRegistries.BLOCK.getKey(holder.get()).getPath())));
                 } else if (holder.getModel() == BlockDataHolder.Model.DOUBLE_CROSS) {
                     ResourceLocation top = ModelTemplates.CROSS.create(BuiltInRegistries.BLOCK.getKey(holder.get()).withSuffix("_top"), TextureMapping.cross(TextureMapping.getBlockTexture(holder.get(), "_top")), gen.modelOutput);
                     ResourceLocation bottom = ModelTemplates.CROSS.create(BuiltInRegistries.BLOCK.getKey(holder.get()).withSuffix("_bottom"), TextureMapping.cross(TextureMapping.getBlockTexture(holder.get(), "_bottom")), gen.modelOutput);

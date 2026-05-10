@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "watery_depths:cypress_log",
-    "watery_depths:stripped_cypress_log",
-    "watery_depths:cypress_wood",
-    "watery_depths:stripped_cypress_wood"
-  ]
-}

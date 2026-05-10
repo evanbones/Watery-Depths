@@ -24,24 +24,29 @@ public class ModEntities {
     public static final RegistryObject<EntityType<ModBoatEntity>> CYPRESS_BOAT = ENTITIES.register("cypress_boat",
             () -> EntityType.Builder.<ModBoatEntity>of((type, level) ->
                             new ModBoatEntity(type, level, ModItems.CYPRESS_BOAT::get), MobCategory.MISC)
-                    .sized(1.375F, 0.5625F).clientTrackingRange(10).build(Constants.MOD_ID + ":cypress_boat"));
+                    .sized(1.375F, 0.5625F)
+                    .clientTrackingRange(10)
+                    .build(Constants.MOD_ID + ":cypress_boat"));
 
     public static final RegistryObject<EntityType<ModChestBoatEntity>> CYPRESS_CHEST_BOAT = ENTITIES.register("cypress_chest_boat",
             () -> EntityType.Builder.<ModChestBoatEntity>of((type, level) ->
                             new ModChestBoatEntity(type, level, ModItems.CYPRESS_CHEST_BOAT::get), MobCategory.MISC)
-                    .sized(1.375F, 0.5625F).clientTrackingRange(10).build(Constants.MOD_ID + ":cypress_chest_boat"));
+                    .sized(1.375F, 0.5625F)
+                    .clientTrackingRange(10)
+                    .build(Constants.MOD_ID + ":cypress_chest_boat"));
 
     public static final RegistryObject<EntityType<CatfishEntity>> CATFISH = register("catfish", EntityTypeDataHolder.of(
                     () -> EntityType.Builder.of(CatfishEntity::new, MobCategory.WATER_CREATURE)
                             .sized(0.6f, 0.4f)
                             .clientTrackingRange(4)
                             .build(Constants.MOD_ID + ":catfish"))
-            .withSpawnPlacement(SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, WaterAnimal::checkSurfaceWaterAnimalSpawnRules)
+            .withSpawnPlacement(SpawnPlacementTypes.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, WaterAnimal::checkSurfaceWaterAnimalSpawnRules)
+            .withTranslation("Catfish")
             .drops(ModItems.CATFISH::get)
     );
 
     private static <T extends Entity> RegistryObject<EntityType<T>> register(String name, EntityTypeDataHolder<T> holder) {
-        ResourceLocation id = new ResourceLocation(Constants.MOD_ID, name);
+        ResourceLocation id = ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, name);
         ENTITY_REGISTRY.put(id, holder);
         return ENTITIES.register(name, holder::get);
     }

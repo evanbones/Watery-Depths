@@ -20,7 +20,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 public class ModItems {
-    public static final ModelTemplate SPAWN_EGG = new ModelTemplate(Optional.of(new ResourceLocation("minecraft", "item/template_spawn_egg")), Optional.empty());
+    public static final ModelTemplate SPAWN_EGG = new ModelTemplate(Optional.of(ResourceLocation.withDefaultNamespace("item/template_spawn_egg")), Optional.empty());
 
     /**
      * Map of all Item Resource Locations to their ItemDataHolders.

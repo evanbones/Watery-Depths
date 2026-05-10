@@ -24,11 +24,10 @@ public class CommonClass {
         ModBiomes.load();
         ModPlacerTypes.load();
         ModDecoratorTypes.load();
-
     }
 
     public static ResourceLocation makeID(String name) {
-        return new ResourceLocation(Constants.MOD_ID, name);
+        return ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, name);
     }
 
     public static void commonSetup() {

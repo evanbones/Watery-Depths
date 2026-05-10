@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "watery_depths:prismarine_tiles"
-  },
-  "result": "watery_depths:prismarine_tiles_stairs"
-}

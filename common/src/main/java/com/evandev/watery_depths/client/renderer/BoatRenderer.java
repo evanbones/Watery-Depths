@@ -52,7 +52,7 @@ public class BoatRenderer extends EntityRenderer<Boat> {
         poseStack.mulPose(Axis.YP.rotationDegrees(90.0F));
         this.model.setupAnim(boat, partialTicks, 0.0F, -0.1F, 0.0F, 0.0F);
         VertexConsumer vertexConsumer = buffer.getBuffer(this.model.renderType(this.getTextureLocation(boat)));
-        this.model.renderToBuffer(poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+        this.model.renderToBuffer(poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY);
 
         if (!boat.isUnderWater()) {
             VertexConsumer waterMask = buffer.getBuffer(RenderType.waterMask());

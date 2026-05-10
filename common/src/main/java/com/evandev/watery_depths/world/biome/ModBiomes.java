@@ -2,7 +2,8 @@ package com.evandev.watery_depths.world.biome;
 
 import com.evandev.watery_depths.CommonClass;
 import com.terraformersmc.biolith.api.biome.BiomePlacement;
-import com.terraformersmc.biolith.api.biome.SubBiomeMatcher;
+import com.terraformersmc.biolith.api.biome.sub.BiomeParameterTargets;
+import com.terraformersmc.biolith.api.biome.sub.CriterionBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
@@ -17,13 +18,7 @@ public class ModBiomes {
         BiomePlacement.addSubOverworld(
                 Biomes.SWAMP,
                 BAYOU,
-                SubBiomeMatcher.of(
-                        SubBiomeMatcher.Criterion.ofMin(
-                                SubBiomeMatcher.CriterionTargets.TEMPERATURE,
-                                SubBiomeMatcher.CriterionTypes.VALUE,
-                                0.2F
-                        )
-                )
+                CriterionBuilder.valueMin(BiomeParameterTargets.TEMPERATURE, 0.2F)
         );
     }
 }

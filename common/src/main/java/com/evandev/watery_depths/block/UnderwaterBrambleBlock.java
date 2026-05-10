@@ -1,5 +1,6 @@
 package com.evandev.watery_depths.block;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.FluidTags;
@@ -20,10 +21,16 @@ import org.jetbrains.annotations.NotNull;
 
 public class UnderwaterBrambleBlock extends BushBlock implements SimpleWaterloggedBlock {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+    public static final MapCodec<UnderwaterBrambleBlock> CODEC = simpleCodec(UnderwaterBrambleBlock::new);
 
     public UnderwaterBrambleBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(WATERLOGGED, true));
+    }
+
+    @Override
+    protected @NotNull MapCodec<? extends BushBlock> codec() {
+        return CODEC;
     }
 
     @Override

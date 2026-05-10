@@ -6,14 +6,17 @@ import com.evandev.watery_depths.registration.holders.BlockDataHolder;
 import com.evandev.watery_depths.registration.holders.ItemDataHolder;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
+import net.minecraft.core.HolderLookup;
+
+import java.util.concurrent.CompletableFuture;
 
 public class ModLanguageProvider extends FabricLanguageProvider {
-    public ModLanguageProvider(FabricDataOutput dataOutput) {
-        super(dataOutput, "en_us");
+    public ModLanguageProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+        super(dataOutput, "en_us", registriesFuture);
     }
 
     @Override
-    public void generateTranslations(TranslationBuilder translationBuilder) {
+    public void generateTranslations(HolderLookup.Provider registryLookup, TranslationBuilder translationBuilder) {
         for (BlockDataHolder<?> holder : ModBlocks.getBlockRegistry().values()) {
             if (holder.hasTranslation()) {
                 translationBuilder.add(holder.get(), holder.getTranslation());

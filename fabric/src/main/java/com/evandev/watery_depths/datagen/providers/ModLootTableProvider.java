@@ -1,13 +1,16 @@
 package com.evandev.watery_depths.datagen.providers;
 
-import com.evandev.watery_depths.registration.holders.BlockDataHolder;
 import com.evandev.watery_depths.module.ModBlocks;
+import com.evandev.watery_depths.registration.holders.BlockDataHolder;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+import net.minecraft.core.HolderLookup;
+
+import java.util.concurrent.CompletableFuture;
 
 public class ModLootTableProvider extends FabricBlockLootTableProvider {
-    public ModLootTableProvider(FabricDataOutput dataOutput) {
-        super(dataOutput);
+    public ModLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+        super(dataOutput, registriesFuture);
     }
 
     @Override

@@ -5,21 +5,22 @@ import com.evandev.watery_depths.module.ModBlocks;
 import com.evandev.watery_depths.registration.holders.BlockDataHolder;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 
-import java.util.function.Consumer;
+import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
-    public ModRecipeProvider(FabricDataOutput output) {
-        super(output);
+    public ModRecipeProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+        super(output, registriesFuture);
     }
 
     @Override
-    public void buildRecipes(Consumer<FinishedRecipe> exporter) {
+    public void buildRecipes(RecipeOutput exporter) {
         for (BlockDataHolder<?> holder : ModBlocks.getBlockRegistry().values()) {
             if (!holder.hasItem()) continue;
             Block baseBlock = holder.get();
@@ -115,17 +116,17 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 if (holder.getStairs() != null) {
                     SingleItemRecipeBuilder.stonecutting(Ingredient.of(baseBlock), RecipeCategory.BUILDING_BLOCKS, holder.getStairs().get(), 1)
                             .unlockedBy(getHasName(baseBlock), has(baseBlock))
-                            .save(exporter, new ResourceLocation(Constants.MOD_ID, BuiltInRegistries.BLOCK.getKey(holder.getStairs().get()).getPath() + "_from_stonecutting"));
+                            .save(exporter, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, BuiltInRegistries.BLOCK.getKey(holder.getStairs().get()).getPath() + "_from_stonecutting"));
                 }
                 if (holder.getSlab() != null) {
                     SingleItemRecipeBuilder.stonecutting(Ingredient.of(baseBlock), RecipeCategory.BUILDING_BLOCKS, holder.getSlab().get(), 2)
                             .unlockedBy(getHasName(baseBlock), has(baseBlock))
-                            .save(exporter, new ResourceLocation(Constants.MOD_ID, BuiltInRegistries.BLOCK.getKey(holder.getSlab().get()).getPath() + "_from_stonecutting"));
+                            .save(exporter, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, BuiltInRegistries.BLOCK.getKey(holder.getSlab().get()).getPath() + "_from_stonecutting"));
                 }
                 if (holder.getWall() != null) {
                     SingleItemRecipeBuilder.stonecutting(Ingredient.of(baseBlock), RecipeCategory.DECORATIONS, holder.getWall().get(), 1)
                             .unlockedBy(getHasName(baseBlock), has(baseBlock))
-                            .save(exporter, new ResourceLocation(Constants.MOD_ID, BuiltInRegistries.BLOCK.getKey(holder.getWall().get()).getPath() + "_from_stonecutting"));
+                            .save(exporter, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, BuiltInRegistries.BLOCK.getKey(holder.getWall().get()).getPath() + "_from_stonecutting"));
                 }
             }
         }

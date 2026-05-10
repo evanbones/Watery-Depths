@@ -3,7 +3,7 @@ package com.evandev.watery_depths.world.feature;
 import com.evandev.watery_depths.CommonClass;
 import com.evandev.watery_depths.module.ModBlocks;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
@@ -19,12 +19,13 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> SILT_DISK = create("silt_disk");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAND_DISK = create("sand_disk");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CLAY_DISK = create("clay_disk");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CYPRESS = create("cypress");
 
     public static ResourceKey<ConfiguredFeature<?, ?>> create(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, CommonClass.makeID(name));
     }
 
-    public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
+    public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
         RuleBasedBlockStateProvider siltState = RuleBasedBlockStateProvider.simple(ModBlocks.SILT.get().defaultBlockState().getBlock());
         RuleBasedBlockStateProvider sandState = RuleBasedBlockStateProvider.simple(Blocks.SAND);
         RuleBasedBlockStateProvider clayState = RuleBasedBlockStateProvider.simple(Blocks.CLAY);

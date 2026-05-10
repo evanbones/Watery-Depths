@@ -1,6 +1,6 @@
 package com.evandev.watery_depths.world.feature.tree.custom;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
@@ -12,7 +12,7 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerTy
 import org.jetbrains.annotations.NotNull;
 
 public class CypressFoliagePlacer extends FoliagePlacer {
-    public static final Codec<CypressFoliagePlacer> CODEC = RecordCodecBuilder.create(instance ->
+    public static final MapCodec<CypressFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec(instance ->
             foliagePlacerParts(instance).apply(instance, CypressFoliagePlacer::new)
     );
 
@@ -22,7 +22,6 @@ public class CypressFoliagePlacer extends FoliagePlacer {
 
     @Override
     protected @NotNull FoliagePlacerType<?> type() {
-        // TODO: actual FoliagePlacerType registry object
         return ModPlacerTypes.CYPRESS_FOLIAGE_PLACER.get();
     }
 

@@ -1,16 +1,20 @@
 package com.evandev.watery_depths.resources.config;
 
 import com.evandev.watery_depths.Constants;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.PackLocationInfo;
 import net.minecraft.server.packs.PackResources;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.metadata.MetadataSectionSerializer;
+import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.server.packs.resources.IoSupplier;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Optional;
 import java.util.Set;
 
 public class ConfiguredResources implements PackResources {
@@ -42,8 +46,13 @@ public class ConfiguredResources implements PackResources {
     }
 
     @Override
-    public @NotNull String packId() {
-        return Constants.MOD_ID + "_configured_data";
+    public @NotNull PackLocationInfo location() {
+        return new PackLocationInfo(
+                Constants.MOD_ID + "_configured_data",
+                Component.literal("Watery Depths Configured Data"),
+                PackSource.BUILT_IN,
+                Optional.empty()
+        );
     }
 
     @Override

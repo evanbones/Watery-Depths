@@ -44,7 +44,7 @@ public class ModSounds {
     public static final SoundType SILT_SOUNDS = new ModSoundType(1.0f, 1.0f, SILT_BREAK, SILT_STEP, SILT_BREAK, SILT_BREAK, SILT_STEP);
 
     private static RegistryObject<SoundEvent> register(String name) {
-        return SOUNDS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(Constants.MOD_ID, name)));
+        return SOUNDS.register(name, () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, name)));
     }
 
     public static void load() {

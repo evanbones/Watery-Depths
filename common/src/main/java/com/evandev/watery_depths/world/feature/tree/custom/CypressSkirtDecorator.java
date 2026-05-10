@@ -1,16 +1,17 @@
 package com.evandev.watery_depths.world.feature.tree.custom;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
 public class CypressSkirtDecorator extends TreeDecorator {
-    public static final Codec<CypressSkirtDecorator> CODEC = RecordCodecBuilder.create(instance ->
+    public static final MapCodec<CypressSkirtDecorator> CODEC = RecordCodecBuilder.mapCodec(instance ->
             instance.group(
                     BlockStateProvider.CODEC.fieldOf("block_provider").forGetter(d -> d.blockProvider)
             ).apply(instance, CypressSkirtDecorator::new)
@@ -23,7 +24,7 @@ public class CypressSkirtDecorator extends TreeDecorator {
     }
 
     @Override
-    protected TreeDecoratorType<?> type() {
+    protected @NotNull TreeDecoratorType<?> type() {
         return ModDecoratorTypes.CYPRESS_SKIRT.get();
     }
 

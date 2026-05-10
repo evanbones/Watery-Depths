@@ -2,7 +2,7 @@ package com.evandev.watery_depths.world.feature;
 
 import com.evandev.watery_depths.CommonClass;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.placement.*;
@@ -18,7 +18,7 @@ public class ModPlacedFeatures {
         return ResourceKey.create(Registries.PLACED_FEATURE, CommonClass.makeID(name));
     }
 
-    public static void bootstrap(BootstapContext<PlacedFeature> context) {
+    public static void bootstrap(BootstrapContext<PlacedFeature> context) {
         var configLookup = context.lookup(Registries.CONFIGURED_FEATURE);
 
         context.register(SILT_DISK, new PlacedFeature(configLookup.getOrThrow(ModConfiguredFeatures.SILT_DISK),

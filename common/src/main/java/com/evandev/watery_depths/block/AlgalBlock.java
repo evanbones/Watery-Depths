@@ -1,5 +1,8 @@
 package com.evandev.watery_depths.block;
 
+import com.evandev.watery_depths.Constants;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -16,8 +19,21 @@ import org.jetbrains.annotations.NotNull;
 
 public class AlgalBlock extends FallingBlock implements BonemealableBlock {
 
+    public static final MapCodec<AlgalBlock> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+            propertiesCodec(),
+            BuiltInRegistries.BLOCK.byNameCodec().fieldOf("baseBlock").forGetter(b -> b.baseBlock)
+    ).apply(instance, AlgalBlock::new));
+
+    private final Block baseBlock;
+
     public AlgalBlock(Properties properties, Block baseBlock) {
         super(properties);
+        this.baseBlock = baseBlock;
+    }
+
+    @Override
+    protected @NotNull MapCodec<? extends FallingBlock> codec() {
+        return CODEC;
     }
 
     @Override
@@ -29,7 +45,6 @@ public class AlgalBlock extends FallingBlock implements BonemealableBlock {
     @Override
     public void randomTick(@NotNull BlockState state, ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
         if (!level.isClientSide && level.isWaterAt(pos.above())) {
-            // Check for nearby Kelp
             boolean hasKelp = false;
             for (BlockPos checkPos : BlockPos.betweenClosed(pos.offset(-3, -2, -3), pos.offset(3, 2, 3))) {
                 BlockState checkState = level.getBlockState(checkPos);
@@ -40,7 +55,6 @@ public class AlgalBlock extends FallingBlock implements BonemealableBlock {
             }
 
             if (hasKelp && random.nextInt(4) == 0) {
-                // Try spreading to nearby blocks
                 BlockPos targetPos = pos.offset(random.nextInt(3) - 1, random.nextInt(3) - 1, random.nextInt(3) - 1);
                 BlockState targetState = level.getBlockState(targetPos);
                 BlockState newState = getAlgalVariant(targetState);
@@ -53,19 +67,18 @@ public class AlgalBlock extends FallingBlock implements BonemealableBlock {
     }
 
     private BlockState getAlgalVariant(BlockState state) {
-        // TODO: convert this to a Map or Registry lookup
         ResourceLocation id = BuiltInRegistries.BLOCK.getKey(state.getBlock());
         if (state.is(Blocks.SAND))
-            return BuiltInRegistries.BLOCK.get(new ResourceLocation("watery_depths", "algal_sand")).defaultBlockState();
+            return BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "algal_sand")).defaultBlockState();
         if (state.is(Blocks.GRAVEL))
-            return BuiltInRegistries.BLOCK.get(new ResourceLocation("watery_depths", "algal_gravel")).defaultBlockState();
+            return BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "algal_gravel")).defaultBlockState();
         if (id.getPath().equals("silt"))
-            return BuiltInRegistries.BLOCK.get(new ResourceLocation("watery_depths", "algal_silt")).defaultBlockState();
+            return BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "algal_silt")).defaultBlockState();
         return null;
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, @NotNull BlockState state, boolean isClient) {
+    public boolean isValidBonemealTarget(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state) {
         return level.isWaterAt(pos.above());
     }
 

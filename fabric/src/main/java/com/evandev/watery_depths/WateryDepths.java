@@ -64,15 +64,15 @@ public class WateryDepths implements ModInitializer {
                 ModPlacedFeatures.CLAY_DISK
         );
 
-        BiomeModifications.create(new ResourceLocation("watery_depths", "remove_disks"))
+        BiomeModifications.create(ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "remove_disks"))
                 .add(ModificationPhase.REMOVALS, BiomeSelectors.tag(BiomeTags.IS_OCEAN).or(BiomeSelectors.tag(BiomeTags.IS_RIVER)), context -> {
                     context.getGenerationSettings().removeFeature(
                             GenerationStep.Decoration.UNDERGROUND_ORES,
-                            ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation("minecraft", "disk_gravel"))
+                            ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.withDefaultNamespace("disk_gravel"))
                     );
                     context.getGenerationSettings().removeFeature(
                             GenerationStep.Decoration.UNDERGROUND_ORES,
-                            ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation("minecraft", "disk_sand"))
+                            ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.withDefaultNamespace("disk_sand"))
                     );
                 });
 

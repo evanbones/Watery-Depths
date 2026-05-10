@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "watery_depths:achromarine_wall",
-    "watery_depths:chromarine_wall",
-    "watery_depths:prismarine_tiles_wall",
-    "watery_depths:dark_prismarine_bricks_wall"
-  ]
-}
