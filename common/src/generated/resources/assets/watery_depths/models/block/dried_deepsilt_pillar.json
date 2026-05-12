@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "watery_depths:block/dried_deepsilt_pillar_top",
+    "side": "watery_depths:block/dried_deepsilt_pillar"
+  }
+}
