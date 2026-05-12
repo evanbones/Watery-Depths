@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "watery_depths:block/dried_silt_bottom",
+    "side": "watery_depths:block/cut_dried_silt",
+    "top": "watery_depths:block/dried_silt_top"
+  }
+}

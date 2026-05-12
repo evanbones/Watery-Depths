@@ -22,46 +22,60 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     @Override
     public void buildRecipes(RecipeOutput exporter) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DRIED_SILT.get(), 4)
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DRIED_SILT.get(), 1)
                 .define('#', ModBlocks.SILT.get())
                 .pattern("##")
                 .pattern("##")
                 .unlockedBy(getHasName(ModBlocks.SILT.get()), has(ModBlocks.SILT.get()))
                 .save(exporter);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DRIED_DEEPSILT.get(), 4)
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DRIED_DEEPSILT.get(), 1)
                 .define('#', ModBlocks.DEEPSILT.get())
                 .pattern("##")
                 .pattern("##")
                 .unlockedBy(getHasName(ModBlocks.DEEPSILT.get()), has(ModBlocks.DEEPSILT.get()))
                 .save(exporter);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SILT_BRICKS.get(), 4)
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CUT_DRIED_SILT.get(), 4)
                 .define('#', ModBlocks.DRIED_SILT.get())
                 .pattern("##")
                 .pattern("##")
                 .unlockedBy(getHasName(ModBlocks.DRIED_SILT.get()), has(ModBlocks.DRIED_SILT.get()))
                 .save(exporter);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DEEPSILT_BRICKS.get(), 4)
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CUT_DRIED_DEEPSILT.get(), 4)
                 .define('#', ModBlocks.DRIED_DEEPSILT.get())
                 .pattern("##")
                 .pattern("##")
                 .unlockedBy(getHasName(ModBlocks.DRIED_DEEPSILT.get()), has(ModBlocks.DRIED_DEEPSILT.get()))
                 .save(exporter);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SILT_BRICKS.get(), 4)
+                .define('#', ModBlocks.CUT_DRIED_SILT.get())
+                .pattern("##")
+                .pattern("##")
+                .unlockedBy(getHasName(ModBlocks.CUT_DRIED_SILT.get()), has(ModBlocks.CUT_DRIED_SILT.get()))
+                .save(exporter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DEEPSILT_BRICKS.get(), 4)
+                .define('#', ModBlocks.CUT_DRIED_DEEPSILT.get())
+                .pattern("##")
+                .pattern("##")
+                .unlockedBy(getHasName(ModBlocks.CUT_DRIED_DEEPSILT.get()), has(ModBlocks.CUT_DRIED_DEEPSILT.get()))
+                .save(exporter);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DRIED_SILT_PILLAR.get(), 2)
                 .define('#', ModBlocks.DRIED_SILT.getSlab().get())
                 .pattern("#")
                 .pattern("#")
-                .unlockedBy(getHasName(ModBlocks.DRIED_SILT.getSlab().get()), has(ModBlocks.DRIED_SILT.getSlab().get()))
+                .unlockedBy(getHasName(ModBlocks.DRIED_SILT.get()), has(ModBlocks.DRIED_SILT.get()))
                 .save(exporter);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DRIED_DEEPSILT_PILLAR.get(), 2)
                 .define('#', ModBlocks.DRIED_DEEPSILT.getSlab().get())
                 .pattern("#")
                 .pattern("#")
-                .unlockedBy(getHasName(ModBlocks.DRIED_DEEPSILT.getSlab().get()), has(ModBlocks.DRIED_DEEPSILT.getSlab().get()))
+                .unlockedBy(getHasName(ModBlocks.DRIED_DEEPSILT.get()), has(ModBlocks.DRIED_DEEPSILT.get()))
                 .save(exporter);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DARK_PRISMARINE_BRICKS.get(), 4)
@@ -70,6 +84,44 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .pattern("##")
                 .unlockedBy(getHasName(Blocks.DARK_PRISMARINE), has(Blocks.DARK_PRISMARINE))
                 .save(exporter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHISELED_DRIED_SILT.get(), 1)
+                .define('#', ModBlocks.DRIED_SILT.getSlab().get())
+                .pattern("#")
+                .pattern("#")
+                .unlockedBy(getHasName(ModBlocks.DRIED_SILT.get()), has(ModBlocks.DRIED_SILT.get()))
+                .save(exporter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHISELED_DRIED_DEEPSILT.get(), 1)
+                .define('#', ModBlocks.DRIED_DEEPSILT.getSlab().get())
+                .pattern("#")
+                .pattern("#")
+                .unlockedBy(getHasName(ModBlocks.DRIED_DEEPSILT.get()), has(ModBlocks.DRIED_DEEPSILT.get()))
+                .save(exporter);
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.DRIED_SILT.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHISELED_DRIED_SILT.get(), 1)
+                .unlockedBy(getHasName(ModBlocks.DRIED_SILT.get()), has(ModBlocks.DRIED_SILT.get()))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "chiseled_dried_silt_from_stonecutting"));
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.DRIED_DEEPSILT.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHISELED_DRIED_DEEPSILT.get(), 1)
+                .unlockedBy(getHasName(ModBlocks.DRIED_DEEPSILT.get()), has(ModBlocks.DRIED_DEEPSILT.get()))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "chiseled_dried_deepsilt_from_stonecutting"));
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.DRIED_SILT.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.CUT_DRIED_SILT.get(), 1)
+                .unlockedBy(getHasName(ModBlocks.DRIED_SILT.get()), has(ModBlocks.DRIED_SILT.get()))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "cut_dried_silt_from_stonecutting"));
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.DRIED_DEEPSILT.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.CUT_DRIED_DEEPSILT.get(), 1)
+                .unlockedBy(getHasName(ModBlocks.DRIED_DEEPSILT.get()), has(ModBlocks.DRIED_DEEPSILT.get()))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "cut_dried_deepsilt_from_stonecutting"));
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.DRIED_SILT.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.SILT_BRICKS.get(), 1)
+                .unlockedBy(getHasName(ModBlocks.DRIED_SILT.get()), has(ModBlocks.DRIED_SILT.get()))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "silt_bricks_from_stonecutting"));
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.DRIED_DEEPSILT.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.DEEPSILT_BRICKS.get(), 1)
+                .unlockedBy(getHasName(ModBlocks.DRIED_DEEPSILT.get()), has(ModBlocks.DRIED_DEEPSILT.get()))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "deepsilt_bricks_from_stonecutting"));
 
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.DARK_PRISMARINE), RecipeCategory.BUILDING_BLOCKS, ModBlocks.DARK_PRISMARINE_BRICKS.get(), 1)
                 .unlockedBy(getHasName(Blocks.DARK_PRISMARINE), has(Blocks.DARK_PRISMARINE))

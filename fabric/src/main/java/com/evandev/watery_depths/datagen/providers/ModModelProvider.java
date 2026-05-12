@@ -69,11 +69,23 @@ public class ModModelProvider extends FabricModelProvider {
                     baseMapping = TextureMapping.column(side, top)
                             .put(TextureSlot.WALL, side);
                 }
-                case CUBE_BOTTOM_TOP -> baseMapping = new TextureMapping()
-                        .put(TextureSlot.SIDE, TextureMapping.getBlockTexture(block))
-                        .put(TextureSlot.TOP, TextureMapping.getBlockTexture(block, "_top"))
-                        .put(TextureSlot.BOTTOM, TextureMapping.getBlockTexture(block, "_bottom"))
-                        .put(TextureSlot.WALL, TextureMapping.getBlockTexture(block));
+                case CUBE_BOTTOM_TOP -> {
+                    String path = BuiltInRegistries.BLOCK.getKey(block).getPath();
+                    if (path.startsWith("chiseled_") || path.startsWith("cut_")) {
+                        String base = path.replace("chiseled_", "").replace("cut_", "");
+                        baseMapping = new TextureMapping()
+                                .put(TextureSlot.SIDE, TextureMapping.getBlockTexture(block))
+                                .put(TextureSlot.TOP, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "block/" + base + "_top"))
+                                .put(TextureSlot.BOTTOM, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "block/" + base + "_bottom"))
+                                .put(TextureSlot.WALL, TextureMapping.getBlockTexture(block));
+                    } else {
+                        baseMapping = new TextureMapping()
+                                .put(TextureSlot.SIDE, TextureMapping.getBlockTexture(block))
+                                .put(TextureSlot.TOP, TextureMapping.getBlockTexture(block, "_top"))
+                                .put(TextureSlot.BOTTOM, TextureMapping.getBlockTexture(block, "_bottom"))
+                                .put(TextureSlot.WALL, TextureMapping.getBlockTexture(block));
+                    }
+                }
                 default -> baseMapping = TextureMapping.cube(block)
                         .put(TextureSlot.WALL, TextureMapping.getBlockTexture(block));
             }

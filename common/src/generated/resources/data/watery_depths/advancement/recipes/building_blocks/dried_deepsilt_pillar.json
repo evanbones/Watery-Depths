@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_dried_deepsilt_slab": {
+    "has_dried_deepsilt": {
       "conditions": {
         "items": [
           {
-            "items": "watery_depths:dried_deepsilt_slab"
+            "items": "watery_depths:dried_deepsilt"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_dried_deepsilt_slab"
+      "has_dried_deepsilt"
     ]
   ],
   "rewards": {

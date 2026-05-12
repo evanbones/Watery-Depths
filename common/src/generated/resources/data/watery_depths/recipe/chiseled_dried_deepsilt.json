@@ -3,15 +3,15 @@
   "category": "building",
   "key": {
     "#": {
-      "item": "watery_depths:cut_dried_deepsilt"
+      "item": "watery_depths:dried_deepsilt_slab"
     }
   },
   "pattern": [
-    "##",
-    "##"
+    "#",
+    "#"
   ],
   "result": {
-    "count": 4,
-    "id": "watery_depths:deepsilt_bricks"
+    "count": 1,
+    "id": "watery_depths:chiseled_dried_deepsilt"
   }
 }

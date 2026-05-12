@@ -3,7 +3,7 @@
   "category": "building",
   "key": {
     "#": {
-      "item": "watery_depths:cut_dried_deepsilt"
+      "item": "watery_depths:dried_silt"
     }
   },
   "pattern": [
@@ -12,6 +12,6 @@
   ],
   "result": {
     "count": 4,
-    "id": "watery_depths:deepsilt_bricks"
+    "id": "watery_depths:cut_dried_silt"
   }
 }

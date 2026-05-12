@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "watery_depths:block/dried_deepsilt_bottom",
+    "side": "watery_depths:block/chiseled_dried_deepsilt",
+    "top": "watery_depths:block/dried_deepsilt_top"
+  }
+}

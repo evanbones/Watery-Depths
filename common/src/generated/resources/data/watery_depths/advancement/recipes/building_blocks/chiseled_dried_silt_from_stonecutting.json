@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "watery_depths:dried_silt_pillar"
+        "recipe": "watery_depths:chiseled_dried_silt_from_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "watery_depths:dried_silt_pillar"
+      "watery_depths:chiseled_dried_silt_from_stonecutting"
     ]
   }
 }

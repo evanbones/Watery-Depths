@@ -386,6 +386,44 @@ public class ModBlocks {
             .withWall()
     );
 
+    public static final BlockDataHolder<?> CHISELED_DRIED_SILT = register("chiseled_dried_silt", BlockDataHolder.of(() ->
+                    new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE).mapColor(MapColor.COLOR_GRAY).sound(ModSounds.SILT_SOUNDS)))
+            .withModel(BlockDataHolder.Model.CUBE_BOTTOM_TOP)
+            .withItem()
+            .dropsSelf()
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
+            .withTranslation("Chiseled Dried Silt")
+    );
+
+    public static final BlockDataHolder<?> CHISELED_DRIED_DEEPSILT = register("chiseled_dried_deepsilt", BlockDataHolder.of(() ->
+                    new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE).mapColor(MapColor.COLOR_BLACK).sound(ModSounds.SILT_SOUNDS)))
+            .withModel(BlockDataHolder.Model.CUBE_BOTTOM_TOP)
+            .withItem()
+            .dropsSelf()
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
+            .withTranslation("Chiseled Dried Deepsilt")
+    );
+
+    public static final BlockDataHolder<?> CUT_DRIED_SILT = register("cut_dried_silt", BlockDataHolder.of(() ->
+                    new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE).mapColor(MapColor.COLOR_GRAY).sound(ModSounds.SILT_SOUNDS)))
+            .withModel(BlockDataHolder.Model.CUBE_BOTTOM_TOP)
+            .withItem()
+            .dropsSelf()
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
+            .withTranslation("Cut Dried Silt")
+            .withSlab()
+    );
+
+    public static final BlockDataHolder<?> CUT_DRIED_DEEPSILT = register("cut_dried_deepsilt", BlockDataHolder.of(() ->
+                    new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE).mapColor(MapColor.COLOR_BLACK).sound(ModSounds.SILT_SOUNDS)))
+            .withModel(BlockDataHolder.Model.CUBE_BOTTOM_TOP)
+            .withItem()
+            .dropsSelf()
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
+            .withTranslation("Cut Dried Deepsilt")
+            .withSlab()
+    );
+
     public static final BlockDataHolder<?> SILT_BRICKS = register("silt_bricks", BlockDataHolder.of(() ->
                     new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS).mapColor(MapColor.COLOR_GRAY).sound(ModSounds.SILT_SOUNDS)))
             .withModel(BlockDataHolder.Model.CUBE)

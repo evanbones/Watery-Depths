@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_dried_silt": {
+    "has_dried_deepsilt": {
       "conditions": {
         "items": [
           {
-            "items": "watery_depths:dried_silt"
+            "items": "watery_depths:dried_deepsilt"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "watery_depths:dried_silt_pillar"
+        "recipe": "watery_depths:deepsilt_bricks_from_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_dried_silt"
+      "has_dried_deepsilt"
     ]
   ],
   "rewards": {
     "recipes": [
-      "watery_depths:dried_silt_pillar"
+      "watery_depths:deepsilt_bricks_from_stonecutting"
     ]
   }
 }
