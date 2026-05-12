@@ -82,6 +82,19 @@ public class ModCreativeTabs {
 
         entries.accept(ModBlocks.TUBEWORM.get());
 
+        entries.accept(ModBlocks.SILT_BRICKS.get());
+        entries.accept(ModBlocks.SILT_BRICKS.getStairs().get());
+        entries.accept(ModBlocks.SILT_BRICKS.getSlab().get());
+        entries.accept(ModBlocks.SILT_BRICKS.getWall().get());
+
+        entries.accept(ModBlocks.DEEPSILT_BRICKS.get());
+        entries.accept(ModBlocks.DEEPSILT_BRICKS.getStairs().get());
+        entries.accept(ModBlocks.DEEPSILT_BRICKS.getSlab().get());
+        entries.accept(ModBlocks.DEEPSILT_BRICKS.getWall().get());
+
+        entries.accept(ModBlocks.DRIED_SILT_PILLAR.get());
+        entries.accept(ModBlocks.DRIED_DEEPSILT_PILLAR.get());
+
         entries.accept(ModItems.CATFISH.get());
         entries.accept(ModItems.CATFISH_BUCKET.get());
         entries.accept(ModItems.CATFISH_SPAWN_EGG.get());

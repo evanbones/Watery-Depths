@@ -361,6 +361,48 @@ public class ModBlocks {
             .withTranslation("Cypress Hanging Sign")
     );
 
+    public static final BlockDataHolder<?> SILT_BRICKS = register("silt_bricks", BlockDataHolder.of(() ->
+                    new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS).mapColor(MapColor.COLOR_GRAY).sound(ModSounds.SILT_SOUNDS)))
+            .withModel(BlockDataHolder.Model.CUBE)
+            .withItem()
+            .dropsSelf()
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
+            .withTranslation("Silt Bricks")
+            .withStairs()
+            .withSlab()
+            .withWall()
+    );
+
+    public static final BlockDataHolder<?> DEEPSILT_BRICKS = register("deepsilt_bricks", BlockDataHolder.of(() ->
+                    new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS).mapColor(MapColor.COLOR_BLACK).sound(ModSounds.SILT_SOUNDS)))
+            .withModel(BlockDataHolder.Model.CUBE)
+            .withItem()
+            .dropsSelf()
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
+            .withTranslation("Deepsilt Bricks")
+            .withStairs()
+            .withSlab()
+            .withWall()
+    );
+
+    public static final BlockDataHolder<?> DRIED_SILT_PILLAR = register("dried_silt_pillar", BlockDataHolder.of(() ->
+                    new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS).mapColor(MapColor.COLOR_GRAY).sound(ModSounds.SILT_SOUNDS)))
+            .withModel(BlockDataHolder.Model.PILLAR)
+            .withItem()
+            .dropsSelf()
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
+            .withTranslation("Dried Silt Pillar")
+    );
+
+    public static final BlockDataHolder<?> DRIED_DEEPSILT_PILLAR = register("dried_deepsilt_pillar", BlockDataHolder.of(() ->
+                    new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS).mapColor(MapColor.COLOR_BLACK).sound(ModSounds.SILT_SOUNDS)))
+            .withModel(BlockDataHolder.Model.PILLAR)
+            .withItem()
+            .dropsSelf()
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
+            .withTranslation("Dried Deepsilt Pillar")
+    );
+
     public static BlockDataHolder<?> register(String name, BlockDataHolder<?> blockDataHolder) {
         ResourceLocation id = ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, name);
         BLOCK_REGISTRY.put(id, blockDataHolder);
