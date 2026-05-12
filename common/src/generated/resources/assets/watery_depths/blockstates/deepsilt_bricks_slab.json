@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "watery_depths:block/deepsilt_bricks_slab"
+    },
+    "type=double": {
+      "model": "watery_depths:block/deepsilt_bricks"
+    },
+    "type=top": {
+      "model": "watery_depths:block/deepsilt_bricks_slab_top"
+    }
+  }
+}

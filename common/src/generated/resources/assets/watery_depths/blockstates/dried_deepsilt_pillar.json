@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "watery_depths:block/dried_deepsilt_pillar",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "watery_depths:block/dried_deepsilt_pillar"
+    },
+    "axis=z": {
+      "model": "watery_depths:block/dried_deepsilt_pillar",
+      "x": 90
+    }
+  }
+}

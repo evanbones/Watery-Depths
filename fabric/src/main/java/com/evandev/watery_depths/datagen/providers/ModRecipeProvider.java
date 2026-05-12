@@ -11,6 +11,7 @@ import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -21,6 +22,45 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     @Override
     public void buildRecipes(RecipeOutput exporter) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SILT_BRICKS.get(), 4)
+                .define('#', ModBlocks.SILT.get())
+                .pattern("##")
+                .pattern("##")
+                .unlockedBy(getHasName(ModBlocks.SILT.get()), has(ModBlocks.SILT.get()))
+                .save(exporter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DEEPSILT_BRICKS.get(), 4)
+                .define('#', ModBlocks.DEEPSILT.get())
+                .pattern("##")
+                .pattern("##")
+                .unlockedBy(getHasName(ModBlocks.DEEPSILT.get()), has(ModBlocks.DEEPSILT.get()))
+                .save(exporter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DRIED_SILT_PILLAR.get(), 2)
+                .define('#', ModBlocks.SILT_BRICKS.get())
+                .pattern("#")
+                .pattern("#")
+                .unlockedBy(getHasName(ModBlocks.SILT_BRICKS.get()), has(ModBlocks.SILT_BRICKS.get()))
+                .save(exporter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DRIED_DEEPSILT_PILLAR.get(), 2)
+                .define('#', ModBlocks.DEEPSILT_BRICKS.get())
+                .pattern("#")
+                .pattern("#")
+                .unlockedBy(getHasName(ModBlocks.DEEPSILT_BRICKS.get()), has(ModBlocks.DEEPSILT_BRICKS.get()))
+                .save(exporter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DARK_PRISMARINE_BRICKS.get(), 4)
+                .define('#', Blocks.DARK_PRISMARINE)
+                .pattern("##")
+                .pattern("##")
+                .unlockedBy(getHasName(Blocks.DARK_PRISMARINE), has(Blocks.DARK_PRISMARINE))
+                .save(exporter);
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.DARK_PRISMARINE), RecipeCategory.BUILDING_BLOCKS, ModBlocks.DARK_PRISMARINE_BRICKS.get(), 1)
+                .unlockedBy(getHasName(Blocks.DARK_PRISMARINE), has(Blocks.DARK_PRISMARINE))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "dark_prismarine_bricks_from_stonecutting"));
+
         for (BlockDataHolder<?> holder : ModBlocks.getBlockRegistry().values()) {
             if (!holder.hasItem()) continue;
             Block baseBlock = holder.get();
@@ -105,6 +145,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .unlockedBy(getHasName(baseBlock), has(baseBlock))
                         .save(exporter);
             }
+
             boolean isWood = holder.getTranslation() != null &&
                     (holder.getTranslation().contains("Planks") ||
                             holder.getTranslation().contains("Wood") ||
