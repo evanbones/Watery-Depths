@@ -1,7 +1,7 @@
 package com.evandev.watery_depths;
 
 import com.evandev.watery_depths.config.ModConfig;
-import com.evandev.watery_depths.module.*;
+import com.evandev.watery_depths.content.*;
 import com.evandev.watery_depths.resources.config.ConfiguredData;
 import com.evandev.watery_depths.world.biome.ModBiomes;
 import com.evandev.watery_depths.world.feature.tree.custom.ModDecoratorTypes;

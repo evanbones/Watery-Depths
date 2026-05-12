@@ -1,7 +1,7 @@
 package com.evandev.watery_depths.world.feature;
 
 import com.evandev.watery_depths.CommonClass;
-import com.evandev.watery_depths.module.ModBlocks;
+import com.evandev.watery_depths.content.ModBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;

@@ -1,4 +1,4 @@
-package com.evandev.watery_depths.module;
+package com.evandev.watery_depths.content;
 
 import com.evandev.watery_depths.Constants;
 import com.evandev.watery_depths.block.entity.TubewormBlockEntity;

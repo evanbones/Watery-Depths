@@ -1,4 +1,4 @@
-package com.evandev.watery_depths.module;
+package com.evandev.watery_depths.content;
 
 import com.evandev.watery_depths.Constants;
 import com.evandev.watery_depths.block.*;
@@ -32,6 +32,7 @@ import java.util.function.Supplier;
 public class ModBlocks {
     public static final WoodType CYPRESS_WOOD_TYPE = WoodTypeAccessor.register(new WoodType("watery_depths:cypress", BlockSetType.OAK));
     private static final Map<ResourceLocation, BlockDataHolder<?>> BLOCK_REGISTRY = new LinkedHashMap<>();
+
     public static final BlockDataHolder<?> SILT = register("silt", BlockDataHolder.of(() ->
                     new ColoredFallingBlock(new ColorRGBA(0x8c7c6a), BlockBehaviour.Properties.ofFullCopy(Blocks.SAND).mapColor(MapColor.COLOR_GRAY).sound(ModSounds.SILT_SOUNDS)))
             .withItem()
@@ -359,6 +360,30 @@ public class ModBlocks {
             )
             .dropsSelf()
             .withTranslation("Cypress Hanging Sign")
+    );
+
+    public static final BlockDataHolder<?> DRIED_SILT = register("dried_silt", BlockDataHolder.of(() ->
+                    new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE).mapColor(MapColor.COLOR_GRAY).sound(ModSounds.SILT_SOUNDS)))
+            .withModel(BlockDataHolder.Model.CUBE_BOTTOM_TOP)
+            .withItem()
+            .dropsSelf()
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
+            .withTranslation("Dried Silt")
+            .withStairs()
+            .withSlab()
+            .withWall()
+    );
+
+    public static final BlockDataHolder<?> DRIED_DEEPSILT = register("dried_deepsilt", BlockDataHolder.of(() ->
+                    new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE).mapColor(MapColor.COLOR_BLACK).sound(ModSounds.SILT_SOUNDS)))
+            .withModel(BlockDataHolder.Model.CUBE_BOTTOM_TOP)
+            .withItem()
+            .dropsSelf()
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
+            .withTranslation("Dried Deepsilt")
+            .withStairs()
+            .withSlab()
+            .withWall()
     );
 
     public static final BlockDataHolder<?> SILT_BRICKS = register("silt_bricks", BlockDataHolder.of(() ->

@@ -2,7 +2,7 @@ package com.evandev.watery_depths.event;
 
 import com.evandev.watery_depths.Constants;
 import com.evandev.watery_depths.entity.CatfishEntity;
-import com.evandev.watery_depths.module.ModEntities;
+import com.evandev.watery_depths.content.ModEntities;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;

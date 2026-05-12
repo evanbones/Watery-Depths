@@ -1,6 +1,6 @@
 package com.evandev.watery_depths.datagen.providers;
 
-import com.evandev.watery_depths.module.ModEntities;
+import com.evandev.watery_depths.content.ModEntities;
 import com.evandev.watery_depths.registration.holders.EntityTypeDataHolder;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.SimpleFabricLootTableProvider;

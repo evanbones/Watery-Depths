@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_silt": {
+    "has_dried_silt": {
       "conditions": {
         "items": [
           {
-            "items": "watery_depths:silt"
+            "items": "watery_depths:dried_silt"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_silt"
+      "has_dried_silt"
     ]
   ],
   "rewards": {

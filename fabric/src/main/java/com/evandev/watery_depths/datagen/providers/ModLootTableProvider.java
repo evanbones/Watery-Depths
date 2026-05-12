@@ -1,6 +1,6 @@
 package com.evandev.watery_depths.datagen.providers;
 
-import com.evandev.watery_depths.module.ModBlocks;
+import com.evandev.watery_depths.content.ModBlocks;
 import com.evandev.watery_depths.registration.holders.BlockDataHolder;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;

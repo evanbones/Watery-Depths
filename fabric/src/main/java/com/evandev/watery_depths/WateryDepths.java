@@ -1,9 +1,9 @@
 package com.evandev.watery_depths;
 
 import com.evandev.watery_depths.entity.CatfishEntity;
-import com.evandev.watery_depths.module.ModBlocks;
-import com.evandev.watery_depths.module.ModEntities;
-import com.evandev.watery_depths.module.ModItems;
+import com.evandev.watery_depths.content.ModBlocks;
+import com.evandev.watery_depths.content.ModEntities;
+import com.evandev.watery_depths.content.ModItems;
 import com.evandev.watery_depths.world.feature.ModPlacedFeatures;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;

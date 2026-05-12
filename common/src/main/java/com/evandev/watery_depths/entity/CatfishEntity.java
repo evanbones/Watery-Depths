@@ -1,6 +1,6 @@
 package com.evandev.watery_depths.entity;
 
-import com.evandev.watery_depths.module.ModItems;
+import com.evandev.watery_depths.content.ModItems;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.AnimationState;

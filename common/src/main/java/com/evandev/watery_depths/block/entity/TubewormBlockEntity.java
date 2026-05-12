@@ -2,10 +2,8 @@ package com.evandev.watery_depths.block.entity;
 
 import com.evandev.watery_depths.block.TubewormBlock;
 import com.evandev.watery_depths.block.TubewormPart;
-import com.evandev.watery_depths.module.ModBlockEntities;
-import com.evandev.watery_depths.module.ModSounds;
+import com.evandev.watery_depths.content.ModBlockEntities;
 import net.minecraft.core.BlockPos;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;

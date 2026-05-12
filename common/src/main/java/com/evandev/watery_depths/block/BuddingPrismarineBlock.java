@@ -1,6 +1,6 @@
 package com.evandev.watery_depths.block;
 
-import com.evandev.watery_depths.module.ModBlocks;
+import com.evandev.watery_depths.content.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;

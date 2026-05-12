@@ -1,8 +1,8 @@
 package com.evandev.watery_depths;
 
 import com.evandev.watery_depths.client.ClientConfigSetup;
-import com.evandev.watery_depths.module.ModBlocks;
-import com.evandev.watery_depths.module.ModItems;
+import com.evandev.watery_depths.content.ModBlocks;
+import com.evandev.watery_depths.content.ModItems;
 import com.evandev.watery_depths.registration.holders.BlockDataHolder;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
