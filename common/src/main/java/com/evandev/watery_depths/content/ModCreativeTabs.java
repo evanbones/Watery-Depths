@@ -90,6 +90,9 @@ public class ModCreativeTabs {
                         entries.accept(ModBlocks.DRIED_SILT.getSlab().get());
                         entries.accept(ModBlocks.DRIED_SILT.getWall().get());
                         entries.accept(ModBlocks.CHISELED_DRIED_SILT.get());
+                        entries.accept(ModBlocks.SMOOTH_DRIED_SILT.get());
+                        entries.accept(ModBlocks.SMOOTH_DRIED_SILT.getStairs().get());
+                        entries.accept(ModBlocks.SMOOTH_DRIED_SILT.getSlab().get());
                         entries.accept(ModBlocks.CUT_DRIED_SILT.get());
                         entries.accept(ModBlocks.CUT_DRIED_SILT.getSlab().get());
 
@@ -98,6 +101,9 @@ public class ModCreativeTabs {
                         entries.accept(ModBlocks.DRIED_DEEPSILT.getSlab().get());
                         entries.accept(ModBlocks.DRIED_DEEPSILT.getWall().get());
                         entries.accept(ModBlocks.CHISELED_DRIED_DEEPSILT.get());
+                        entries.accept(ModBlocks.SMOOTH_DRIED_DEEPSILT.get());
+                        entries.accept(ModBlocks.SMOOTH_DRIED_DEEPSILT.getStairs().get());
+                        entries.accept(ModBlocks.SMOOTH_DRIED_DEEPSILT.getSlab().get());
                         entries.accept(ModBlocks.CUT_DRIED_DEEPSILT.get());
                         entries.accept(ModBlocks.CUT_DRIED_DEEPSILT.getSlab().get());
 

@@ -363,7 +363,7 @@ public class ModBlocks {
     );
 
     public static final BlockDataHolder<?> DRIED_SILT = register("dried_silt", BlockDataHolder.of(() ->
-                    new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE).mapColor(MapColor.COLOR_GRAY).sound(ModSounds.SILT_SOUNDS)))
+                    new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE).mapColor(MapColor.COLOR_GRAY).sound(ModSounds.DRIED_SILT_SOUNDS)))
             .withModel(BlockDataHolder.Model.CUBE_BOTTOM_TOP)
             .withItem()
             .dropsSelf()
@@ -375,7 +375,7 @@ public class ModBlocks {
     );
 
     public static final BlockDataHolder<?> DRIED_DEEPSILT = register("dried_deepsilt", BlockDataHolder.of(() ->
-                    new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE).mapColor(MapColor.COLOR_BLACK).sound(ModSounds.SILT_SOUNDS)))
+                    new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE).mapColor(MapColor.COLOR_BLACK).sound(ModSounds.DRIED_SILT_SOUNDS)))
             .withModel(BlockDataHolder.Model.CUBE_BOTTOM_TOP)
             .withItem()
             .dropsSelf()
@@ -387,7 +387,7 @@ public class ModBlocks {
     );
 
     public static final BlockDataHolder<?> CHISELED_DRIED_SILT = register("chiseled_dried_silt", BlockDataHolder.of(() ->
-                    new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE).mapColor(MapColor.COLOR_GRAY).sound(ModSounds.SILT_SOUNDS)))
+                    new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE).mapColor(MapColor.COLOR_GRAY).sound(ModSounds.DRIED_SILT_SOUNDS)))
             .withModel(BlockDataHolder.Model.CUBE_BOTTOM_TOP)
             .withItem()
             .dropsSelf()
@@ -396,7 +396,7 @@ public class ModBlocks {
     );
 
     public static final BlockDataHolder<?> CHISELED_DRIED_DEEPSILT = register("chiseled_dried_deepsilt", BlockDataHolder.of(() ->
-                    new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE).mapColor(MapColor.COLOR_BLACK).sound(ModSounds.SILT_SOUNDS)))
+                    new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE).mapColor(MapColor.COLOR_BLACK).sound(ModSounds.DRIED_SILT_SOUNDS)))
             .withModel(BlockDataHolder.Model.CUBE_BOTTOM_TOP)
             .withItem()
             .dropsSelf()
@@ -405,7 +405,7 @@ public class ModBlocks {
     );
 
     public static final BlockDataHolder<?> CUT_DRIED_SILT = register("cut_dried_silt", BlockDataHolder.of(() ->
-                    new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE).mapColor(MapColor.COLOR_GRAY).sound(ModSounds.SILT_SOUNDS)))
+                    new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE).mapColor(MapColor.COLOR_GRAY).sound(ModSounds.DRIED_SILT_SOUNDS)))
             .withModel(BlockDataHolder.Model.CUBE_BOTTOM_TOP)
             .withItem()
             .dropsSelf()
@@ -415,7 +415,7 @@ public class ModBlocks {
     );
 
     public static final BlockDataHolder<?> CUT_DRIED_DEEPSILT = register("cut_dried_deepsilt", BlockDataHolder.of(() ->
-                    new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE).mapColor(MapColor.COLOR_BLACK).sound(ModSounds.SILT_SOUNDS)))
+                    new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE).mapColor(MapColor.COLOR_BLACK).sound(ModSounds.DRIED_SILT_SOUNDS)))
             .withModel(BlockDataHolder.Model.CUBE_BOTTOM_TOP)
             .withItem()
             .dropsSelf()
@@ -425,7 +425,7 @@ public class ModBlocks {
     );
 
     public static final BlockDataHolder<?> SILT_BRICKS = register("silt_bricks", BlockDataHolder.of(() ->
-                    new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS).mapColor(MapColor.COLOR_GRAY).sound(ModSounds.SILT_SOUNDS)))
+                    new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS).mapColor(MapColor.COLOR_GRAY).sound(ModSounds.DRIED_SILT_SOUNDS)))
             .withModel(BlockDataHolder.Model.CUBE)
             .withItem()
             .dropsSelf()
@@ -437,7 +437,7 @@ public class ModBlocks {
     );
 
     public static final BlockDataHolder<?> DEEPSILT_BRICKS = register("deepsilt_bricks", BlockDataHolder.of(() ->
-                    new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS).mapColor(MapColor.COLOR_BLACK).sound(ModSounds.SILT_SOUNDS)))
+                    new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS).mapColor(MapColor.COLOR_BLACK).sound(ModSounds.DRIED_SILT_SOUNDS)))
             .withModel(BlockDataHolder.Model.CUBE)
             .withItem()
             .dropsSelf()
@@ -449,7 +449,7 @@ public class ModBlocks {
     );
 
     public static final BlockDataHolder<?> DRIED_SILT_PILLAR = register("dried_silt_pillar", BlockDataHolder.of(() ->
-                    new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS).mapColor(MapColor.COLOR_GRAY).sound(ModSounds.SILT_SOUNDS)))
+                    new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS).mapColor(MapColor.COLOR_GRAY).sound(ModSounds.DRIED_SILT_SOUNDS)))
             .withModel(BlockDataHolder.Model.PILLAR)
             .withItem()
             .dropsSelf()
@@ -458,12 +458,34 @@ public class ModBlocks {
     );
 
     public static final BlockDataHolder<?> DRIED_DEEPSILT_PILLAR = register("dried_deepsilt_pillar", BlockDataHolder.of(() ->
-                    new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS).mapColor(MapColor.COLOR_BLACK).sound(ModSounds.SILT_SOUNDS)))
+                    new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS).mapColor(MapColor.COLOR_BLACK).sound(ModSounds.DRIED_SILT_SOUNDS)))
             .withModel(BlockDataHolder.Model.PILLAR)
             .withItem()
             .dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
             .withTranslation("Dried Deepsilt Pillar")
+    );
+
+    public static final BlockDataHolder<?> SMOOTH_DRIED_SILT = register("smooth_dried_silt", BlockDataHolder.of(() ->
+                    new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE).mapColor(MapColor.COLOR_GRAY).sound(ModSounds.DRIED_SILT_SOUNDS)))
+            .withModel(BlockDataHolder.Model.CUBE_ALL_TOP_TEXTURE)
+            .withItem()
+            .dropsSelf()
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
+            .withTranslation("Smooth Dried Silt")
+            .withStairs()
+            .withSlab()
+    );
+
+    public static final BlockDataHolder<?> SMOOTH_DRIED_DEEPSILT = register("smooth_dried_deepsilt", BlockDataHolder.of(() ->
+                    new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE).mapColor(MapColor.COLOR_BLACK).sound(ModSounds.DRIED_SILT_SOUNDS)))
+            .withModel(BlockDataHolder.Model.CUBE_ALL_TOP_TEXTURE)
+            .withItem()
+            .dropsSelf()
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
+            .withTranslation("Smooth Dried Deepsilt")
+            .withStairs()
+            .withSlab()
     );
 
     public static BlockDataHolder<?> register(String name, BlockDataHolder<?> blockDataHolder) {

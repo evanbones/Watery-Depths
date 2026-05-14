@@ -115,5 +115,23 @@
       "watery_depths:block/silt/step3",
       "watery_depths:block/silt/step4"
     ]
+  },
+  "block.watery_depths.dried_silt.break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "watery_depths:block/dried_silt/break1",
+      "watery_depths:block/dried_silt/break2",
+      "watery_depths:block/dried_silt/break3",
+      "watery_depths:block/dried_silt/break4"
+    ]
+  },
+  "block.watery_depths.dried_silt.step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "watery_depths:block/dried_silt/step1",
+      "watery_depths:block/dried_silt/step2",
+      "watery_depths:block/dried_silt/step3",
+      "watery_depths:block/dried_silt/step4"
+    ]
   }
 }

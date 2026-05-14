@@ -43,6 +43,10 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> SILT_STEP = register("block.watery_depths.silt.step");
     public static final SoundType SILT_SOUNDS = new ModSoundType(1.0f, 1.0f, SILT_BREAK, SILT_STEP, SILT_BREAK, SILT_BREAK, SILT_STEP);
 
+    public static final RegistryObject<SoundEvent> DRIED_SILT_BREAK = register("block.watery_depths.dried_silt.break");
+    public static final RegistryObject<SoundEvent> DRIED_SILT_STEP = register("block.watery_depths.dried_silt.step");
+    public static final SoundType DRIED_SILT_SOUNDS = new ModSoundType(1.0f, 1.0f, DRIED_SILT_BREAK, DRIED_SILT_STEP, DRIED_SILT_BREAK, DRIED_SILT_BREAK, DRIED_SILT_STEP);
+
     private static RegistryObject<SoundEvent> register(String name) {
         return SOUNDS.register(name, () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, name)));
     }

@@ -418,6 +418,7 @@ public class BlockDataHolder<T extends Block> {
         CUBE("", ""),
         CUBE_BOTTOM_TOP("", ""),
         NYLIUM("", ""),
+        CUBE_ALL_TOP_TEXTURE("", ""),
         PILLAR("", ""),
         WOOD("", ""),
         ROTATABLE("", ""),

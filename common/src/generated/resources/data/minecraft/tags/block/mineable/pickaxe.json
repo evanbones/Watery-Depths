@@ -21,6 +21,8 @@
     "watery_depths:silt_bricks",
     "watery_depths:deepsilt_bricks",
     "watery_depths:dried_silt_pillar",
-    "watery_depths:dried_deepsilt_pillar"
+    "watery_depths:dried_deepsilt_pillar",
+    "watery_depths:smooth_dried_silt",
+    "watery_depths:smooth_dried_deepsilt"
   ]
 }

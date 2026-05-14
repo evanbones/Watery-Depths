@@ -127,6 +127,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy(getHasName(Blocks.DARK_PRISMARINE), has(Blocks.DARK_PRISMARINE))
                 .save(exporter, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "dark_prismarine_bricks_from_stonecutting"));
 
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModBlocks.DRIED_SILT.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.SMOOTH_DRIED_SILT.get(), 0.1f, 200)
+                .unlockedBy(getHasName(ModBlocks.DRIED_SILT.get()), has(ModBlocks.DRIED_SILT.get()))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "smooth_dried_silt_from_smelting"));
+
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModBlocks.DRIED_DEEPSILT.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.SMOOTH_DRIED_DEEPSILT.get(), 0.1f, 200)
+                .unlockedBy(getHasName(ModBlocks.DRIED_DEEPSILT.get()), has(ModBlocks.DRIED_DEEPSILT.get()))
+                .save(exporter, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "smooth_dried_deepsilt_from_smelting"));
+
         for (BlockDataHolder<?> holder : ModBlocks.getBlockRegistry().values()) {
             if (!holder.hasItem()) continue;
             Block baseBlock = holder.get();

@@ -10,6 +10,8 @@
     "watery_depths:cut_dried_silt_slab",
     "watery_depths:cut_dried_deepsilt_slab",
     "watery_depths:silt_bricks_slab",
-    "watery_depths:deepsilt_bricks_slab"
+    "watery_depths:deepsilt_bricks_slab",
+    "watery_depths:smooth_dried_silt_slab",
+    "watery_depths:smooth_dried_deepsilt_slab"
   ]
 }

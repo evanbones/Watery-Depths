@@ -8,6 +8,8 @@
     "watery_depths:dried_silt_stairs",
     "watery_depths:dried_deepsilt_stairs",
     "watery_depths:silt_bricks_stairs",
-    "watery_depths:deepsilt_bricks_stairs"
+    "watery_depths:deepsilt_bricks_stairs",
+    "watery_depths:smooth_dried_silt_stairs",
+    "watery_depths:smooth_dried_deepsilt_stairs"
   ]
 }

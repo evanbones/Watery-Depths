@@ -39,6 +39,17 @@ public class ModModelProvider extends FabricModelProvider {
             TextureMapping baseMapping;
 
             switch (holder.getModel()) {
+                case CUBE_ALL_TOP_TEXTURE -> {
+                    String base = BuiltInRegistries.BLOCK.getKey(block).getPath().replace("smooth_", "");
+                    ResourceLocation topTexture = ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "block/" + base + "_top");
+
+                    baseMapping = new TextureMapping()
+                            .put(TextureSlot.ALL, topTexture)
+                            .put(TextureSlot.SIDE, topTexture)
+                            .put(TextureSlot.TOP, topTexture)
+                            .put(TextureSlot.BOTTOM, topTexture)
+                            .put(TextureSlot.WALL, topTexture);
+                }
                 case NYLIUM -> {
                     ResourceLocation bottomTexture;
                     if (holder == ModBlocks.ALGAL_SAND) {
@@ -92,6 +103,13 @@ public class ModModelProvider extends FabricModelProvider {
 
             switch (holder.getModel()) {
                 case CUBE -> gen.createTrivialCube(block);
+                case CUBE_ALL_TOP_TEXTURE -> {
+                    ResourceLocation model = ModelTemplates.CUBE_ALL.create(block, baseMapping, gen.modelOutput);
+                    gen.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block, model));
+                    if (holder.hasItem()) {
+                        gen.delegateItemModel(block, model);
+                    }
+                }
                 case CUBE_BOTTOM_TOP, NYLIUM -> {
                     ResourceLocation model = ModelTemplates.CUBE_BOTTOM_TOP.create(block, baseMapping, gen.modelOutput);
                     gen.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block, model));

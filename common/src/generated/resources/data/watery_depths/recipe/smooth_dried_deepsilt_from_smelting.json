@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "watery_depths:dried_deepsilt"
+  },
+  "result": {
+    "id": "watery_depths:smooth_dried_deepsilt"
+  }
+}
